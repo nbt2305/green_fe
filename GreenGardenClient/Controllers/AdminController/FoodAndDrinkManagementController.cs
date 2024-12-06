@@ -42,7 +42,7 @@ namespace GreenGardenClient.Controllers.AdminController
         }
         public async Task<IActionResult> Index()
         {
-            var gear = await GetDataFromApiAsync<List<FoodAndDrinkVMNew>>("https://db.chunchun.io.vn/api/FoodAndDrink/GetAllFoodAndDrink");
+            var gear = await GetDataFromApiAsync<List<FoodAndDrinkVMNew>>("http://103.20.97.182:5124/api/FoodAndDrink/GetAllFoodAndDrink");
             var userRole = HttpContext.Session.GetInt32("RoleId");
 
             int? userId = HttpContext.Session.GetInt32("UserId");
@@ -76,7 +76,7 @@ namespace GreenGardenClient.Controllers.AdminController
             {
                 return RedirectToAction("Index", "Home");
             }
-            var apiUrl = $"https://db.chunchun.io.vn/api/FoodAndDrink/GetFoodAndDrinkDetail?itemId={itemId}";
+            var apiUrl = $"http://103.20.97.182:5124/api/FoodAndDrink/GetFoodAndDrinkDetail?itemId={itemId}";
 
             try
             {
@@ -105,7 +105,7 @@ namespace GreenGardenClient.Controllers.AdminController
                 }
 
                 // Gọi API lấy danh sách thể loại thiết bị
-                var campingCategories = await GetDataFromApiAsync<List<CategoryVM>>("https://db.chunchun.io.vn/api/FoodAndDrink/GetAllFoodAndDrinkCategories");
+                var campingCategories = await GetDataFromApiAsync<List<CategoryVM>>("http://103.20.97.182:5124/api/FoodAndDrink/GetAllFoodAndDrinkCategories");
 
                 // Gán dữ liệu vào ViewBag để truyền sang View
                 ViewBag.CampingGear = gear;
@@ -301,7 +301,7 @@ namespace GreenGardenClient.Controllers.AdminController
                 model.ImgUrl = CurrentPictureUrl;
             }
             // Gọi API để cập nhật thông tin món ăn
-            string apiUrl = "https://db.chunchun.io.vn/api/FoodAndDrink/UpdateFoodOrDrink";
+            string apiUrl = "http://103.20.97.182:5124/api/FoodAndDrink/UpdateFoodOrDrink";
             try
             {
 
@@ -336,7 +336,7 @@ namespace GreenGardenClient.Controllers.AdminController
         [HttpPost] // Dùng POST cho form submit
         public async Task<IActionResult> ChangeStatus(int itemId)
         {
-            string apiUrl = $"https://db.chunchun.io.vn/api/FoodAndDrink/ChangeFoodStatus?itemId={itemId}";
+            string apiUrl = $"http://103.20.97.182:5124/api/FoodAndDrink/ChangeFoodStatus?itemId={itemId}";
 
             try
             {
@@ -366,7 +366,7 @@ namespace GreenGardenClient.Controllers.AdminController
         [HttpGet]
         public async Task<IActionResult> CreateFoodAndDrink()
         {
-            var categories = await GetDataFromApiAsync<List<CategoryVM>>("https://db.chunchun.io.vn/api/FoodAndDrink/GetAllFoodAndDrinkCategories");
+            var categories = await GetDataFromApiAsync<List<CategoryVM>>("http://103.20.97.182:5124/api/FoodAndDrink/GetAllFoodAndDrinkCategories");
 
             var userRole = HttpContext.Session.GetInt32("RoleId");
 
@@ -390,7 +390,7 @@ namespace GreenGardenClient.Controllers.AdminController
         [HttpPost]
         public async Task<IActionResult> CreateFoodAndDrink(AddFoodAndDrinkVM model, IFormFile PictureUrl)
         {
-            var categories = await GetDataFromApiAsync<List<CategoryVM>>("https://db.chunchun.io.vn/api/FoodAndDrink/GetAllFoodAndDrinkCategories");
+            var categories = await GetDataFromApiAsync<List<CategoryVM>>("http://103.20.97.182:5124/api/FoodAndDrink/GetAllFoodAndDrinkCategories");
             ViewBag.Categories = categories;
             model.CreatedAt = DateTime.Now;
             model.Status = model.Status ?? true;
@@ -515,7 +515,7 @@ namespace GreenGardenClient.Controllers.AdminController
 
 
             // Gửi dữ liệu đến API
-            string apiUrl = "https://db.chunchun.io.vn/api/FoodAndDrink/AddFoodOrDrink";
+            string apiUrl = "http://103.20.97.182:5124/api/FoodAndDrink/AddFoodOrDrink";
 
             using (HttpClient client = new HttpClient())
             {

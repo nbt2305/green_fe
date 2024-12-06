@@ -40,7 +40,7 @@ namespace GreenGardenClient.Controllers.AdminController
             var client = _clientFactory.CreateClient();
             var jwtToken = Request.Cookies["JWTToken"];
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
-            List<Account> userdata = GetDataFromApi<List<Account>>("https://db.chunchun.io.vn/api/User/GetAllCustomers");
+            List<Account> userdata = GetDataFromApi<List<Account>>("http://103.20.97.182:5124/api/User/GetAllCustomers");
             return View(userdata);
         }
         [HttpPost("BlockUser/{id}")]
@@ -48,7 +48,7 @@ namespace GreenGardenClient.Controllers.AdminController
         {
 
             Console.WriteLine($"Received id: {id}");
-            string apiUrl = $"https://db.chunchun.io.vn/api/User/BlockUser/{id}";
+            string apiUrl = $"http://103.20.97.182:5124/api/User/BlockUser/{id}";
 
             try
             {
@@ -79,7 +79,7 @@ namespace GreenGardenClient.Controllers.AdminController
         {
             Console.WriteLine($"Received id: {id}"); // Log nhận ID từ request
 
-            string apiUrl = $"https://db.chunchun.io.vn/api/User/UnBlockUser/{id}";
+            string apiUrl = $"http://103.20.97.182:5124/api/User/UnBlockUser/{id}";
 
             try
             {
@@ -139,7 +139,7 @@ namespace GreenGardenClient.Controllers.AdminController
                 return RedirectToAction("Index", "Home");
             }
             // Fetch user data from the API asynchronously
-            var user = GetDataFromApi<Account>($"https://db.chunchun.io.vn/api/User/GetUserById/{id}");
+            var user = GetDataFromApi<Account>($"http://103.20.97.182:5124/api/User/GetUserById/{id}");
 
             // Check if user data is null and redirect to an error page if not found
             if (user == null)

@@ -40,7 +40,7 @@ namespace GreenGardenClient.Controllers.AdminController
         }
         public async Task<IActionResult> Index()
         {
-            var ticket = await GetDataFromApiAsync<List<TicketVM>>("https://db.chunchun.io.vn/api/Ticket/GetAllTickets");
+            var ticket = await GetDataFromApiAsync<List<TicketVM>>("http://103.20.97.182:5124/api/Ticket/GetAllTickets");
             var userRole = HttpContext.Session.GetInt32("RoleId");
 
             int? userId = HttpContext.Session.GetInt32("UserId");
@@ -74,7 +74,7 @@ namespace GreenGardenClient.Controllers.AdminController
             {
                 return RedirectToAction("Index", "Home");
             }
-            var apiUrl = $"https://db.chunchun.io.vn/api/Ticket/GetTicketDetail?id={ticketId}";
+            var apiUrl = $"http://103.20.97.182:5124/api/Ticket/GetTicketDetail?id={ticketId}";
 
             try
             {
@@ -103,7 +103,7 @@ namespace GreenGardenClient.Controllers.AdminController
                 }
 
                 // Gọi API lấy danh sách thể loại thiết bị
-                var campingCategories = await GetDataFromApiAsync<List<TicketCategoryVM>>("https://db.chunchun.io.vn/api/Ticket/GetAllTicketCategories");
+                var campingCategories = await GetDataFromApiAsync<List<TicketCategoryVM>>("http://103.20.97.182:5124/api/Ticket/GetAllTicketCategories");
 
                 // Gán dữ liệu vào ViewBag để truyền sang View
                 ViewBag.Ticket = gear;
@@ -252,7 +252,7 @@ namespace GreenGardenClient.Controllers.AdminController
             }
 
             // Gọi API để cập nhật thông tin món ăn
-            string apiUrl = "https://db.chunchun.io.vn/api/Ticket/UpdateTicket";
+            string apiUrl = "http://103.20.97.182:5124/api/Ticket/UpdateTicket";
             try
             {
 
@@ -283,7 +283,7 @@ namespace GreenGardenClient.Controllers.AdminController
         [HttpPost] // Dùng POST cho form submit
         public async Task<IActionResult> ChangeStatus(int ticketId)
         {
-            string apiUrl = $"https://db.chunchun.io.vn/api/Ticket/ChangeTicketStatus?ticketId={ticketId}";
+            string apiUrl = $"http://103.20.97.182:5124/api/Ticket/ChangeTicketStatus?ticketId={ticketId}";
 
             try
             {
@@ -313,7 +313,7 @@ namespace GreenGardenClient.Controllers.AdminController
         [HttpGet]
         public async Task<IActionResult> CreateTicket()
         {
-            var ticketCategories = await GetDataFromApiAsync<List<TicketCategoryVM>>("https://db.chunchun.io.vn/api/Ticket/GetAllTicketCategories");
+            var ticketCategories = await GetDataFromApiAsync<List<TicketCategoryVM>>("http://103.20.97.182:5124/api/Ticket/GetAllTicketCategories");
             var userRole = HttpContext.Session.GetInt32("RoleId");
 
             int? userId = HttpContext.Session.GetInt32("UserId");
@@ -337,7 +337,7 @@ namespace GreenGardenClient.Controllers.AdminController
         [HttpPost]
         public async Task<IActionResult> CreateTicket(AddTicketVM model, IFormFile PictureUrl)
         {
-            var ticketCategories = await GetDataFromApiAsync<List<TicketCategoryVM>>("https://db.chunchun.io.vn/api/Ticket/GetAllTicketCategories");
+            var ticketCategories = await GetDataFromApiAsync<List<TicketCategoryVM>>("http://103.20.97.182:5124/api/Ticket/GetAllTicketCategories");
             // Gán dữ liệu vào ViewBag để truyền sang View
             ViewBag.TicketCategories = ticketCategories;
             model.CreatedAt = DateTime.Now;
@@ -461,7 +461,7 @@ namespace GreenGardenClient.Controllers.AdminController
             }
 
             // Prepare request data for API
-            string apiUrl = "https://db.chunchun.io.vn/api/Ticket/AddTicket";
+            string apiUrl = "http://103.20.97.182:5124/api/Ticket/AddTicket";
             using (HttpClient client = new HttpClient())
             {
                 try

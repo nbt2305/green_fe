@@ -24,7 +24,7 @@ namespace GreenGardenClient.Controllers.AdminController
         public IActionResult Index()
         {
 
-            var events = GetDataFromApi<List<EventVM>>("https://db.chunchun.io.vn/api/Event/GetAllEvents");
+            var events = GetDataFromApi<List<EventVM>>("http://103.20.97.182:5124/api/Event/GetAllEvents");
             var userRole = HttpContext.Session.GetInt32("RoleId");
 
             int? userId = HttpContext.Session.GetInt32("UserId");
@@ -245,7 +245,7 @@ namespace GreenGardenClient.Controllers.AdminController
                 ModelState.AddModelError("PictureUrl", "File ảnh không hợp lệ hoặc không được chọn.");
             }
             // URL API to add a new event
-            string apiUrl = "https://db.chunchun.io.vn/api/Event/AddEvent";
+            string apiUrl = "http://103.20.97.182:5124/api/Event/AddEvent";
 
             using (HttpClient client = new HttpClient())
             {
@@ -299,7 +299,7 @@ namespace GreenGardenClient.Controllers.AdminController
         public async Task<IActionResult> UpdateEvent(int id)
         {
             // Fetch event data from the API asynchronously
-            var eventItem = GetDataFromApi<UpdateEvent>($"https://db.chunchun.io.vn/api/Event/GetEventById?eventId={id}");
+            var eventItem = GetDataFromApi<UpdateEvent>($"http://103.20.97.182:5124/api/Event/GetEventById?eventId={id}");
             var userRole = HttpContext.Session.GetInt32("RoleId");
 
             int? userId = HttpContext.Session.GetInt32("UserId");
@@ -446,7 +446,7 @@ namespace GreenGardenClient.Controllers.AdminController
             }
             // Chuẩn bị dữ liệu để gửi qua API
 
-            string apiUrl = "https://db.chunchun.io.vn/api/Event/UpdateEvent";
+            string apiUrl = "http://103.20.97.182:5124/api/Event/UpdateEvent";
             try
             {
 
@@ -502,7 +502,7 @@ namespace GreenGardenClient.Controllers.AdminController
         public async Task<IActionResult> DeleteEvent(int id)
         {
             // Đường dẫn API để gọi đến API xóa sự kiện
-            string apiUrl = $"https://db.chunchun.io.vn/api/Event/DeleteEvent/{id}";
+            string apiUrl = $"http://103.20.97.182:5124/api/Event/DeleteEvent/{id}";
 
             using (var httpClient = new HttpClient())
             {
