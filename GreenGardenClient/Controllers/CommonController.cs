@@ -60,7 +60,7 @@ namespace GreenGardenClient.Controllers
 
             var client = _clientFactory.CreateClient();
 
-            string apiUrl = "http://103.20.97.182:5124/api/Account/Login";
+            string apiUrl = "https://db.chunchun.io.vn/api/Account/Login";
             var loginData = new { Email = email, Password = password };
             var jsonContent = new StringContent(JsonSerializer.Serialize(loginData), Encoding.UTF8, "application/json");
 
@@ -133,7 +133,7 @@ namespace GreenGardenClient.Controllers
             try
             {
                 var client = _clientFactory.CreateClient();
-                string apiUrl = "http://103.20.97.182:5124/api/Account/SendVerificationCode";
+                string apiUrl = "https://db.chunchun.io.vn/api/Account/SendVerificationCode";
 
                 var jsonContent = new StringContent(JsonSerializer.Serialize(email), Encoding.UTF8, "application/json");
 
@@ -176,7 +176,7 @@ namespace GreenGardenClient.Controllers
 
 
             // API endpoint with verification code included as a query parameter
-            string apiUrl = $"http://103.20.97.182:5124/api/Account/Register?enteredCode={VerificationCode}";
+            string apiUrl = $"https://db.chunchun.io.vn/api/Account/Register?enteredCode={VerificationCode}";
 
             using (HttpClient client = new HttpClient())
             {
@@ -246,7 +246,7 @@ namespace GreenGardenClient.Controllers
                     return View(new { Email = email });
                 }
                 var client = _clientFactory.CreateClient();
-                var response = await client.PostAsync($"http://103.20.97.182:5124/api/Account/SendResetPasswordEmail/{email}", null);
+                var response = await client.PostAsync($"https://db.chunchun.io.vn/api/Account/SendResetPasswordEmail/{email}", null);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -323,7 +323,7 @@ namespace GreenGardenClient.Controllers
                 ConfirmPassword = model.ConfirmPassword
             };
 
-            string apiUrl = "http://103.20.97.182:5124/api/Account/ChangePassword";
+            string apiUrl = "https://db.chunchun.io.vn/api/Account/ChangePassword";
 
             try
             {
@@ -353,7 +353,7 @@ namespace GreenGardenClient.Controllers
 
         public async Task<IActionResult> Event()
         {
-            var events = await GetDataFromApiAsync<List<EventVM>>("http://103.20.97.182:5124/api/Event/GetAllEvents");
+            var events = await GetDataFromApiAsync<List<EventVM>>("https://db.chunchun.io.vn/api/Event/GetAllEvents");
 
             ViewBag.Event = events;
 
@@ -400,7 +400,7 @@ namespace GreenGardenClient.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            string apiUrl = $"http://103.20.97.182:5124/api/Account/GetAccountById?id={userId}";
+            string apiUrl = $"https://db.chunchun.io.vn/api/Account/GetAccountById?id={userId}";
 
             try
             {
@@ -563,7 +563,7 @@ namespace GreenGardenClient.Controllers
             //}
 
             // Prepare the API URL for updating the profile
-            string apiUrl = "http://103.20.97.182:5124/api/Account/UpdateProfile";
+            string apiUrl = "https://db.chunchun.io.vn/api/Account/UpdateProfile";
 
             try
             {
@@ -608,7 +608,7 @@ namespace GreenGardenClient.Controllers
         {
 
 
-            string apiUrl = $"http://103.20.97.182:5124/api/Event/GetEventById?eventId={eventId}";
+            string apiUrl = $"https://db.chunchun.io.vn/api/Event/GetEventById?eventId={eventId}";
 
             try
             {

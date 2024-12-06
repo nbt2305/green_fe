@@ -3,7 +3,6 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
 
 # Copy nuget.config vào container
-COPY nuget.config .
 COPY *.sln ./
 COPY GreenGardenClient/*.csproj ./GreenGardenClient/
 
@@ -13,7 +12,7 @@ RUN dotnet restore --disable-parallel
 COPY . .
 RUN dotnet publish GreenGardenClient -c Release -o out
 
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out .
 
