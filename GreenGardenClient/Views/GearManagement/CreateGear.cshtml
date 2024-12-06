@@ -1,0 +1,804 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@model GreenGardenClient.Models.AddGearVM
+@using GreenGardenClient.Models
+
+
+@{
+    if (ViewBag.Notification != null)
+    {
+        <div id="notification" class="alert alert-warning" role="alert">
+            @ViewBag.Notification
+        </div>
+    }
+}
+<style>
+    #notification {
+        position: fixed;
+        top: 20px; /* Khoảng cách từ đầu trang */
+        right: 20px; /* Khoảng cách từ bên phải */
+        z-index: 1050; /* Đảm bảo thông báo nằm trên các phần tử khác */
+        opacity: 1; /* Bắt đầu với độ mờ là 1 */
+        transition: opacity 1s ease-out, transform 1s ease-out; /* Hiệu ứng chuyển đổi cho độ mờ và biến đổi */
+        transform: translateY(-10px); /* Đưa thông báo lên một chút */
+        width: auto; /* Hoặc thay đổi thành một giá trị cụ thể, ví dụ: 300px */
+        max-width: 300px; /* Giới hạn chiều rộng tối đa */
+        padding: 15px; /* Khoảng cách bên trong cho thông báo */
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        if ($("#notification").length) {
+            setTimeout(function () {
+                $("#notification").css("opacity", "0"); // Đặt độ mờ thành 0
+                $("#notification").css("transform", "translateY(10px)"); // Đưa thông báo xuống một chút khi ẩn
+            }, 3000); // Sau 3 giây
+        }
+    });
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Quản lí dụng cụ | Tạo dụng cụ mới</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+
+</head>
+<header class="app-header">
+    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+                                    aria-label="Hide Sidebar"></a>
+    <!-- Navbar Right Menu-->
+    <ul class="app-nav">
+
+
+        <!-- User Menu-->
+        <li>
+            <a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+
+        </li>
+    </ul>
+</header>
+<style>
+
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Căn chỉnh các phần tử về phía bên phải */
+    }
+
+    .container-pagination-cart {
+        display: flex;
+        justify-content: space-between; /* Đưa nút giỏ hàng sang trái và phân trang sang phải */
+        align-items: center; /* Căn giữa theo chiều dọc */
+        margin-bottom: 20px; /* Khoảng cách dưới nếu cần */
+    }
+
+    .pagination {
+        list-style: none; /* Bỏ các dấu bullet */
+        padding: 0;
+        margin: 0;
+        display: flex; /* Hiển thị các mục theo hàng ngang */
+    }
+
+        .pagination li {
+            margin-left: 5px; /* Khoảng cách giữa các nút */
+        }
+
+    .page-link {
+        text-decoration: none;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        color: #007bff;
+    }
+
+    .btn-primary {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+
+
+    /* Đặt nền màu #eee cho cả header và sidebar */
+    .app-header, .app-sidebar {
+        background-color: #eee;
+    }
+
+    .app-header {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        z-index: 1;
+    }
+
+        .app-header .app-nav {
+            margin-left: auto;
+        }
+
+    .app-nav__item {
+        text-decoration: none;
+        color: #333;
+        padding: 8px 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .app-sidebar {
+        position: fixed;
+        top: 0px; /* Để không đè lên header */
+        left: 0;
+        width: 250px;
+        height: 100%;
+        padding-top: 20px;
+        background-color: #eee;
+        border-right: 1px solid #ccc; /* Viền phải của sidebar */
+    }
+
+    .app-sidebar__user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .app-sidebar__user-avatar {
+        width: 100px; /* hoặc một giá trị cụ thể khác tùy thuộc vào kích thước bạn muốn */
+        height: 100px; /* cần phải bằng width */
+        border-radius: 50%;
+        margin-right: 10px;
+        object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+    }
+
+    .app-sidebar__user-name {
+        margin: 0;
+        font-weight: bold;
+        color: black;
+    }
+
+    .app-sidebar__user-designation {
+        margin: 0;
+        color: black;
+    }
+
+    .app-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .app-menu__item {
+        text-decoration: none;
+        color: #333;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .app-menu__icon {
+        margin-right: 10px;
+        color: #333;
+    }
+
+    .app-menu__item.active {
+        background-color: #ccc;
+        font-weight: bold;
+    }
+
+    hr {
+        border: 1px solid #ccc;
+        margin: 10px 0;
+    }
+    /* Ẩn submenu mặc định */
+    .submenu {
+        display: none;
+        list-style-type: none;
+        padding-left: 20px;
+    }
+
+    /* Hiển thị submenu khi có class 'open' */
+    .has-submenu.open .submenu {
+        display: block;
+    }
+    /* chỉnh icon cho app menu' */
+    .app-menu__item {
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        display: block;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .submenu .app-menu__item {
+        padding-left: 40px; /* Đẩy các mục con thụt vào */
+    }
+
+    .app-menu__item {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item i {
+            margin-right: 10px; /* Khoảng cách giữa icon và chữ */
+            font-size: 18px; /* Kích thước icon */
+        }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .mb-3 .form-check-inline {
+        display: inline-block;
+        margin-right: 15px;
+    }
+
+    .tile {
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-label {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .input-group-text {
+        background-color: #f1f1f1;
+        border-radius: 0;
+    }
+
+    .form-control {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+
+
+    .image-preview {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+    }
+
+
+
+    .quantity-container {
+        max-width: 250px; /* Điều chỉnh kích thước container */
+    }
+
+    /* Styling cho các nút */
+    .quantity-btn {
+        background-color: #f8f9fa;
+        border-radius: 6px;
+        padding: 8px 12px;
+        font-size: 16px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .quantity-btn i {
+            color: #6c757d;
+        }
+
+        .quantity-btn:hover {
+            background-color: #e2e6ea;
+            transform: scale(1.1);
+        }
+
+    /* Styling cho input */
+    .quantity-input {
+        max-width: 70px; /* Điều chỉnh kích thước input */
+        text-align: center;
+        font-size: 16px;
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+    }
+
+        .quantity-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+
+    /* Khoảng cách giữa các nút và input */
+    .mx-1 {
+        margin: 0 5px; /* Giảm khoảng cách giữa các thành phần */
+    }
+</style>
+<body onload="time()" class="app sidebar-mini rtl">
+    <header class="app-header" style="display: flex; align-items: center; padding: 0 15px; background-color: #f6f5f5 !important;">
+        <!-- Sidebar Toggle -->
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar" style="margin-right: auto;">
+            <!-- Add an icon or text for the sidebar toggle -->
+        </a>
+
+        <!-- Centered Logo -->
+        <div style="flex: 500; display: flex; justify-content: center; align-items: center; padding-left: 50px;">
+            <img src="~/images/newlogo.jpg" alt="Logo" style="height: auto; width: 55%; max-width: 120px;margin-top: 10px;">
+        </div>
+
+
+        <!-- User Menu -->
+        <ul class="app-nav" style="display: flex; align-items: center; margin-left: auto; list-style: none; padding: 0;">
+            <li>
+                <a class="app-nav__item" href="~/Home" style="display: flex; align-items: center; text-decoration: none; color: black; background: rgb(195 195 195); padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s;">
+                    <!-- Replace with an icon -->
+                    <i class="bx bx-home" style="font-size: 1.5rem; margin-right: 8px;"></i>
+                    <!-- Add text next to the icon -->
+                    <span style="font-size: 1rem;">Quay lại trang chủ</span>
+                </a>
+            </li>
+        </ul>
+
+    </header>
+
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar" style="margin-right: auto;">
+            <!-- Add an icon or text for the sidebar toggle -->
+        </a>
+        <div class="app-sidebar__user">
+            @if (@HttpContextAccessor.HttpContext.Session.GetString("Img") == null)
+            {
+
+                <img src="~/images/p22.jpg" alt="Trang cá nhân" class="app-sidebar__user-avatar" width="50px">
+
+            }
+            else
+            {
+                <img src="@HttpContextAccessor.HttpContext.Session.GetString("Img")" alt="Trang cá nhân" class="app-sidebar__user-avatar" src="~/images/img_1.jpg" width="50px">
+            }               <div>
+                <p class="app-sidebar__user-designation">Xin chào</p>
+
+                <p class="app-sidebar__user-name"><b>@HttpContextAccessor.HttpContext.Session.GetString("Fullname")</b></p>
+            </div>
+        </div>
+        <hr>
+        <ul class="app-menu">
+            <style>
+
+
+                .app-menu__item.selected {
+                    font-weight: bold;
+                }
+
+            </style>
+            @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+            {
+                <li>
+                    <a class="app-menu__item" href="~/DashBoard">
+                        <i class='app-menu__icon bx bx-task'></i>
+                        <span class="app-menu__label">Thống kê</span>
+                    </a>
+                </li>
+            }
+            <li class="has-submenu" style="display:block" id="manageOrdersMenu">
+                <a class="app-menu__item" href="javascript:void(0)" id="manageOrders">
+                    <i class='app-menu__icon bx bx-id-card'></i>
+                    <span class="app-menu__label">Quản lý Đơn hàng</span>
+                </a>
+                <!-- Submenu items -->
+                <ul class="submenu" style="display: none;" id="submenuList">
+                    <li>
+                        <a href="~/OrderManagement/OrderOnline" class="app-menu__item" id="orderOnline">
+                            <i class='bx bx-notepad'></i> Đơn đặt trước
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderUsing" class="app-menu__item" id="orderUsing">
+                            <i class='bx bx-time-five'></i> Đơn đang sử dụng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderCheckOut" class="app-menu__item" id="orderCheckOut">
+                            <i class='bx bx-check-circle'></i> Đơn đã thanh toán
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderCancel" class="app-menu__item" id="orderCancel">
+                            <i class='bx bx-x-circle'></i> Đơn đã hủy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/CreateOrder" class="app-menu__item" id="createOrder">
+                            <i class='bx bx-plus'></i> Tạo đơn mới
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    var currentUrl = window.location.pathname;
+                    var manageOrdersMenu = document.getElementById("manageOrdersMenu");
+
+                    // Kiểm tra các URL và thêm lớp selected tương ứng
+                    if (currentUrl.includes("OrderOnline")) {
+                        document.getElementById("orderOnline").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    } else if (currentUrl.includes("OrderUsing")) {
+                        document.getElementById("orderUsing").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    } else if (currentUrl.includes("OrderCheckOut")) {
+                        document.getElementById("orderCheckOut").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    } else if (currentUrl.includes("OrderCancel")) {
+                        document.getElementById("orderCancel").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    } else if (currentUrl.includes("CreateOrder")) {
+                        document.getElementById("createOrder").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    }
+                });
+           
+
+
+            </script>
+            <li>
+                <a class="app-menu__item" href="~/TicketManagement/Index">
+                    <i class='app-menu__icon bx bx-receipt'></i> <!-- Receipt icon as alternative -->
+                    <span class="app-menu__label">Quản lý vé</span>
+                </a>
+            </li>
+
+            <li class="app-menu__item active">
+                <a class="app-menu__link" href="~/GearManagement/Index">
+                    <i class='app-menu__icon bx bx-wrench'></i> <!-- Gear/Tools icon -->
+                    <span class="app-menu__label">Quản lý dụng cụ</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="~/FoodAndDrinkManagement/Index">
+                    <i class='app-menu__icon bx bx-coffee'></i> <!-- Food and drink icon -->
+                    <span class="app-menu__label">Quản lý đồ ăn</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="~/EventManagement/Index">
+                    <i class='app-menu__icon bx bx-calendar-event'></i>
+                    <span class="app-menu__label">Quản lý sự kiện</span>
+                </a>
+            </li>
+
+            @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+            {
+                <li>
+                    <a class="app-menu__item" href="~/UserManagement/Index">
+                        <i class='app-menu__icon bx bx-user-voice'></i>
+                        <span class="app-menu__label">Quản lý khách hàng</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="app-menu__item" href="~/EmployeeManagement/Index">
+                        <i class='app-menu__icon bx bx-purchase-tag-alt'></i>
+                        <span class="app-menu__label">Quản lý nhân viên</span>
+                    </a>
+                </li>
+            }
+
+        </ul>
+    </aside>
+
+
+    <main class="app-content">
+        <div class="app-title">
+            <ul class="app-breadcrumb breadcrumb side">
+                <li class="breadcrumb-item active">Quản lí dụng cụ/Tạo dụng cụ mới</li>
+            </ul>
+            <div id="clock"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile p-4 shadow-lg bg-white rounded">
+                    <h2 class="text-center text-primary mb-4">Thêm Thiết bị</h2>
+                    <form asp-action="CreateGear" asp-controller="GearManagement" enctype="multipart/form-data" method="post" accept-charset="UTF-8">
+                        <div class="row">
+                            <!-- Cột trái: Các trường nhập liệu -->
+                            <div class="form-fields col-md-8">
+                                <!-- Tên thiết bị -->
+                                <div class="mb-4">
+                                    <label for="GearName" class="form-label fw-bold">Tên thiết bị:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light">
+                                            <i class="fas fa-utensils text-primary"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="GearName" name="GearName" value="@Model.GearName" placeholder="Nhập tên thiết bị" >
+
+                                        
+                                    </div>
+                                    <span asp-validation-for="GearName" class="text-danger"></span>
+                                </div>
+                                <!-- Mô tả -->
+                                <div class="mb-4">
+                                    <label for="Description" class="form-label fw-bold">Mô Tả:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light">
+                                            <i class="fas fa-align-left text-primary"></i>
+                                        </span>
+                                        <input class="form-control" id="Description" name="Description" value="@Model.Description" rows="3" placeholder="Nhập mô tả"></input>
+                                       
+                                    </div>
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                                <!-- Giá cả -->
+                                <div class="mb-4">
+                                    <label for="RentalPrice" class="form-label fw-bold">Giá cả:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light">
+                                            <i class="fas fa-dollar-sign text-primary"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="RentalPrice" value="@Model.RentalPrice" name="RentalPrice" placeholder="Nhập giá">
+                                       
+                                    </div>
+                                    <span asp-validation-for="RentalPrice" class="text-danger"></span>
+                                </div>
+
+                                <!-- Số lượng có sẵn -->
+                                <div class="mb-4">
+                                    <label for="QuantityAvailable" class="form-label fw-bold">Số lượng có sẵn:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light">
+                                            <i class="fas fa-cogs text-primary"></i>
+                                        </span>
+                                        <input type="number" class="form-control" id="QuantityAvailable" value="@Model.QuantityAvailable" name="QuantityAvailable" placeholder="Nhập số lượng có sẵn" min="0">
+                                        
+                                    </div>
+                                    <span asp-validation-for="QuantityAvailable" class="text-danger"></span>
+                                </div>
+
+                                <!-- Chọn danh mục -->
+                                <div class="mb-4">
+                                    <label for="GearCategory" class="form-label fw-bold">Chọn danh mục:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light">
+                                            <i class="fas fa-list text-primary"></i>
+                                        </span>
+                                        <select class="form-select" id="GearCategoryId" name="GearCategoryId">
+                                            <option value="" disabled selected>-- Chọn danh mục --</option>
+                                            @if (ViewBag.CampingCategories != null)
+                                            {
+                                                foreach (var category in (List<GearCategoryVM>)ViewBag.CampingCategories)
+                                                {
+                                                    
+                                                    if (category.GearCategoryId == Model.GearCategoryId)
+                                                    {
+                                                        <option value="@category.GearCategoryId" selected>@category.GearCategoryName</option>
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@category.GearCategoryId">@category.GearCategoryName</option>
+
+                                                    }
+                                                }
+                                            }
+
+                                           
+                                        </select>
+                                        <span asp-validation-for="GearCategoryId" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cột phải: Phần tải lên file -->
+                            <div class="file-upload-container col-md-4 d-flex flex-column align-items-center">
+                                <div class="image-preview mb-3" style="width: 200px; height: 200px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center;">
+                                    <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 100%; height: auto;" />
+                                </div>
+                                <div class="file-input-wrapper w-100">
+
+                                    <div class="input-group">
+
+                                        <!-- Giấu nút input file mặc định -->
+                                        <input type="file" name="PictureUrl" id="PictureUrl" accept=".jpg, .png" class="form-control" onchange="previewImage(event)" style="display: none;">
+
+                                        <!-- Tạo nút "Chọn ảnh" -->
+                                        <div class="file-input-wrapper w-100" style="display: flex; justify-content: center;">
+                                            <label for="PictureUrl" class="btn btn-primary mt-2" style="cursor: pointer;">
+                                                Chọn ảnh
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Nút submit -->
+                        <div class="mt-3 d-flex justify-content-end">
+                            <a href="/GearManagement/index" class="btn btn-secondary me-2">Quay lại</a>
+                            <button onclick="return confirm('Bạn có chắc chắn muốn thêm thiết bị không?')" type="submit" class="btn btn-primary">Thêm thiết bị</button>
+                        </div>
+                       
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </main>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+    <script>
+        function previewImage(event) {
+            const input = event.target;
+            const reader = new FileReader();
+            reader.onload = function () {
+                const preview = document.getElementById('imagePreview');
+                preview.src = reader.result;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+    </script>
+
+    <script>
+
+        function decreaseQuantity() {
+            const input = document.getElementById('QuantityAvailable');
+            let value = parseInt(input.value, 10);
+            if (!isNaN(value) && value > 0) {
+                input.value = value - 1;
+            }
+        }
+
+        function increaseQuantity() {
+            const input = document.getElementById('QuantityAvailable');
+            let value = parseInt(input.value, 10);
+            if (!isNaN(value)) {
+                input.value = value + 1;
+            }
+        }
+
+    </script>
+
+
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById("imagePreview");
+
+            if (file) {
+                const allowedExtensions = ['image/jpeg', 'image/png', 'image/jpg'];
+                if (!allowedExtensions.includes(file.type)) {
+                    alert("Vui lòng chọn một hình ảnh hợp lệ (.jpg, .png).");
+                    fileInput.value = ""; // Reset the input
+                    return;
+                }
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result; // Gán ảnh vào src của img
+                    preview.style.display = "block"; // Hiển thị ảnh sau khi chọn file
+                }
+
+                reader.readAsDataURL(file); // Đọc file để lấy URL
+            } else {
+                preview.src = "#";
+                preview.style.display = "none"; // Ẩn khung ảnh nếu không có file nào được chọn
+            }
+        }
+
+    </script>
+
+    <script>
+
+        document.getElementById('manageOrders').addEventListener('click', function () {
+            this.parentElement.classList.toggle('open'); // Bật/tắt class 'open' để mở/đóng submenu
+        });
+
+    </script>
+
+
+
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="~/src/jquery.table2excel.js"></script>
+    <script src="~/js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="~/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <script>
+
+        oTable = $('#sampleTable').dataTable();
+        $('#all').click(function (e) {
+            $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
+            e.stopImmediatePropagation();
+        });
+
+
+        function time() {
+            var today = new Date();
+            var weekday = new Array(7);
+            weekday[0] = "Chủ Nhật";
+            weekday[1] = "Thứ Hai";
+            weekday[2] = "Thứ Ba";
+            weekday[3] = "Thứ Tư";
+            weekday[4] = "Thứ Năm";
+            weekday[5] = "Thứ Sáu";
+            weekday[6] = "Thứ Bảy";
+            var day = weekday[today.getDay()];
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1;
+            var yyyy = today.getFullYear();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            nowTime = h + " giờ " + m + " phút " + s + " giây";
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+            tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+                '</span>';
+            document.getElementById("clock").innerHTML = tmp;
+            clocktime = setTimeout("time()", "1000", "Javascript");
+
+            function checkTime(i) {
+                if (i < 10) {
+                    i = "0" + i;
+                }
+                return i;
+            }
+        }
+        ;
+    </script>
+
+
+
+</body>
+
+</html>

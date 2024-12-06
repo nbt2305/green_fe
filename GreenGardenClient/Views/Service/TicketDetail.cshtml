@@ -1,0 +1,1093 @@
+﻿﻿@using GreenGardenClient.Models;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var tickets = ViewBag.Ticket as TicketVM;
+}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Chi tiết vé &mdash; GreenGarden</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/css/aos.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/css/style.css">
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+    <div class="site-wrap" id="home-section">
+
+       
+        <header class="site-navbar site-navbar-target" role="banner">
+            <div class="site-mobile-menu site-navbar-target">
+                <div class="site-mobile-menu-header">
+                    <div class="site-mobile-menu-close mt-3">
+                        <span class="icon-close2 js-menu-toggle"></span>
+                    </div>
+                </div>
+                <div class="site-mobile-menu-body">
+                    <ul class="site-menu main-menu js-clone-nav ml-auto">
+                        <!-- Home link with icon -->
+                        <a  href="/Home">
+                            <i class="fas fa-home"></i> Trang chủ
+                        </a>
+
+                        <!-- Event link with icon -->
+                        <a href="/Common/Event" class="nav-link">
+                            <i class="fas fa-calendar-alt"></i> Sự kiện
+                        </a>
+
+                        <!-- Service link with icon -->
+                        <a href="/Service" class="nav-link">
+                            <i class="fas fa-cogs"></i> Dịch vụ
+                        </a>
+                        <ul>
+                            <!-- Service sub-menu items with icons -->
+                            <a href="/Service/ComboList" class="nav-link">
+                                <i class="fas fa-ticket-alt"></i> Danh sách combo vé
+                            </a>
+                            <a style="color: #efba6c " href="/Service/OrderTicket" class="nav-link">
+                                <i class="fas fa-ticket"></i> Danh sách vé
+                            </a>
+                            <a href="/Service/OrderFoodAndDrink" class="nav-link">
+                                <i class="fas fa-utensils"></i> Danh sách đồ ăn
+                            </a>
+                            <a href="/Service/OrderGear" class="nav-link">
+                                <i class="fas fa-tools"></i> Danh sách dụng cụ
+                            </a>
+                        </ul>
+
+                        <!-- Contact link with icon -->
+                        <a href="~/Common/Contact" class="nav-link">
+                            <i class="fas fa-phone-alt"></i> Liên hệ
+                        </a>
+
+                        <!-- User not authenticated, show Login and Register with icons -->
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("Email") == null)
+                        {
+                            <a href="/Common/Login" class="nav-link">
+                                <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                            </a>
+                            <a href="/Common/Register" class="nav-link">
+                                <i class="fas fa-user-plus"></i> Đăng Ký
+                            </a>
+                        }
+                        else
+                        {
+                            <!-- User authenticated, show profile and user-specific links -->
+                            <a href="~/Common/UpdateProfile" class="nav-link" style="display: flex; align-items: center;">
+                                @if (@HttpContextAccessor.HttpContext.Session.GetString("Img") == null)
+                                {
+                                    <div style="width: 30px; height: 30px; border-radius: 50%; overflow: hidden; margin-right: 8px;">
+                                        <img src="~/images/p22.jpg" alt="Trang cá nhân" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div style="width: 30px; height: 30px; border-radius: 50%; overflow: hidden; margin-right: 8px;">
+                                        <img src="@HttpContextAccessor.HttpContext.Session.GetString("Img")" alt="Trang cá nhân" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                }
+                                <i class="fas fa-user"></i> @HttpContextAccessor.HttpContext.Session.GetString("Fullname")
+                            </a>
+
+                            <ul>
+                                <!-- User role-based links with icons -->
+                                @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+                                {
+                                    
+                                        <a href="~/DashBoard" class="nav-link">
+                                            <i class="fas fa-tachometer-alt"></i> Quản lí
+                                        </a>
+                                    
+                                        <a href="~/Home/Logout" class="nav-link">
+                                            <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                                        </a>
+                                    
+                                }
+                                else if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 2)
+                                {
+                                   
+                                        <a href="~/OrderManagement/OrderOnline" class="nav-link">
+                                            <i class="fas fa-box"></i> Quản lí
+                                        </a>
+                                   
+                                        <a href="~/Home/Logout" class="nav-link">
+                                            <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                                        </a>
+                                    
+                                }
+                                else
+                                {
+                                    
+                                        <a href="~/Service/OrderHistory" class="nav-link">
+                                            <i class="fas fa-history"></i> Lịch sử đặt hàng
+                                        </a>
+                                    
+                                        <a href="~/Service/Cart" class="nav-link">
+                                            <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                                        </a>
+                                    
+                                        <a href="~/Home/Logout" class="nav-link">
+                                            <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                                        </a>
+                                    
+                                }
+                            </ul>
+                        }
+
+                        <!-- Shopping cart icon -->
+                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 3)
+                        {
+                            <a href="~/Service/Cart" class="nav-link cart-icon">
+                                <span class="cart-wrapper">
+                                    <i id="cart-count" class="fas fa-shopping-cart"></i>
+                                    @if (HttpContextAccessor.HttpContext.Session.GetInt32("CartItemCount") > 0)
+                                    {
+                                        <span class="cart-badge">
+                                            @HttpContextAccessor.HttpContext.Session.GetInt32("CartItemCount")
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="cart-badge">0</span>
+                                    }
+                                </span>
+                            </a>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+            <div class="container">
+                <div class="row align-items-center position-relative">
+                    <div class="col-3 ">
+                        <div class="site-logo">
+                            <a href="~/Home" class="font-weight-bold">
+                                <img src="~/images/newlogo.jpg" alt="Image" class="img-fluid" style="width: 55%; height: auto;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-9 text-right">
+                        <span class="d-inline-block d-lg-none">
+                            <a href="#" class="text-black site-menu-toggle js-menu-toggle py-5 text-white">
+                                <span class="icon-menu h3 text-black"></span> <!-- Nút mở menu -->
+                            </a>
+                        </span>
+                        <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                                <li><a href="/Home" class="nav-link">Trang chủ</a></li>
+                                <li><a href="/Common/Event" class="nav-link">Sự kiện</a></li>
+                                <li class="has-dropdown active">
+                                    <a href="/Service" class="nav-link">Dịch vụ</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/Service/ComboList" class="nav-link">Danh sách combo vé</a></li>
+                                        <li class="active"><a href="/Service/OrderTicket" class="nav-link">Danh sách vé</a></li>
+                                        <li><a href="/Service/OrderFoodAndDrink" class="nav-link">Danh sách đồ ăn</a></li>
+                                        <li><a href="/Service/OrderGear" class="nav-link">Danh sách dụng cụ</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="~/Common/Contact" class="nav-link">Liên hệ</a></li>
+                                <li>
+                                    @if (HttpContextAccessor.HttpContext.Session.GetString("Email") == null)
+                                    {
+                                        <a href="/Common/Login" class="nav-link">Đăng nhập</a>
+                                        <a href="/Common/Register" class="nav-link">Đăng Ký</a>
+                                    }
+                                    else
+                                    {
+                                    <li class="has-dropdown">
+                                        <a href="~/Common/UpdateProfile" class="nav-link" style="display: flex; align-items: center;">
+                                                @if (@HttpContextAccessor.HttpContext.Session.GetString("Img") == null)
+                                                {
+                                                <div style="width: 30px; height: 30px; border-radius: 50%; overflow: hidden; margin-right: 8px;">
+                                                    <img src="~/images/p22.jpg" alt="Trang cá nhân" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                                }
+                                                else
+                                                {
+                                                <div style="width: 30px; height: 30px; border-radius: 50%; overflow: hidden; margin-right: 8px;">
+                                                    <img src="@HttpContextAccessor.HttpContext.Session.GetString("Img")" alt="Trang cá nhân" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                                }
+                                                @HttpContextAccessor.HttpContext.Session.GetString("Fullname")
+                                        </a>
+
+
+                                        <ul class="dropdown">
+                                                @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+                                                {
+                                                <li><a href="~/DashBoard" class="nav-link">Quản lí</a></li>
+                                                <li><a href="~/Home/Logout" onclick="return Logout();" class="nav-link">Đăng xuất</a></li>
+                                                }
+                                                else if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 2)
+                                                {
+                                                <li><a href="~/OrderManagement/OrderOnline" class="nav-link">Quản lí</a></li>
+                                                <li><a href="~/Home/Logout" onclick="return Logout();" class="nav-link">Đăng xuất</a></li>
+                                                }
+                                                else
+                                                {
+
+                                                <li><a href="~/Service/OrderHistory" class="nav-link">Lịch sử đặt hàng</a></li>
+                                                <li><a href="~/Service/Cart" class="nav-link">Giỏ hàng</a></li>
+                                                <li><a href="~/Home/Logout" onclick="return Logout();" class="nav-link">Đăng xuất</a></li>
+
+                                                }
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                </li>
+                                @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 3)
+                                {
+                                    <li>
+                                        <a href="~/Service/Cart" class="nav-link cart-icon">
+                                            <span class="cart-wrapper">
+                                                <i id="cart-count" class="fas fa-shopping-cart"></i>
+                                                @if (HttpContextAccessor.HttpContext.Session.GetInt32("CartItemCount") > 0)
+                                                {
+                                                    <span class="cart-badge">
+                                                        @HttpContextAccessor.HttpContext.Session.GetInt32("CartItemCount")
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="cart-badge">0</span>
+                                                }
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function Logout() {
+                    sessionStorage.removeItem('usageDateForAll');
+                }
+
+            </script>
+            <style>
+                .site-mobile-menu {
+                    width: 80%;
+                    max-width: 400px;
+                    position: fixed;
+                    right: 0;
+                    z-index: 2000;
+                    padding-top: 20px;
+                    background: #ffffff;
+                    height: 100vh;
+                    transform: translateX(110%);
+                    transition: transform 0.3s ease-in-out;
+                    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                }
+
+                .offcanvas-menu .site-mobile-menu {
+                    transform: translateX(0);
+                }
+
+                /* Close Button */
+                .site-mobile-menu-close {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    z-index: 1001;
+                    cursor: pointer;
+                }
+
+                    .site-mobile-menu-close span {
+                        font-size: 24px;
+                        color: #333;
+                        transition: color 0.3s ease;
+                    }
+
+                        .site-mobile-menu-close span:hover {
+                            color: #ff0000;
+                        }
+
+                /* Dropdown Menu */
+                .site-menu .dropdown {
+                    display: none;
+                    padding: 10px;
+                    background: #f9f9f9;
+                    border-radius: 4px;
+                }
+
+                .site-menu .has-dropdown.open .dropdown {
+                    display: block;
+                }
+
+                .site-menu a {
+                    text-decoration: none;
+                    color: #333;
+                    padding: 10px 20px;
+                    display: block;
+                    transition: background 0.3s ease;
+                }
+
+
+                /* General Styling */
+                .user-avatar img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+
+                .user-avatar span {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #333;
+                }
+                .cart-wrapper {
+                    position: relative;
+                    display: inline-block;
+                }
+
+                    .cart-wrapper .fas.fa-shopping-cart {
+                        font-size: 24px; /* Adjust icon size */
+                        color: #000; /* Adjust icon color */
+                    }
+
+                .cart-badge {
+                    position: absolute;
+                    top: -5px; /* Adjust vertical position */
+                    right: -10px; /* Adjust horizontal position */
+                    background-color: yellow; /* Badge background color */
+                    color: black; /* Text color */
+                    font-size: 14px; /* Badge font size */
+                    font-weight: bold;
+                    line-height: 1; /* Adjust text alignment */
+                    border-radius: 50%;
+                    padding: 4px 8px; /* Padding for badge shape */
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+                    z-index: 10;
+                    white-space: nowrap; /* Prevent text wrapping */
+                }
+                .site-navbar {
+                    position: fixed; /* Cố định header */
+                    top: 0; /* Đặt header ở đầu trang */
+                    left: 0; /* Canh trái */
+                    width: 100%; /* Chiếm toàn bộ chiều rộng */
+                    z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác */
+                    background-color: #f6f5f5 !important;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho header */
+                    padding: 10px 0; /* Khoảng cách trên và dưới */
+                }
+
+                    /* Khoảng trống bên dưới để bù cho chiều cao header */
+                    .site-navbar + .content {
+                        padding-top: 70px; /* Điều chỉnh theo chiều cao thực tế của header */
+                    }
+
+                .tile {
+                    margin-top: 70px; /* Khoảng cách dưới */
+                }
+                .site-menu .dropdown {
+                    display: none; /* Ẩn menu thả xuống */
+                    position: absolute; /* Để menu thả xuống xuất hiện bên dưới mục Services */
+                    text-align: center;
+                    background: #f0f0f0; /* Màu nền xám nhẹ cho menu thả xuống */
+                    padding: 10px; /* Khoảng cách bên trong */
+                    z-index: 999; /* Đảm bảo nó nằm trên các phần tử khác */
+                }
+
+
+                    .site-menu .dropdown li {
+                        display: block; /* Hiển thị các mục theo chiều dọc */
+                        margin: 5px 0; /* Khoảng cách giữa các mục theo chiều dọc */
+                    }
+
+                        .site-menu .dropdown li a {
+                            padding: 5px 10px; /* Thêm khoảng cách bên trong cho các liên kết */
+                            text-decoration: none; /* Bỏ gạch chân cho các liên kết */
+                            color: #333; /* Màu chữ cho các liên kết */
+                            transition: background-color 0.3s; /* Hiệu ứng chuyển màu nền */
+                        }
+
+                            .site-menu .dropdown li a:hover {
+                                background-color: #e0e0e0; /* Màu nền khi hover vào các liên kết */
+                            }
+
+                .site-menu .has-dropdown:hover .dropdown {
+                    display: block; /* Hiện menu thả xuống khi hover vào mục Services */
+                }
+
+
+                /* General Styling */
+                .site-section {
+                    padding: 60px 0;
+                    background-color: #f8f9fa;
+                }
+
+                .order-card {
+                    padding: 20px;
+                    margin: 20px 0;
+                    border-radius: 10px;
+                    border: none; /* Bỏ border */
+                }
+
+                .item-card {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+                    align-items: center; /* Đảm bảo các thành phần trong card đều căn giữa theo chiều dọc */
+                }
+
+
+                    .item-card img {
+                        max-width: 100px;
+                        max-height: 100px;
+                        object-fit: cover;
+                        border-radius: 10px;
+                    }
+
+                .item-details {
+                    flex-grow: 1;
+                    margin-left: 20px;
+                    display: flex;
+                    flex-direction: column; /* Đảm bảo các thành phần trong chi tiết sản phẩm xếp chồng lên nhau */
+                    justify-content: space-between; /* Căn đều các thành phần bên trong */
+                    min-height: 120px; /* Thiết lập chiều cao tối thiểu */
+                }
+
+                .buttons {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
+                .item-title {
+                    font-weight: bold;
+                }
+
+                .item-price {
+                    font-size: 1.25rem;
+                    font-weight: bold;
+                }
+
+                .btn-purple {
+                    background-color: #d99b53 !important;
+                    color: black !important;
+                }
+
+                    .btn-purple:hover {
+                        background-color: #d99b53 !important;
+                        color: white !important;
+                    }
+                /* Tạo dấu gạch ngang giữa các sản phẩm */
+                .divider {
+                    border-top: 1px solid #ddd;
+                    margin: 20px 0;
+                }
+
+                .quantity-container {
+                    display: flex;
+                    align-items: center;
+                    font-size: 16px;
+                    margin: 10px 0;
+                }
+
+                    .quantity-container i {
+                        margin-right: 8px;
+                        color: black;
+                        font-size: 18px;
+                    }
+
+                .quantity-controls {
+                    display: flex;
+                    align-items: center;
+                    margin-left: 10px;
+                }
+
+                    .quantity-controls button {
+                        padding: 5px 15px;
+                        background-color: #f39c12;
+                        color: white;
+                        border: none;
+                        cursor: pointer;
+                        border-radius: 4px;
+                        font-size: 18px;
+                        margin: 0 5px;
+                    }
+
+                        .quantity-controls button:hover {
+                            background-color: #2980b9;
+                        }
+
+                    .quantity-controls input {
+                        text-align: center;
+                        width: 50px;
+                        padding: 5px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        font-size: 16px;
+                        margin: 0 5px;
+                    }
+
+                .swal-confirm-button {
+                    background-color: #efba6c !important; /* Yellow background */
+                    color: #000 !important; /* Black text */
+                    border: none; /* Remove border */
+                    font-weight: bold; /* Make text bold */
+                    padding: 10px 20px; /* Adjust padding */
+                    border-radius: 5px; /* Rounded corners */
+                }
+
+                    .swal-confirm-button:hover {
+                        background-color: #efba6c !important; /* Slightly darker yellow on hover */
+                    }
+
+
+                .swal-cancel-button {
+                    background-color: #6c757d !important; /* Default cancel button color (gray) */
+                    color: #fff !important;
+                    border: none;
+                    font-weight: bold;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                }
+
+                    .swal-cancel-button:hover {
+                        background-color: #5a6268 !important; /* Darker gray on hover */
+                    }
+            </style>
+            <script>
+                $(document).ready(function () {
+                    $('.has-dropdown').hover(
+                        function () {
+                            $(this).find('.dropdown').stop(true, true).slideDown(200);
+                        },
+                        function () {
+                            $(this).find('.dropdown').stop(true, true).slideUp(200);
+                        }
+                    );
+                });
+            </script>
+        </header>
+        <script>
+            $(document).ready(function () {
+                // Toggle mobile menu visibility
+                $('.js-menu-toggle').on('click', function (e) {
+                    e.preventDefault();
+                    $('body').toggleClass('offcanvas-menu');
+                });
+
+                // Close the menu when clicking the close button
+                $('.site-mobile-menu-close').on('click', function () {
+                    $('body').removeClass('offcanvas-menu');
+                });
+
+                // Close the menu when clicking outside of it
+                $(document).mouseup(function (e) {
+                    var container = $(".site-mobile-menu");
+                    if (!container.is(e.target) && container.has(e.target).length === 0) {
+                        $('body').removeClass('offcanvas-menu');
+                    }
+                });
+
+                // Set the active class based on the current URL
+                var currentUrl = window.location.pathname; // Get the current URL path
+                $('.site-menu a').each(function () {
+                    if ($(this).attr('href') === currentUrl || (currentUrl === '/' && $(this).attr('href') === '/Home')) {
+                        $('.site-menu a').removeClass('active'); // Remove active from all links
+                        $(this).addClass('active'); // Add active to the matching link
+                    }
+                });
+
+                // Ensure menu is hidden when resizing to desktop
+                $(window).resize(function () {
+                    if ($(window).width() > 991.98) { // Bootstrap lg breakpoint
+                        $('body').removeClass('offcanvas-menu'); // Reset menu state
+                    }
+                });
+            });
+
+
+        </script>
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-warning" role="alert" style="text-align: center;">
+                @TempData["Error"]
+            </div>
+        }
+        <div style="margin-top:100px">
+            <div class="ftco-blocks-cover-1">
+                <div class="site-section-cover overlay" style="background-image: url('@Url.Content("~/images/p22.jpg")')">
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center text-center">
+                            <div class="col-md-5" data-aos="fade-up">
+                                <h1 class="mb-3 text-white">Về dịch vụ</h1>
+                                <p>Những dịch vụ nổi bật tại sông quê giúp khách hàng trải nghiệm tốt nhất.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="site-section">
+                <div class="tile">
+                    <div class="container mt-5">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-md-7">
+                                <div class="heading-39101 mb-5">
+                                    <span class="backdrop text-center">GreenGarden</span>
+                                    <span class="subtitle-39191">Chi tiết vé</span>
+                                    <h3>Chi tiết vé</h3>
+                                </div>
+                            </div>
+                        </div>
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="tile-body row">
+                            <!-- Image Section -->
+                            <div class="col-md-4">
+                                <div class="product-image position-relative">                                    
+                                    <img src="@tickets.ImgUrl" alt="Product Image" class="img-fluid img-thumbnail" id="productImage"
+                                         style="width: 377px; height: 455px; object-fit: cover; margin-bottom:50px;">
+                                </div>
+                            </div>
+
+                            <!-- Content Section -->
+                            <div class="col-md-8" id="product-@tickets.TicketId">
+                                <div class="card-body">
+                                    <h5 class="card-title">@tickets.TicketName</h5>
+                                    <p class="card-text d-flex flex-wrap justify-content-between">
+                                        <span class="d-flex align-items-center">
+                                            <i class="bi bi-geo-alt"></i>
+                                            <span class="ml-2"> Mô tả: Vé đơn giúp bạn trải nghiệm không gian cắm trại và tổ chức tiệc ngoài trời rộng rãi.</span>
+                                        </span>
+
+                                    </p>
+                                    <div style="display: flex; align-items: center;">
+                                        <h3 class="price">
+                                            <i class="fas fa-tag" style="margin-right: 10px;"></i>
+                                            <span style="color: red;">@tickets.Price.ToString("N0") đ <small></small></span>
+                                        </h3>
+
+                                    </div>
+
+
+                                    <div class="quantity-container">
+                                        <i class="fas fa-coins"></i> Số lượng:
+                                        <div class="quantity-controls">
+                                            <button onclick="decreaseQuantity()">−</button>
+                                            <input type="number" id="quantity" readonly value="1" min="1" onchange="updateHiddenQuantity()" />
+                                            <button onclick="increaseQuantity()">+</button>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="d-flex justify-content-start mt-3">
+                                        <form method="post" action="/Service/AddToCart">
+                                            <input type="hidden" name="Id" value="@tickets.TicketId" />
+                                            <input type="hidden" name="Name" value="@tickets.TicketName" />
+                                            <input type="hidden" name="image" value="@tickets.ImgUrl" />
+                                            <input type="hidden" name="CategoryName" value="@tickets.TicketCategoryName" />
+                                            <input type="hidden" name="Type" value="Ticket" />
+                                            <input type="hidden" name="TypeCategory" value="TicketCategory" />
+                                            <input type="hidden" name="price" value="@tickets.Price" />
+                                            <input type="hidden" id="hidden-quantity" name="quantity" value="1" /> <!-- Hidden input for quantity -->
+                                            <input type="hidden" id="hidden-date-@tickets.TicketId" name="usageDate" />
+                                            <input type="hidden" name="redirectAction" value="TicketDetail" />
+                                            <button type="submit" class="btn btn-primary mt-4" onclick="return setUsageDate('@tickets.TicketId')">Thêm vào giỏ hàng</button>
+                                        </form>
+                                        <a href="~/Service/OrderTicket" class="btn btn-secondary  mt-4" style="margin-left:20px">Quay lại</a>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200, // Đặt thời gian cho hiệu ứng (tùy chọn)
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            // Tìm thẻ có class "site-section"
+            var targetElement = document.querySelector(".site-section");
+            if (targetElement) {
+                // Cuộn tới thẻ .site-section
+                targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function increaseQuantity() {
+            var quantityInput = document.getElementById('quantity');
+            var currentQuantity = parseInt(quantityInput.value, 10);
+            if (currentQuantity < 20) {  // Giới hạn số lượng tối đa là 20
+                quantityInput.value = currentQuantity + 1;
+                updateHiddenQuantity();
+            }
+        }
+
+        function decreaseQuantity() {
+            var quantityInput = document.getElementById('quantity');
+            var currentQuantity = parseInt(quantityInput.value, 10);
+            if (currentQuantity > 1) {  // Giới hạn số lượng tối thiểu là 1
+                quantityInput.value = currentQuantity - 1;
+                updateHiddenQuantity();
+            }
+        }
+
+        function updateHiddenQuantity() {
+            var quantity = document.getElementById('quantity').value;
+            document.getElementById('hidden-quantity').value = quantity;
+            sessionStorage.setItem('selectedQuantity', quantity);
+        }
+
+        function setUsageDate(ticketId) {
+            const savedDate = sessionStorage.getItem('usageDateForAll');
+            const savedTime = sessionStorage.getItem('usageTimeForAll');
+
+            var userId = '@HttpContextAccessor.HttpContext.Session.GetInt32("UserId")'; // hoặc nếu có thể null thì chuyển qua check null
+            if (!userId) {
+                Swal.fire({
+                    title: 'Bạn cần đăng nhập để tiếp tục!',
+                    icon: 'warning',
+                    confirmButtonText: 'Đăng nhập',
+                    showCancelButton: true,
+                    cancelButtonText: 'Hủy',
+                    customClass: {
+                        confirmButton: 'swal-confirm-button', // Nút đăng nhập
+                        cancelButton: 'swal-cancel-button'  // Nút hủy
+                    },
+                    // Sử dụng hàm xử lý khi bấm vào nút
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Khi bấm vào nút "Đăng nhập", chuyển hướng tới trang đăng nhập
+                        window.location.href = '/Common/Login';  // Địa chỉ trang đăng nhập của bạn
+                    }
+                });
+                return false; // Ngừng thực hiện hành động
+            }
+
+            if (savedDate && savedTime) {
+                // Use the saved date and time if they exist
+                document.getElementById('hidden-date-' + ticketId).value = `${savedDate} ${savedTime}`;
+                addToCart(ticketId); // Call addToCart function directly
+            } else {
+                // Show the popup to select both date and time if not previously saved
+                Swal.fire({
+                    title: 'Chọn ngày và giờ sử dụng',
+                    html: (() => {
+                        // Get the current date and time
+                        const now = new Date();
+
+                        // Format the date as 'yyyy-MM-dd'
+                        const currentDate = now.toISOString().split('T')[0];
+
+                        // Format the time as 'HH:mm' (10 minutes later)
+                        const tenMinutesLater = new Date(now.getTime() + 10 * 60000); // Add 10 minutes in milliseconds
+                        const hours = tenMinutesLater.getHours().toString().padStart(2, '0'); // Format hours as HH
+                        const minutes = tenMinutesLater.getMinutes().toString().padStart(2, '0'); // Format minutes as mm
+                        const futureTime = `${hours}:${minutes}`;
+
+                        return `
+                                            <input type="date" id="usage-date" class="swal2-input" value="${currentDate}" min="${currentDate}">
+                                            <input type="time" id="usage-time" class="swal2-input" value="${futureTime}">
+                                        `;
+                    })(),
+                    showCancelButton: true,
+                    confirmButtonText: 'Xác nhận',
+                    cancelButtonText: 'Hủy',
+                    customClass: {
+                        confirmButton: 'swal-confirm-button', // Assign custom class
+                        cancelButton: 'swal-cancel-button'
+                    },
+                    preConfirm: () => {
+                        const date = document.getElementById('usage-date').value;
+                        const time = document.getElementById('usage-time').value;
+                        const now = new Date();
+                        const currentDate = now.toISOString().split('T')[0]; // Get current date in 'yyyy-mm-dd' format
+                        const currentTime = now.toTimeString().split(':').slice(0, 2).join(':'); // Get current time in 'HH:mm' format
+
+                        // Validate if both date and time are entered
+                        if (!date || !time) {
+                            Swal.showValidationMessage('Bạn cần nhập cả ngày và giờ sử dụng!');
+                            return false;
+                        }
+
+                        // Compare entered date and time with the current date and time
+                        const enteredDateTime = new Date(date + 'T' + time); // Convert to Date object
+                        const currentDateTime = new Date(currentDate + 'T' + currentTime); // Convert current date and time to Date object
+
+                        if (enteredDateTime < currentDateTime) {
+                            Swal.showValidationMessage('Ngày và thời gian sử dụng phải lớn hơn hoặc bằng ngày hiện tại!');
+                            return false;
+                        }
+
+                        return { date, time }; // Return selected date and time
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const { date, time } = result.value;
+                        sessionStorage.setItem('usageDateForAll', date);
+                        sessionStorage.setItem('usageTimeForAll', time);
+
+                        // Set both date and time in the hidden input for the form
+                        document.getElementById('hidden-date-' + ticketId).value = `${date} ${time}`;
+                        addToCart(ticketId); // Call addToCart after date and time selection
+                    }
+                });
+            }
+            return false;
+        }
+        function updateCartCount() {
+            $.get('/Service/GetCartItemCount', function (count) {
+                if (count !== null && count > 0) {
+                    // Kiểm tra nếu badge chưa tồn tại, thêm badge mới
+                    if (!$('.cart-badge').length) {
+                        $('.cart-wrapper').append(`<span class="cart-badge">${count}</span>`);
+                    } else {
+                        // Nếu badge đã tồn tại, cập nhật số lượng
+                        $('.cart-badge').text(count);
+                    }
+                } else {
+                    // Nếu giỏ hàng trống, hiển thị 0
+                    if (!$('.cart-badge').length) {
+                        $('.cart-wrapper').append(`<span class="cart-badge">0</span>`);
+                    } else {
+                        $('.cart-badge').text('0');
+                    }
+                }
+            });
+        }
+        function addToCart(ticketId) {
+            const form = $(`#product-${ticketId}`).find('form');
+            const formData = form.serialize();
+
+            $.ajax({
+                type: "POST",
+                url: form.attr("action"),
+                data: formData,
+                success: function (response) {
+                    if (response.success) {
+                        // Nếu thêm vào giỏ hàng thành công
+                        Swal.fire({
+                            icon: "success",
+                            title: "Thành công",
+                            text: response.message,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        updateCartCount();
+                    } else {
+                        // Nếu có lỗi (chưa đăng nhập hoặc sai vai trò)
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Thất bại ",
+                            text: response.message,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                },
+                error: function () {
+                    // Xử lý lỗi khi gọi AJAX thất bại
+                    Swal.fire({
+                        icon: "error",
+                        title: "Thất bại",
+                        text: "Đã có lỗi xảy ra, vui lòng thử lại.",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            });
+        }
+
+    </script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/jquery-migrate-3.0.0.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.sticky.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/jquery.fancybox.min.js"></script>
+    <script src="~/js/jquery.stellar.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/js/isotope.pkgd.min.js"></script>
+    <script src="~/js/aos.js"></script>
+
+    <script src="~/js/main.js"></script>
+
+</body>
+<footer class="site-footer bg-light">
+    <div class="container">
+        <div class="row gy-3">
+            <!-- Facebook Section -->
+            <div class="col-lg-3">
+                <h2 class="footer-heading mb-3 text-uppercase">Facebook</h2>
+                <div class="row g-2">
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture1.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture8.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture7.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture1.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture8.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture7.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Quick Links Section -->
+            <div class="col-lg-4">
+                <h2 class="footer-heading mb-3 text-uppercase">Truy cập nhanh</h2>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="https://www.facebook.com/profile.php?id=100063831185228" class="text-decoration-none link-colored">
+                            <i class="fab fa-facebook" style="margin-right: 10px;"></i>Facebook
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <span class="text-decoration-none link-colored">
+                            <i class="fas fa-phone me-3" style="margin-right: 10px;"></i>Số điện thoại: 098 732 76 69
+                        </span>
+                    </li>
+                    <li class="mb-2">
+                        <span class="text-decoration-none link-colored">
+                            <i class="fas fa-envelope me-3" style="margin-right: 10px;"></i>Email: hocausongque@gmail.com
+                        </span>
+                    </li>
+
+
+
+                </ul>
+            </div>
+
+            <!-- Google Maps Section -->
+            <div class="col-lg-5">
+                <h2 class="footer-heading mb-3 text-uppercase">Địa chỉ</h2>
+                <div class="map rounded overflow-hidden">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.2711745514057!2d105.91792687476992!3d21.05656318682401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a9ad89ed0681%3A0xdfe74944a2df349b!2sS%C3%B4ng%20Qu%C3%AA%20Green%20Garden!5e1!3m2!1svi!2s!4v1730041487949!5m2!1svi!2s"
+                            width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen=""
+                            aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <hr class="bg-secondary my-3">
+
+        <!-- Footer Bottom -->
+        <div class="row">
+            <div class="col text-center">
+                <p class="mb-0 small text-secondary">&copy; 2024 Green Garden. All Rights Reserved. Designed by <a href="#" class="text-dark text-decoration-none">G43_SEP490</a>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<style>
+    /* Footer chung */
+    .site-footer {
+        background: #f8f9fa; /* Màu nền sáng */
+        color: #212529; /* Màu chữ */
+        padding: 20px 0; /* Giảm chiều cao padding */
+    }
+
+    .footer-heading {
+        font-size: 1rem; /* Giảm kích thước tiêu đề */
+        font-weight: bold;
+        color: #212529; /* Màu chữ tiêu đề */
+        border-bottom: 2px solid #dee2e6;
+        padding-bottom: 8px;
+    }
+
+    .site-footer a {
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .site-footer a:hover {
+            color: #efba6c; /* Màu hover */
+        }
+
+    /* Áp dụng màu #efba6c cho liên kết */
+    .link-colored {
+        color: #efba6c;
+    }
+
+        .link-colored:hover {
+            color: #d99a50; /* Màu hover nhẹ hơn */
+        }
+
+    /* Hình ảnh Facebook */
+    .gal_col img {
+        border-radius: 4px; /* Bo góc nhẹ */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .gal_col img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Bóng khi hover */
+        }
+
+    /* Google Maps */
+    .map iframe {
+        border-radius: 8px;
+        border: none;
+    }
+
+    /* Giảm khoảng cách giữa các phần */
+    .site-footer .row {
+        margin-bottom: 10px; /* Giảm khoảng cách */
+    }
+
+    hr {
+        margin: 15px 0; /* Thu gọn khoảng cách giữa các phần */
+    }
+
+</style>
+</html>
+
+

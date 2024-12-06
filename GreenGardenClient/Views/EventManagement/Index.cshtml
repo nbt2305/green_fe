@@ -1,0 +1,928 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@model List<EventVM>
+@using GreenGardenClient.Models
+
+<meta charset="UTF-8">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Quản lý sự kiện</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
+
+
+
+</head>
+<header class="app-header">
+    <!-- Sidebar toggle button- 
+    <!-- Navbar Right Menu-->
+    <ul class="app-nav">
+
+
+        <!-- User Menu-->
+        <li>
+            <a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+
+        </li>
+    </ul>
+</header>
+<style>
+
+
+
+
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+        .search-container label {
+            margin-right: 10px; /* Khoảng cách giữa nhãn và ô input */
+            font-weight: bold; /* Làm đậm nhãn để giống trong hình */
+        }
+
+        .search-container input {
+            background-color: #f5f5f5; /* Màu nền cho ô input */
+            border: 1px solid #ddd; /* Viền nhạt cho ô input */
+            padding: 5px;
+            border-radius: 5px; /* Bo góc cho ô input */
+            width: 200px; /* Độ rộng cho ô input */
+        }
+
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Căn chỉnh các phần tử về phía bên phải */
+    }
+
+    .container-pagination-cart {
+        display: flex;
+        justify-content: space-between; /* Đưa nút giỏ hàng sang trái và phân trang sang phải */
+        align-items: center; /* Căn giữa theo chiều dọc */
+        margin-bottom: 20px; /* Khoảng cách dưới nếu cần */
+    }
+
+    .pagination {
+        list-style: none; /* Bỏ các dấu bullet */
+        padding: 0;
+        margin: 0;
+        display: flex; /* Hiển thị các mục theo hàng ngang */
+    }
+
+        .pagination li {
+            margin-left: 5px; /* Khoảng cách giữa các nút */
+        }
+
+    .page-link {
+        text-decoration: none;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        color: #007bff;
+    }
+
+    .btn-primary {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+
+
+    /* Đặt nền màu #eee cho cả header và sidebar */
+    .app-header, .app-sidebar {
+        background-color: #eee;
+    }
+
+    .app-header {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        z-index: 1;
+        
+    }
+
+        .app-header .app-nav {
+            margin-left: auto;
+        }
+
+    .app-nav__item {
+        text-decoration: none;
+        color: #333;
+        padding: 8px 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .app-sidebar {
+        position: fixed;
+        top: 0px; /* Để không đè lên header */
+        left: 0;
+        width: 250px;
+        height: 100%;
+        padding-top: 20px;
+        background-color: #eee;
+        border-right: 1px solid #ccc; /* Viền phải của sidebar */
+    }
+
+
+    .app-sidebar__user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .app-sidebar__user-avatar {
+        width: 100px; /* hoặc một giá trị cụ thể khác tùy thuộc vào kích thước bạn muốn */
+        height: 100px; /* cần phải bằng width */
+        border-radius: 50%;
+        margin-right: 10px;
+        object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+    }
+
+    .app-sidebar__user-name {
+        margin: 0;
+        font-weight: bold;
+        color: black;
+    }
+
+    .app-sidebar__user-designation {
+        margin: 0;
+        color: black;
+    }
+
+    .app-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .app-menu__item {
+        text-decoration: none;
+        color: #333;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .app-menu__icon {
+        margin-right: 10px;
+        color: #333;
+    }
+
+    .app-menu__item.active {
+        background-color: #ccc;
+        font-weight: bold;
+    }
+
+    hr {
+        border: 1px solid #ccc;
+        margin: 10px 0;
+    }
+    /* Ẩn submenu mặc định */
+    .submenu {
+        display: none;
+        list-style-type: none;
+        padding-left: 20px;
+    }
+
+    /* Hiển thị submenu khi có class 'open' */
+    .has-submenu.open .submenu {
+        display: block;
+    }
+    /* chỉnh icon cho app menu' */
+    .app-menu__item {
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        display: block;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .submenu .app-menu__item {
+        padding-left: 40px; /* Đẩy các mục con thụt vào */
+    }
+
+    .app-menu__item {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item i {
+            margin-right: 10px; /* Khoảng cách giữa icon và chữ */
+            font-size: 18px; /* Kích thước icon */
+        }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .top-bar {
+        background-color: #f8f9fa; /* Light gray background */
+        padding: 10px 20px;
+        border-radius: 8px;
+    }
+
+        /* Link button styling */
+        .top-bar .btn {
+            margin-left: 10px;
+            color: #343a40; /* Default dark color for text */
+        }
+
+
+
+    /* Container */
+    .tile {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Top Bar */
+    .top-bar {
+        margin-bottom: 20px;
+    }
+
+    .search-container input[type="search"] {
+        border-radius: 4px;
+        padding: 5px 10px;
+        width: 250px;
+    }
+
+    /* Event Card */
+    .event-card {
+        border: none; /* Bỏ đường viền của thẻ */
+        border-bottom: 1px solid #ccc; /* Thêm đường gạch ngang ở dưới mỗi thẻ */
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+        .event-card:last-child {
+            border-bottom: none; /* Loại bỏ đường gạch ngang cho thẻ cuối cùng */
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+
+    .event-image {
+        flex: 0 0 150px; /* Cố định chiều rộng cho ảnh */
+        height: 200px; /* Tăng chiều cao cho ảnh */
+        overflow: hidden; /* Ẩn phần ảnh vượt ra ngoài */
+    }
+
+    .event-thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Giữ tỷ lệ ảnh mà vẫn cắt vừa khung */
+        border-radius: 4px; /* Tùy chọn: bo tròn các góc ảnh */
+    }
+
+
+    /* Event Details */
+    .event-details {
+        text-align: left;
+        font-size: 14px; /* Tùy chỉnh kích thước chữ nếu cần */
+        line-height: 1.2; /* Giảm khoảng cách giữa các dòng chữ */
+
+        flex: 1;
+    }
+
+        .event-details i {
+            font-size: 16px; /* Kích thước icon */
+            vertical-align: middle; /* Căn chỉnh icon với text */
+            margin-right: 5px; /* Khoảng cách giữa icon và text */
+        }
+
+        .event-details span, .event-details strong {
+            margin: 0; /* Xóa khoảng cách dư thừa giữa các dòng */
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+    .stats-link a:hover {
+        color: #007bff; /* Màu sắc khi hover vào link */
+        text-decoration: underline; /* Tạo hiệu ứng gạch chân khi hover */
+    }
+
+    .event-details strong {
+        font-size: 16px;
+        color: #333;
+    }
+
+    .event-details span {
+        display: block;
+        color: #666;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .attendee-info {
+        font-weight: bold;
+        color: #444;
+    }
+
+    .stats-link {
+        font-size: 13px;
+        color: #007bff;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .custom-large-button {
+        padding: 10px 10px; /* Tăng kích thước padding */
+        font-size: 18px; /* Tăng kích thước font (tùy chọn) */
+        display: inline-block;
+    }
+
+
+</style>
+
+<body onload="time()" class="app sidebar-mini rtl">
+    <header class="app-header" style="display: flex; align-items: center; padding: 0 15px; background-color: #f6f5f5 !important;">
+        <!-- Sidebar Toggle -->
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar" style="margin-right: auto;">
+            <!-- Add an icon or text for the sidebar toggle -->
+        </a>
+
+        <!-- Centered Logo -->
+        <div style="flex: 500; display: flex; justify-content: center; align-items: center; padding-left: 50px;">
+            <img src="~/images/newlogo.jpg" alt="Logo" style="height: auto; width: 55%; max-width: 120px;margin-top: 10px;">
+        </div>
+
+
+        <!-- User Menu -->
+        <ul class="app-nav" style="display: flex; align-items: center; margin-left: auto; list-style: none; padding: 0;">
+            <li>
+                <a class="app-nav__item" href="~/Home" style="display: flex; align-items: center; text-decoration: none; color: black; background: rgb(195 195 195); padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s;">
+                    <!-- Replace with an icon -->
+                    <i class="bx bx-home" style="font-size: 1.5rem; margin-right: 8px;"></i>
+                    <!-- Add text next to the icon -->
+                    <span style="font-size: 1rem;">Quay lại trang chủ</span>
+                </a>
+            </li>
+        </ul>
+
+    </header>
+    @{
+        if (@TempData["NotificationSuccess"] != null)
+        {
+            <div id="notification-success" class="notification alert alert-success" role="alert">
+                <i class="fas fa-bell"></i> <!-- Bell Icon -->
+                @TempData["NotificationSuccess"]
+            </div>
+        }
+    }
+    @{
+        if (@TempData["NotificationError"] != null)
+        {
+            <div id="notification-success" class="notification alert alert-danger" role="alert">
+                <i class="fas fa-bell"></i> <!-- Bell Icon -->
+                @TempData["NotificationError"]
+            </div>
+        }
+    }
+    <style>
+        .notification {
+            position: fixed;
+            top: 20px; /* Distance from the top */
+            right: -350px; /* Start outside the viewport */
+            z-index: 1050; /* Ensure it appears above other elements */
+            opacity: 1; /* Fully visible initially */
+            transition: transform 0.5s ease-out, opacity 1s ease-out; /* Smooth slide and fade effects */
+            max-width: 300px; /* Restrict maximum width */
+            padding: 15px; /* Padding inside the notification */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        /* Success notification styles */
+        .alert-success {
+            background-color: #d4edda; /* Light green background */
+            color: #155724; /* Dark green text */
+            border: 1px solid #c3e6cb; /* Green border */
+        }
+
+        /* Error notification styles */
+        .alert-danger {
+            background-color: #f8d7da; /* Light red background */
+            color: #721c24; /* Dark red text */
+            border: 1px solid #f5c6cb; /* Red border */
+        }
+    </style>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function showAndHideNotification(selector) {
+                if ($(selector).length) {
+                    // Slide notification into view
+                    $(selector).css("transform", "translateX(-350px)"); // Slide in
+                    setTimeout(function () {
+                        // Slide notification back out after 5 seconds
+                        $(selector).css("transform", "translateX(0)"); // Slide out
+                        $(selector).css("opacity", "0"); // Optional fade-out effect
+                    }, 5000); // Display for 5 seconds before sliding out
+                }
+            }
+
+            // Show success and error notifications
+            showAndHideNotification("#notification-success");
+            showAndHideNotification("#notification-error");
+        });
+    </script>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar" style="margin-right: auto;">
+            <!-- Add an icon or text for the sidebar toggle -->
+        </a>
+        <div class="app-sidebar__user">
+            @if (@HttpContextAccessor.HttpContext.Session.GetString("Img") == null)
+            {
+
+                <img src="~/images/p22.jpg" alt="Trang cá nhân" class="app-sidebar__user-avatar" width="50px">
+
+            }
+            else
+            {
+                <img src="@HttpContextAccessor.HttpContext.Session.GetString("Img")" alt="Trang cá nhân" class="app-sidebar__user-avatar" src="~/images/img_1.jpg" width="50px">
+            }      
+
+            <div>
+                <p class="app-sidebar__user-designation">Xin chào</p>
+
+                <p class="app-sidebar__user-name"><b>@HttpContextAccessor.HttpContext.Session.GetString("Fullname")</b></p>
+            </div>
+        </div>
+        <hr>
+        <ul class="app-menu">
+            <style>
+
+
+                .app-menu__item.selected {
+                    font-weight: bold;
+                }
+
+            </style>
+            @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+            {
+                <li>
+                    <a class="app-menu__item" href="~/DashBoard">
+                        <i class='app-menu__icon bx bx-task'></i>
+                        <span class="app-menu__label">Thống kê</span>
+                    </a>
+                </li>
+            }
+            <li class="has-submenu" style="display:block" id="manageOrdersMenu">
+                <a class="app-menu__item" href="javascript:void(0)" id="manageOrders">
+                    <i class='app-menu__icon bx bx-id-card'></i>
+                    <span class="app-menu__label">Quản lý Đơn hàng</span>
+                </a>
+                <!-- Submenu items -->
+                <ul class="submenu" style="display: none;" id="submenuList">
+                    <li>
+                        <a href="~/OrderManagement/OrderOnline" class="app-menu__item" id="orderOnline">
+                            <i class='bx bx-notepad'></i> Đơn đặt trước
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderUsing" class="app-menu__item" id="orderUsing">
+                            <i class='bx bx-time-five'></i> Đơn đang sử dụng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderCheckOut" class="app-menu__item" id="orderCheckOut">
+                            <i class='bx bx-check-circle'></i> Đơn đã thanh toán
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderCancel" class="app-menu__item" id="orderCancel">
+                            <i class='bx bx-x-circle'></i> Đơn đã hủy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/CreateOrder" class="app-menu__item" id="createOrder">
+                            <i class='bx bx-plus'></i> Tạo đơn mới
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    var currentUrl = window.location.pathname;
+                    var manageOrdersMenu = document.getElementById("manageOrdersMenu");
+
+                    // Kiểm tra các URL và thêm lớp selected tương ứng
+                    if (currentUrl.includes("OrderOnline")) {
+                        document.getElementById("orderOnline").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    } else if (currentUrl.includes("OrderUsing")) {
+                        document.getElementById("orderUsing").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    } else if (currentUrl.includes("OrderCheckOut")) {
+                        document.getElementById("orderCheckOut").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    } else if (currentUrl.includes("OrderCancel")) {
+                        document.getElementById("orderCancel").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    } else if (currentUrl.includes("CreateOrder")) {
+                        document.getElementById("createOrder").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    }
+                });
+                document.addEventListener("DOMContentLoaded", function () {
+                    const submenu = document.getElementById("submenuList");
+                    const manageOrdersButton = document.getElementById("manageOrders");
+                    const submenuItems = document.querySelectorAll("#manageOrdersMenu .submenu .app-menu__item");
+
+                    // Kiểm tra URL để tự động mở submenu khi truy cập các mục cụ thể
+                    if (window.location.href.includes("OrderOnline") ||
+                        window.location.href.includes("OrderUsing") ||
+                        window.location.href.includes("OrderCheckOut") ||
+                        window.location.href.includes("OrderCancel") ||
+                        window.location.href.includes("CreateOrder")) {
+                        submenu.style.display = "block";
+                    }
+
+                    // Toggle submenu khi click vào "Quản lý Đơn hàng"
+                    manageOrdersButton.addEventListener("click", function (event) {
+                        event.stopPropagation(); // Ngăn sự kiện lan truyền
+                        submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+                    });
+
+                    // Đảm bảo rằng khi click vào bất kỳ mục con nào, menu vẫn mở
+                    submenuItems.forEach(item => {
+                        item.addEventListener("click", function (event) {
+                            event.stopPropagation(); // Ngăn sự kiện lan truyền
+                            submenu.style.display = "block";
+                        });
+                    });
+
+                    // Đóng menu khi click ra ngoài
+                    document.addEventListener("click", function (event) {
+                        if (!manageOrdersButton.contains(event.target) && !submenu.contains(event.target)) {
+                            submenu.style.display = "none";
+                        }
+                    });
+                });
+
+            </script>
+
+            <li>
+                <a class="app-menu__item" href="~/TicketManagement/Index">
+                    <i class='app-menu__icon bx bx-receipt'></i> <!-- Receipt icon as alternative -->
+                    <span class="app-menu__label">Quản lý vé</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="app-menu__item" href="~/GearManagement/Index">
+                    <i class='app-menu__icon bx bx-wrench'></i> <!-- Gear/Tools icon -->
+                    <span class="app-menu__label">Quản lý dụng cụ</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="~/FoodAndDrinkManagement/Index">
+                    <i class='app-menu__icon bx bx-coffee'></i> <!-- Food and drink icon -->
+                    <span class="app-menu__label">Quản lý đồ ăn</span>
+                </a>
+            </li>
+            <li class="app-menu__item active">
+                <a class="app-menu__link" href="~/EventManagement/Index">
+                    <i class='app-menu__icon bx bx-calendar-event'></i>
+                    <span class="app-menu__label">Quản lý sự kiện</span>
+                </a>
+            </li>
+
+            @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+            {
+                <li>
+                    <a class="app-menu__item" href="~/UserManagement/Index">
+                        <i class='app-menu__icon bx bx-user-voice'></i>
+                        <span class="app-menu__label">Quản lý khách hàng</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="app-menu__item" href="~/EmployeeManagement/Index">
+                        <i class='app-menu__icon bx bx-purchase-tag-alt'></i>
+                        <span class="app-menu__label">Quản lý nhân viên</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </aside>
+
+    <main class="app-content">
+
+        <div class="app-title">
+            <ul class="app-breadcrumb breadcrumb side">
+                <li class="breadcrumb-item active">Quản lí sự kiện</li>
+            </ul>
+            <div id="clock"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile">
+                    <!-- Top Bar with Search -->
+                    <div class="top-bar d-flex justify-content-between align-items-center">
+                        <div class="search-container d-flex align-items-center">
+                            <label for="searchInput" class="mr-2 font-weight-bold">Tìm kiếm:</label>
+                            <input type="search" id="searchInput" class="form-control form-control-sm mr-2" placeholder="Nhập từ khóa...">
+
+                            <!-- Larger "Create New" button -->
+                            <a href="@Url.Action("CreateEvent", "EventManagement")" class="btn btn-primary btn-lg custom-large-button">
+                                <i class="fas fa-plus"></i> Tạo Mới
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Event Cards -->
+                    <div class="row">
+                        @foreach (var eventItem in Model)
+                        {
+                            <div class="event-card col-md-4">
+                                <div class="d-flex">
+                                    <!-- Event Image on the Left -->
+                                    <div class="event-image mr-3">
+                                        <a href="@Url.Action("UpdateEvent", "EventManagement", new { id = @eventItem.EventId })">
+                                            <img src="@eventItem.PictureUrl" alt="Event Image" class="event-thumbnail">
+                                        </a>
+                                    </div>
+
+                                    <!-- Event Details on the Right -->
+                                    <div class="event-details">
+                                        <strong>
+                                            <i class="fas fa-calendar-day mr-1" style="color: #007bff;"></i> @eventItem.EventName
+                                        </strong><br>
+                                        <span>
+                                            <i class="fas fa-clock" style="color: #28a745; margin-right: 5px;"></i>
+                                            @eventItem.StartTime - @eventItem.EndTime
+                                        </span><br>
+                                        <span>
+                                            <!-- Calendar icon with event date -->
+                                            <i class="fas fa-calendar-alt mr-1" style="color: #ffc107;"></i> Từ @eventItem.EventDate.Value.ToString("dd/MM/yyyy")
+                                        </span><br>
+
+                                        <span>
+                                            <i class="fas fa-map-marker-alt mr-1" style="color: #17a2b8;"></i> @eventItem.Location
+                                        </span><br>
+
+                                        <span class="stats-link">
+                                            <i class="fas fa-info-circle mr-1" style="color: #6c757d;"></i>
+                                            <a href="@Url.Action("UpdateEvent", "EventManagement", new { id = @eventItem.EventId })" style="text-decoration: none; color: inherit;">
+                                                (Chi tiết)
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        <div id="pagination" class="dataTables_paginate paging_simple_numbers">
+            <ul class="pagination">
+                <li class="paginate_button page-item previous disabled" id="prev-page"><a href="#" class="page-link">Trước</a></li>
+                <!-- Các nút số trang sẽ được tạo tự động -->
+                <li class="paginate_button page-item next" id="next-page"><a href="#" class="page-link">Sau</a></li>
+            </ul>
+        </div>
+
+    </main>
+
+
+
+    <script>
+
+        document.getElementById('manageOrders').addEventListener('click', function () {
+            this.parentElement.classList.toggle('open'); // Bật/tắt class 'open' để mở/đóng submenu
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var itemsPerPage = 6; // Số sản phẩm hiển thị trên mỗi trang
+            var currentPage = 1;  // Trang hiện tại
+            var totalItems = $('.event-card').length; // Tổng số sản phẩm ban đầu
+
+            // Hàm hiển thị sản phẩm cho trang hiện tại
+            function showPage(page, items) {
+                $('.event-card').hide(); // Ẩn tất cả sản phẩm
+
+                var startItem = (page - 1) * itemsPerPage;
+                var endItem = Math.min(startItem + itemsPerPage, items.length);
+
+                items.slice(startItem, endItem).show(); // Hiển thị sản phẩm trang hiện tại
+
+                $('#pagination .page-item').removeClass('active');
+                $('#pagination .page-item[data-page="' + page + '"]').addClass('active');
+
+                $('#prev-page').toggleClass('disabled', page === 1);
+                $('#next-page').toggleClass('disabled', page === Math.ceil(items.length / itemsPerPage));
+            }
+
+            // Hàm cập nhật các nút phân trang
+            function updatePagination(totalItems) {
+                $('#pagination').find('.page-item:not(#prev-page, #next-page)').remove(); // Xóa các nút trang cũ
+                var totalPages = Math.ceil(totalItems / itemsPerPage);
+
+                for (var i = 1; i <= totalPages; i++) {
+                    $('<li class="paginate_button page-item" data-page="' + i + '"><a href="#" class="page-link">' + i + '</a></li>').insertBefore('#next-page');
+                }
+            }
+
+            // Hàm xử lý khi tìm kiếm
+            $('#searchInput').on('keyup', function () {
+                var searchValue = $(this).val().toLowerCase();
+
+                var filteredItems = $('.event-card').filter(function () {
+                    return $(this).text().toLowerCase().indexOf(searchValue) > -1;
+                });
+
+                if (filteredItems.length > 0) {
+                    updatePagination(filteredItems.length); // Cập nhật phân trang
+                    currentPage = 1; // Quay về trang đầu tiên
+                    showPage(currentPage, filteredItems); // Hiển thị kết quả
+                } else {
+                    $('.event-card').hide(); // Ẩn tất cả sản phẩm
+                    $('#pagination').find('.page-item:not(#prev-page, #next-page)').remove(); // Xóa phân trang
+                }
+            });
+
+            // Xử lý sự kiện khi nhấn các nút phân trang
+            $('#pagination').on('click', '.page-item', function (e) {
+                e.preventDefault();
+                var page = $(this).data('page');
+                if (page) {
+                    currentPage = page;
+                    var items = $('#searchInput').val()
+                        ? $('.event-card').filter(function () {
+                            return $(this).text().toLowerCase().indexOf($('#searchInput').val().toLowerCase()) > -1;
+                        })
+                        : $('.event-card');
+                    showPage(currentPage, items);
+                }
+            });
+
+            // Xử lý nút Lùi
+            $('#prev-page').click(function (e) {
+                e.preventDefault();
+                if (currentPage > 1) {
+                    currentPage--;
+                    var items = $('#searchInput').val()
+                        ? $('.event-card').filter(function () {
+                            return $(this).text().toLowerCase().indexOf($('#searchInput').val().toLowerCase()) > -1;
+                        })
+                        : $('.event-card');
+                    showPage(currentPage, items);
+                }
+            });
+
+            // Xử lý nút Tiếp
+            $('#next-page').click(function (e) {
+                e.preventDefault();
+                var items = $('#searchInput').val()
+                    ? $('.event-card').filter(function () {
+                        return $(this).text().toLowerCase().indexOf($('#searchInput').val().toLowerCase()) > -1;
+                    })
+                    : $('.event-card');
+                var totalPages = Math.ceil(items.length / itemsPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    showPage(currentPage, items);
+                }
+            });
+
+            // Khởi tạo hiển thị ban đầu
+            updatePagination(totalItems);
+            showPage(currentPage, $('.event-card'));
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Essential javascripts for application to work-->
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="~/src/jquery.table2excel.js"></script>
+    <script src="~/js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="~/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <script>
+
+        oTable = $('#sampleTable').dataTable();
+        $('#all').click(function (e) {
+            $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
+            e.stopImmediatePropagation();
+        });
+
+
+        function time() {
+            var today = new Date();
+            var weekday = new Array(7);
+            weekday[0] = "Chủ Nhật";
+            weekday[1] = "Thứ Hai";
+            weekday[2] = "Thứ Ba";
+            weekday[3] = "Thứ Tư";
+            weekday[4] = "Thứ Năm";
+            weekday[5] = "Thứ Sáu";
+            weekday[6] = "Thứ Bảy";
+            var day = weekday[today.getDay()];
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1;
+            var yyyy = today.getFullYear();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            nowTime = h + " giờ " + m + " phút " + s + " giây";
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+            tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+                '</span>';
+            document.getElementById("clock").innerHTML = tmp;
+            clocktime = setTimeout("time()", "1000", "Javascript");
+
+            function checkTime(i) {
+                if (i < 10) {
+                    i = "0" + i;
+                }
+                return i;
+            }
+        }
+        ;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1267 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@model GreenGardenClient.Models.OrderDetailVM
+@using GreenGardenClient.Models
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tạo đơn hàng | Chi tiết đơn  hàng</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="~/css/Order tracking.css">
+</head>
+<header class="app-header">
+    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+                                    aria-label="Hide Sidebar"></a>
+    <!-- Navbar Right Menu-->
+    <ul class="app-nav">
+
+
+        <!-- User Menu-->
+        <li>
+            <a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+
+        </li>
+    </ul>
+</header>
+<style>
+
+    .order-info {
+        padding: 20px; /* Khoảng cách bên trong */
+        margin: 0 auto; /* Canh giữa khung theo chiều ngang */
+        border-radius: 10px; /* Bo góc */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Đổ bóng */
+        max-width: 900px; /* Giới hạn chiều rộng */
+        text-align: center; /* Canh giữa nội dung */
+    }
+
+        .order-info p {
+            align-items: start;
+        }
+
+    .row.justify-content-center {
+        justify-content: center;
+    }
+
+    }
+
+    .invoice-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .invoice-table th, .invoice-table td {
+            border: none;
+            text-align: center;
+            vertical-align: middle;
+            padding: 10px;
+        }
+
+            .invoice-table td:first-child, .invoice-table th:first-child {
+                text-align: left;
+            }
+
+            .invoice-table td:nth-child(2), .invoice-table th:nth-child(2) {
+                text-align: left;
+            }
+
+    .currency-symbol {
+        margin-left: 5px;
+    }
+
+
+
+
+    /* Right-align the "Tổng tiền" column */
+    .invoice-table td:last-child, .invoice-table th:last-child {
+        text-align: right;
+    }
+    /* Right-align the "Tổng tiền" column */
+    .invoice-table td:last-child, .invoice-table th:last-child {
+        text-align: right;
+    }
+
+    .invoice-table tbody tr {
+        border-bottom: 2px solid #D3D3D3; /* Horizontal line between rows */
+    }
+
+    .invoice-table thead th {
+        border-bottom: 2px solid #D3D3D3; /* Horizontal line under header */
+    }
+
+    .total-row {
+        font-weight: bold;
+    }
+
+    .total-section {
+        text-align: right;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    .text-red {
+        color: red;
+    }
+    /* Đặt nền màu #eee cho cả header và sidebar */
+    .app-header, .app-sidebar {
+        background-color: #eee;
+    }
+
+    .app-header {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        z-index: 1;
+    }
+
+        .app-header .app-nav {
+            margin-left: auto;
+        }
+
+    .app-nav__item {
+        text-decoration: none;
+        color: #333;
+        padding: 8px 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .app-sidebar {
+        position: fixed;
+        top: 0px; /* Để không đè lên header */
+        left: 0;
+        width: 250px;
+        height: 100%;
+        padding-top: 20px;
+        background-color: #eee;
+        border-right: 1px solid #ccc; /* Viền phải của sidebar */
+    }
+
+    .app-sidebar__user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .app-sidebar__user-avatar {
+        width: 100px; /* hoặc một giá trị cụ thể khác tùy thuộc vào kích thước bạn muốn */
+        height: 100px; /* cần phải bằng width */
+        border-radius: 50%;
+        margin-right: 10px;
+        object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+    }
+
+    .app-sidebar__user-name {
+        margin: 0;
+        font-weight: bold;
+        color: black;
+    }
+
+    .app-sidebar__user-designation {
+        margin: 0;
+        color: black;
+    }
+
+    .app-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .app-menu__item {
+        text-decoration: none;
+        color: #333;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .app-menu__icon {
+        margin-right: 10px;
+        color: #333;
+    }
+
+    .app-menu__item.active {
+        background-color: #ccc;
+        font-weight: bold;
+    }
+
+    hr {
+        border: 1px solid #ccc;
+        margin: 10px 0;
+    }
+    /* Ẩn submenu mặc định */
+    .submenu {
+        display: none;
+        list-style-type: none;
+        padding-left: 20px;
+    }
+
+    /* Hiển thị submenu khi có class 'open' */
+    .has-submenu.open .submenu {
+        display: block;
+    }
+    /* chỉnh icon cho app menu' */
+    .app-menu__item {
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        display: block;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .submenu .app-menu__item {
+        padding-left: 40px; /* Đẩy các mục con thụt vào */
+    }
+
+    .app-menu__item {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item i {
+            margin-right: 10px; /* Khoảng cách giữa icon và chữ */
+            font-size: 18px; /* Kích thước icon */
+        }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .tile {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .total-section {
+        width: 250px; /* Adjust width as necessary */
+    }
+
+        .total-section .label {
+            text-align: left;
+            width: 100px; /* Make sure labels are aligned */
+            font-size: 1rem;
+        }
+
+        .total-section .amount {
+            text-align: right;
+            font-weight: bold;
+            font-size: 1rem;
+            white-space: nowrap; /* Prevents line break between amount and currency */
+        }
+
+    .text-danger {
+        color: #dc3545; /* Red color for "Thanh toán" */
+    }
+
+    .currency-symbol {
+        font-weight: normal; /* Make the currency symbol normal weight for better appearance */
+        margin-left: 2px; /* Small space between amount and currency */
+    }
+
+    /* Remove shadow and borders around the modal */
+    .modal-content {
+        box-shadow: none; /* Removes shadow around the modal */
+        border: none; /* Removes any border */
+    }
+
+    /* Optional: Customize modal background if desired */
+    .modal-content {
+        background-color: white;
+    }
+
+</style>
+<body onload="time()" class="app sidebar-mini rtl">
+    <header class="app-header" style="display: flex; align-items: center; padding: 0 15px; background-color: #f6f5f5 !important;">
+        <!-- Sidebar Toggle -->
+        
+
+        <!-- Centered Logo -->
+        <div style="flex: 500; display: flex; justify-content: center; align-items: center; padding-left: 50px;">
+            <img src="~/images/newlogo.jpg" alt="Logo" style="height: auto; width: 55%; max-width: 120px;margin-top: 10px;">
+        </div>
+
+
+        <!-- User Menu -->
+        <ul class="app-nav" style="display: flex; align-items: center; margin-left: auto; list-style: none; padding: 0;">
+            <li>
+                <a class="app-nav__item" href="~/Home" style="display: flex; align-items: center; text-decoration: none; color: black; background: rgb(195 195 195); padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s;">
+                    <!-- Replace with an icon -->
+                    <i class="bx bx-home" style="font-size: 1.5rem; margin-right: 8px;"></i>
+                    <!-- Add text next to the icon -->
+                    <span style="font-size: 1rem;">Quay lại trang chủ</span>
+                </a>
+            </li>
+        </ul>
+
+    </header>
+    @{
+        if (ViewBag.NotificationSuccess != null)
+        {
+            <div id="notification-success" class="notification alert alert-success" role="alert">
+                <i class="fas fa-bell"></i> <!-- Bell Icon -->
+                @ViewBag.NotificationSuccess
+            </div>
+        }
+    }
+    @{
+        if (ViewBag.NotificationError != null)
+        {
+            <div id="notification-success" class="notification alert alert-danger" role="alert">
+                <i class="fas fa-bell"></i> <!-- Bell Icon -->
+                @ViewBag.NotificationError
+            </div>
+        }
+    }
+    <style>
+        .notification {
+            position: fixed;
+            top: 20px; /* Distance from the top */
+            right: -350px; /* Start outside the viewport */
+            z-index: 1050; /* Ensure it appears above other elements */
+            opacity: 1; /* Fully visible initially */
+            transition: transform 0.5s ease-out, opacity 1s ease-out; /* Smooth slide and fade effects */
+            max-width: 300px; /* Restrict maximum width */
+            padding: 15px; /* Padding inside the notification */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        /* Success notification styles */
+        .alert-success {
+            background-color: #d4edda; /* Light green background */
+            color: #155724; /* Dark green text */
+            border: 1px solid #c3e6cb; /* Green border */
+        }
+
+        /* Error notification styles */
+        .alert-danger {
+            background-color: #f8d7da; /* Light red background */
+            color: #721c24; /* Dark red text */
+            border: 1px solid #f5c6cb; /* Red border */
+        }
+    </style>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function showAndHideNotification(selector) {
+                if ($(selector).length) {
+                    // Slide notification into view
+                    $(selector).css("transform", "translateX(-350px)"); // Slide in
+                    setTimeout(function () {
+                        // Slide notification back out after 5 seconds
+                        $(selector).css("transform", "translateX(0)"); // Slide out
+                        $(selector).css("opacity", "0"); // Optional fade-out effect
+                    }, 5000); // Display for 5 seconds before sliding out
+                }
+            }
+
+            // Show success and error notifications
+            showAndHideNotification("#notification-success");
+            showAndHideNotification("#notification-error");
+        });
+    </script>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar" style="margin-right: auto;">
+            <!-- Add an icon or text for the sidebar toggle -->
+        </a>
+        <div class="app-sidebar__user">
+            @if (@HttpContextAccessor.HttpContext.Session.GetString("Img") == null)
+            {
+
+                <img src="~/images/p22.jpg" alt="Trang cá nhân" class="app-sidebar__user-avatar" width="50px">
+
+            }
+            else
+            {
+                <img src="@HttpContextAccessor.HttpContext.Session.GetString("Img")" alt="Trang cá nhân" class="app-sidebar__user-avatar" src="~/images/img_1.jpg" width="50px">
+            }               <div>
+                <p class="app-sidebar__user-designation">Xin chào</p>
+
+                <p class="app-sidebar__user-name"><b>@HttpContextAccessor.HttpContext.Session.GetString("Fullname")</b></p>
+            </div>
+        </div>
+        <hr>
+        <ul class="app-menu">
+            <style>
+
+
+                .app-menu__item.selected {
+                    font-weight: bold;
+                }
+
+            </style>
+            @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+            {
+                <li>
+                    <a class="app-menu__item" href="~/DashBoard">
+                        <i class='app-menu__icon bx bx-task'></i>
+                        <span class="app-menu__label">Thống kê</span>
+                    </a>
+                </li>
+            }
+            <li class="has-submenu" style="display:block" id="manageOrdersMenu">
+                <a class="app-menu__item" href="javascript:void(0)" id="manageOrders">
+                    <i class='app-menu__icon bx bx-id-card'></i>
+                    <span class="app-menu__label">Quản lý Đơn hàng</span>
+                </a>
+                <!-- Submenu items -->
+                <ul class="submenu" style="display: none;" id="submenuList">
+                    <li>
+                        <a href="~/OrderManagement/OrderOnline" class="app-menu__item" id="orderOnline">
+                            <i class='bx bx-notepad'></i> Đơn đặt trước
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderUsing" class="app-menu__item" id="orderUsing">
+                            <i class='bx bx-time-five'></i> Đơn đang sử dụng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderCheckOut" class="app-menu__item" id="orderCheckOut">
+                            <i class='bx bx-check-circle'></i> Đơn đã thanh toán
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderCancel" class="app-menu__item" id="orderCancel">
+                            <i class='bx bx-x-circle'></i> Đơn đã hủy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/CreateOrder" class="app-menu__item" id="createOrder">
+                            <i class='bx bx-plus'></i> Tạo đơn mới
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const submenu = document.getElementById("submenuList");
+                    const manageOrdersMenu = document.getElementById("manageOrdersMenu");
+                    const manageOrdersButton = document.getElementById("manageOrders");
+                    const submenuItems = document.querySelectorAll("#manageOrdersMenu .submenu .app-menu__item");
+
+                    const currentUrl = window.location.pathname;
+
+                    console.log("Current URL:", currentUrl);
+
+                    // Map submenu items with their corresponding IDs and URLs
+                    const menuMappings = {
+                        "orderOnline": "/OrderOnline",
+                        "orderUsing": "/OrderUsing",
+                        "orderCheckOut": "/OrderCheckOut",
+                        "orderCancel": "/OrderCancel",
+                        "createOrder": "/CreateOrder",
+                    };
+
+                    // Reset all submenu items before highlighting
+                    submenuItems.forEach(item => {
+                        item.classList.remove("selected");
+                        console.log("Removed 'selected' class from:", item.id);
+                    });
+
+                    // Automatically open submenu and highlight based on URL or localStorage
+                    let matched = false; // Flag to track if a match was found
+                    for (const [id, path] of Object.entries(menuMappings)) {
+                        if (currentUrl.includes(path)) {
+                            console.log(`URL match found for path: ${path} (ID: ${id})`);
+                            const activeItem = document.getElementById(id);
+                            if (activeItem) {
+                                activeItem.classList.add("selected"); // Highlight active submenu item
+                                console.log("Active submenu item set to:", id);
+                                submenu.style.display = "block"; // Keep submenu open
+                                console.log("Submenu opened.");
+                                manageOrdersMenu.classList.add("selected"); // Highlight parent menu
+                                localStorage.setItem("activeSubmenuItem", id); // Save the active submenu item
+                                console.log("Saved active submenu item to localStorage:", id);
+                            }
+                            matched = true;
+                            break;
+                        }
+                    }
+
+                    if (!matched) {
+                        console.log("No matching submenu item for the current URL.");
+                    }
+
+                    // Restore submenu state and active submenu item on page load
+                    const savedActiveItem = localStorage.getItem("activeSubmenuItem");
+                    console.log("Saved active item from localStorage:", savedActiveItem);
+
+                    if (!matched && savedActiveItem) {
+                        const activeItem = document.getElementById(savedActiveItem);
+                        if (activeItem) {
+                            activeItem.classList.add("selected");
+                            console.log("Restored active submenu item from localStorage:", savedActiveItem);
+                            submenu.style.display = "block";
+                            console.log("Submenu reopened based on saved state.");
+                            manageOrdersMenu.classList.add("selected");
+                        }
+                    }
+
+                    // Toggle submenu visibility only when clicking the parent menu
+                    manageOrdersButton.addEventListener("click", function (event) {
+                        event.stopPropagation(); // Prevent event bubbling
+                        const isVisible = submenu.style.display === "block";
+                        submenu.style.display = isVisible ? "none" : "block";
+
+                        console.log(`Parent menu clicked. Submenu visibility toggled to: ${isVisible ? "hidden" : "visible"}`);
+
+                        if (!isVisible) {
+                            // Restore active state if submenu is reopened
+                            const savedItem = localStorage.getItem("activeSubmenuItem");
+                            if (savedItem) {
+                                document.getElementById(savedItem)?.classList.add("selected");
+                                console.log("Restored active submenu item on reopening:", savedItem);
+                            }
+                        }
+                    });
+
+                    // Ensure submenu stays open when clicking a submenu item and save active state
+                    submenuItems.forEach(item => {
+                        item.addEventListener("click", function (event) {
+                            submenu.style.display = "block"; // Ensure submenu stays open
+                            console.log("Submenu item clicked:", this.id);
+
+                            // Save the clicked submenu item as active
+                            submenuItems.forEach(i => {
+                                i.classList.remove("selected"); // Remove active class from all items
+                                console.log("Removed 'selected' class from:", i.id);
+                            });
+                            this.classList.add("selected"); // Add active class to clicked item
+                            console.log("Set 'selected' class for:", this.id);
+                            localStorage.setItem("activeSubmenuItem", this.id); // Save to localStorage
+                            console.log("Saved new active submenu item to localStorage:", this.id);
+                        });
+                    });
+                });
+
+            </script>
+            <li>
+                <a class="app-menu__item" href="~/TicketManagement/Index">
+                    <i class='app-menu__icon bx bx-receipt'></i> <!-- Receipt icon as alternative -->
+                    <span class="app-menu__label">Quản lý vé</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="app-menu__item" href="~/GearManagement/Index">
+                    <i class='app-menu__icon bx bx-wrench'></i> <!-- Gear/Tools icon -->
+                    <span class="app-menu__label">Quản lý dụng cụ</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="~/FoodAndDrinkManagement/Index">
+                    <i class='app-menu__icon bx bx-coffee'></i> <!-- Food and drink icon -->
+                    <span class="app-menu__label">Quản lý đồ ăn</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="~/EventManagement/Index">
+                    <i class='app-menu__icon bx bx-calendar-event'></i>
+                    <span class="app-menu__label">Quản lý sự kiện</span>
+                </a>
+            </li>
+            @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+            {
+                <li>
+                    <a class="app-menu__item" href="~/UserManagement/Index">
+                        <i class='app-menu__icon bx bx-user-voice'></i>
+                        <span class="app-menu__label">Quản lý khách hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="app-menu__item" href="~/EmployeeManagement/Index">
+                        <i class='app-menu__icon bx bx-purchase-tag-alt'></i>
+                        <span class="app-menu__label">Quản lý nhân viên</span>
+                    </a>
+                </li>
+            }
+
+        </ul>
+    </aside>
+
+    <main class="app-content">
+        <div class="app-title">
+            <ul class="app-breadcrumb breadcrumb side">
+                <li class="breadcrumb-item active">Quản lí đơn hàng/Chi tiết đơn hàng</li>
+            </ul>
+            <div id="clock"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile">
+                    <div class="tile-body">
+
+                        <div class="order-info">
+                            <div class="row d-flex justify-content-center">
+                                <!-- 3 mục trên hàng đầu tiên -->
+                                <div class="col-md-4">
+                                    <p><strong style="margin-right:10px">Mã đơn:</strong>#@Model.OrderId</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p><strong style="margin-right:10px">Tên khách hàng:</strong>@Model.CustomerName</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p><strong style="margin-right:10px">Số điện thoại:</strong>@Model.PhoneCustomer</p>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+
+                                <!-- 3 mục trên hàng thứ hai -->
+                                <div class="col-md-4">
+                                    <p><strong style="margin-right:10px">Ngày đặt đơn:</strong>@Model.OrderDate?.ToString("hh:mm:ss tt dd/MM/yyyy")</p>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <p><strong style="margin-right:10px">Ngày sử dụng:</strong>@Model.OrderUsageDate?.ToString("hh:mm:ss tt dd/MM/yyyy")</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <strong style="margin-right:10px">Tổng Tiền:</strong>@Model.TotalAmount.ToString("C2", new System.Globalization.CultureInfo("vi-VN"))
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-track">
+                            <ul id="progressbar">
+                                @if (Model.ActivityId == 1002)
+                                {
+                                    <li class="step0 active " id="step1">Hủy</li>
+                                    <li class="step0 text-center" id="step2">Đợi sử dụng</li>
+                                    <li class="step0 text-right" id="step3">Đang sử dụng</li>
+                                    <li class="step0 text-right" id="step4">Đã thanh toán </li>
+                                }
+                                else
+                                @if (Model.ActivityId == 1)
+                                {
+                                    <li class="step0 active " id="step1">Hủy</li>
+                                    <li class="step0 text-center active " id="step2">Đợi sử dụng</li>
+                                    <li class="step0 text-right" id="step3">Đang sử dụng</li>
+                                    <li class="step0 text-right" id="step4">Đã thanh toán </li>
+                                }
+                                else
+                                @if (Model.ActivityId == 2)
+                                {
+                                    <li class="step0 active " id="step1">Hủy</li>
+                                    <li class="step0 text-center active" id="step2">Đợi sử dụng</li>
+                                    <li class="step0 text-right active" id="step3">Đang sử dụng</li>
+                                    <li class="step0 text-right" id="step4">Đã thanh toán </li>
+                                }
+                                else
+                                {
+                                    <li class="step0 active " id="step1">Hủy</li>
+                                    <li class="step0 text-center active" id="step2">Đợi sử dụng</li>
+                                    <li class="step0 text-right active" id="step3">Đang sử dụng</li>
+                                    <li class="step0 text-right active" id="step3">Đã thanh toán </li>
+                                }
+                            </ul>
+                        </div>
+
+
+                        <hr>
+                        <div class="d-flex justify-content-end align-items-center">
+                            @if (Model.ActivityId == 2||Model.ActivityId == 1)
+                            {
+                                <div class="d-flex">
+                                    @if (Model.OrderTicketDetails != null && Model.OrderTicketDetails.Count > 0)
+                                    {
+                                        <a href="~/OrderManagement/UpdateTicket" class="btn btn-link">
+                                            <i class="fas fa-ticket-alt"></i> Cập nhập vé
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/OrderManagement/UpdateCombo" class="btn btn-link">
+                                            <i class="fas fa-box"></i> Cập nhập Combo
+                                        </a>
+                                    }
+                                    <a href="~/OrderManagement/UpdateGear" class="btn btn-link">
+                                        <i class="fas fa-cogs"></i> Cập nhập đồ thuê
+                                    </a>
+                                    <a href="~/OrderManagement/UpdateFood" class="btn btn-link">
+                                        <i class="fas fa-utensils"></i> Cập nhập đồ ăn
+                                    </a>
+                                </div>
+
+                            }
+                        </div>
+                        <div class="container mt-5">
+                            <h2 class="text-start mb-4">Đồ đã đặt</h2>
+                            <table class="invoice-table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-start">Tên</th>
+                                        <th>Giá</th>
+                                        <th>Số Lượng</th>
+                                        @if (Model.ActivityId == 2 || Model.ActivityId == 3)
+                                        {
+                                            <th>Số ngày</th>
+                                        }
+                                        <th>Tổng tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.OrderTicketDetails != null)
+                                    {
+                                        foreach (var item in Model.OrderTicketDetails)
+                                        {
+                                            <tr>
+                                                <td class="text-start">@item.Name</td>
+                                                <td>@String.Format("{0:0,0}", @item.Price)<span class="currency-symbol"> ₫</span></td>
+                                                <td>@item.Quantity</td>
+                                                @if (Model.ActivityId == 2 || Model.ActivityId == 3)
+                                                {
+                                                    <td>@ViewBag.date</td>
+                                                }
+                                                @if (ViewBag.date >= 1)
+                                                {
+                                                    <td>
+                                                        @String.Format("{0:0,0} ₫", item.Price * item.Quantity * ViewBag.date)
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td>@String.Format("{0:0,0} ₫", item.Price * item.Quantity)</td>
+
+                                                }
+                                            </tr>
+                                        }
+                                    }
+                                    @if (Model.OrderComboDetails != null)
+                                    {
+                                        foreach (var item in Model.OrderComboDetails)
+                                        {
+                                            <tr>
+                                                <td class="text-start">@item.Name</td>
+                                                <td>@String.Format("{0:0,0}", @item.Price)<span class="currency-symbol"> ₫</span></td>
+                                                <td>@item.Quantity</td>
+                                                @if (Model.ActivityId == 2 || Model.ActivityId == 3)
+                                                {
+                                                    <td>@ViewBag.date</td>
+                                                }
+                                                <td>@String.Format("{0:0,0} ₫", item.Price * item.Quantity)</td>
+
+                                            </tr>
+                                        }
+                                    }
+                                    @if (Model.OrderCampingGearDetails != null)
+                                    {
+                                        foreach (var item in Model.OrderCampingGearDetails)
+                                        {
+                                            <tr>
+                                                <td class="text-start">@item.Name còn @item.QuantityAvaiable</td>
+                                                <td>@String.Format("{0:0,0}", @item.Price)<span class="currency-symbol"> ₫</span></td>
+                                                <td>@item.Quantity</td>
+                                                @if (Model.ActivityId == 2 || Model.ActivityId == 3)
+                                                {
+                                                    <td>@ViewBag.date</td>
+                                                }
+                                                <td>@String.Format("{0:0,0} ₫", item.Price * item.Quantity)</td>
+
+                                            </tr>
+                                        }
+                                    }
+                                    @if (Model.OrderFoodDetails != null)
+                                    {
+                                        foreach (var item in Model.OrderFoodDetails)
+                                        {
+                                            <tr>
+                                                <td class="text-start">@item.Name</td>
+                                                <td>@String.Format("{0:0,0}", @item.Price)<span class="currency-symbol"> ₫</span></td>
+                                                <td>@item.Quantity</td>
+                                                @if (Model.ActivityId == 2 || Model.ActivityId == 3)
+                                                {
+                                                    <td>@ViewBag.date</td>
+                                                }
+                                                <td>@String.Format("{0:0,0} ₫", item.Price * item.Quantity)</td>
+
+                                            </tr>
+                                        }
+                                    }
+                                    @if (Model.OrderFoodComboDetails != null)
+                                    {
+                                        foreach (var item in Model.OrderFoodComboDetails)
+                                        {
+                                            <tr>
+                                                <td class="text-start">@item.Name</td>
+                                                <td>@String.Format("{0:0,0}", @item.Price)<span class="currency-symbol"> ₫</span></td>
+                                                <td>@item.Quantity</td>
+                                                @if (Model.ActivityId == 2 || Model.ActivityId == 3)
+                                                {
+                                                    <td>@ViewBag.date</td>
+                                                }
+                                                <td>@String.Format("{0:0,0} ₫", item.Price * item.Quantity)</td>
+
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+
+                            <div class="container mt-5 d-flex justify-content-end">
+                                <div class="total-section">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="label">Tổng tiền:</span>
+                                        <span class="amount">@String.Format("{0:0,0}", @Model.TotalAmount) <span class="currency-symbol">₫</span></span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="label">Đã cọc:</span>
+                                        <span class="amount">@String.Format("{0:0,0}", @Model.Deposit) <span class="currency-symbol">₫</span></span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        @if (@Model.AmountPayable>=0)
+                                        {
+                                            <span class="label font-weight-bold">Thanh toán:</span>
+                                            <span class="amount text-danger font-weight-bold" style="font-size: 1.2rem;">@String.Format("{0:0,0}", @Model.AmountPayable) <span class="currency-symbol">₫</span></span>
+
+                                        }
+                                        else
+                                        {
+                                            <span class="label font-weight-bold">Hoàn trả khách:</span>
+                                            <span class="amount text-danger font-weight-bold" style="font-size: 1.2rem;">
+                                                @String.Format("{0:0,0}", Math.Abs(Model.AmountPayable))
+
+                                            <span class="currency-symbol">₫</span></span>
+
+                                        }
+                                    </div>
+
+                                    <!-- Right-aligned Payment Button -->
+                                    
+
+
+
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <!-- Back Button -->
+                                <div>
+                                    @{
+                                        string actionName = Model.ActivityId switch
+                                        {
+                                            1 => "OrderOnline",
+                                            2 => "OrderUsing",
+                                            3 => "OrderCheckout",
+                                            1002 => "OrderCancel",
+                                            _ => "OrderOnline" // Hành động mặc định nếu ActivityId không khớp
+                                        };
+                                    }
+
+                                    <a asp-controller="OrderManagement" asp-action="@actionName" class="btn btn-secondary px-4 py-2">
+                                        <i class="fas fa-arrow-left me-2"></i>  Quay lại
+                                    </a>
+                                </div>
+
+                                <!-- Other Buttons -->
+                                <div>
+                                    @if (Model.ActivityId == 1)
+                                    {
+                                        <!-- Cancel Button -->
+                                        <form id="cancelForm" class="d-inline-block" asp-controller="OrderManagement" asp-action="UpdateActivityOrder" method="post">
+                                            <input type="number" hidden name="idorder" value="@Model.OrderId" />
+                                            <input type="number" hidden name="idactivity" value="1002" />
+                                            <button type="button" class="btn btn-danger font-weight-bold px-4 py-2 mx-2"
+                                                    style="font-size: 1.1rem;"
+                                                    data-bs-toggle="modal" data-bs-target="#cancelConfirmModal"
+                                                    onclick="saveOrderIdsToLocalStorage(@Model.OrderId)">
+                                                <i class="fas fa-times-circle me-2"></i>  Hủy
+                                            </button>
+                                        </form>
+
+                                        <!-- Use Button -->
+                                        <form id="useForm" class="d-inline-block" asp-controller="OrderManagement" asp-action="UpdateActivityOrder" method="post">
+                                            <input type="number" hidden name="idorder" value="@Model.OrderId" />
+                                            <input type="number" hidden name="idactivity" value="2" />
+                                            <button type="button" class="btn btn-success font-weight-bold px-4 py-2 mx-2"
+                                                    style="font-size: 1.1rem;"
+                                                    data-bs-toggle="modal" data-bs-target="#useConfirmModal"
+                                                    onclick="saveOrderIdsToLocalStorage(@Model.OrderId)">
+                                                <i class="fas fa-play-circle me-2"> </i>  Sử dụng
+                                            </button>
+                                        </form>
+                                       
+                                    }
+                                    else if (Model.ActivityId == 2)
+                                    {
+                                          <form id="cancelForm" class="d-inline-block" asp-controller="OrderManagement" asp-action="UpdateActivityOrder" method="post">
+                                            <input type="number" hidden name="idorder" value="@Model.OrderId" />
+                                            <input type="number" hidden name="idactivity" value="1002" />
+                                            <button type="button" class="btn btn-danger font-weight-bold px-4 py-2 mx-2"
+                                                    style="font-size: 1.1rem;"
+                                                    data-bs-toggle="modal" data-bs-target="#cancelConfirmModal"
+                                                    onclick="saveOrderIdsToLocalStorage(@Model.OrderId)">
+                                                <i class="fas fa-times-circle me-2"></i>  Hủy
+                                            </button>
+                                        </form>
+                                        <!-- Payment Button -->
+                                        <form id="paymentForm" class="d-inline-block" asp-controller="OrderManagement" asp-action="UpdateActivityOrder" method="post">
+                                            <input type="number" hidden name="idorder" value="@Model.OrderId" />
+                                            <input type="number" hidden name="idactivity" value="3" />
+                                            <button type="button" class="btn btn-success font-weight-bold px-4 py-2 mx-2"
+                                                    style="font-size: 1.1rem;"
+                                                    data-bs-toggle="modal" data-bs-target="#paymentConfirmModal"
+                                                    onclick="saveOrderIdsToLocalStorage(@Model.OrderId)">
+                                                <i class="fas fa-credit-card me-2"></i>  Thanh toán
+                                            </button>
+                                        </form>
+
+                         
+                                    }
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </main>
+  
+
+    <script>
+        document.getElementById('confirmPaymentBtn').addEventListener('click', function () {
+            // Find the payment form and submit it
+            document.querySelector('.total-section form').submit();
+        });
+    </script>
+    <!-- Nút mở Modal -->
+    
+
+    <!-- Modal -->
+    <!-- Nội dung Modal -->
+    <div class="modal fade" id="gearModal" tabindex="-1" aria-labelledby="gearModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #f8f9fa;">
+                    <h5 class="modal-title" id="gearModalLabel" style="color:black">Xác nhận dụng cụ thuê hôm nay</h5>
+                </div>
+                <form id="updateForm" asp-controller="OrderManagement" asp-action="UpdateGearChangeDate2" method="post">
+                    <div class="modal-body">
+                        @if (ViewBag.gear != null)
+                        {
+                            <table class="table table-striped table-hover">
+                                <thead style="background-color: #f1f1f1;">
+                                    <tr>
+                                        <th>Tên</th>
+                                        <th>Giá</th>
+                                        <th>Số Lượng Thuê</th>
+                                        <th>Còn lại</th>
+                                        <th>Tổng Tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (OrderCampingGearDetailDTO item in ViewBag.gear)
+                                    {
+                                        <tr>
+                                            <td class="text-start">@item.Name</td>
+                                            <td>@String.Format("{0:0,0}", item.Price)<span class="currency-symbol"> ₫</span></td>
+                                            <td>@item.Quantity</td>
+                                            <td class="text-center">
+                                                <span class="badge @(item.QuantityAvaiable <= item.Quantity && item.QuantityAvaiable > 0 ? "bg-danger" : "bg-success")">
+                                                    @item.QuantityAvaiable
+                                                </span>
+                                              
+                                            </td>
+                                            <td>@String.Format("{0:0,0} ₫", item.Price * item.Quantity)</td>
+                                            <input class="quantity-input" hidden name="quantity" value="@(item.Quantity > item.QuantityAvaiable ? item.QuantityAvaiable : item.Quantity)" />
+                                            <input type="text" value="@item.GearId" hidden name="id">
+                                            <input type="number" value="@item.Price" hidden name="price">
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <p>Không có dữ liệu gear.</p>
+                        }
+                    </div>
+                    <div class="modal-footer" style="border-top: none;">
+                        <!-- Nút xác nhận -->
+                        <a class="btn btn-secondary" asp-controller="OrderManagement" asp-action="CancelForm" asp-route-itemid="@Model.OrderId">Huỷ</a>
+
+                        <button type="button" class="btn btn-success" onclick="submitForm('updateForm')">Xác nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Kiểm tra nếu ViewBag.gear không null (được truyền qua data-geardata)
+            var gearData = "@(ViewBag.gear != null ? "true" : "false")";
+
+            // Nếu gearData là true, mở modal
+            if (gearData === "true") {
+                // Hiển thị modal bằng Bootstrap 5
+                var myModal = new bootstrap.Modal(document.getElementById('gearModal'));
+                myModal.show();
+            }
+
+          
+
+           
+        });
+    </script>
+
+
+
+
+    
+    <div class="modal fade" id="cancelConfirmModal" tabindex="-1" aria-labelledby="cancelConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cancelConfirmModalLabel">Xác nhận hủy</h5>
+                </div>
+                <div class="modal-body">
+                    Xác nhận hủy đơn.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger" onclick="submitForm('cancelForm')">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Use Confirmation Modal -->
+    <div class="modal fade" id="useConfirmModal" tabindex="-1" aria-labelledby="useConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="useConfirmModalLabel">Xác nhận sử dụng</h5>
+                </div>
+                <div class="modal-body">
+                    Xác nhận đơn chuyển sang trạng thái đang sử dụng.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-success" onclick="submitForm('useForm')">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Confirmation Modal -->
+    <div class="modal fade" id="paymentConfirmModal" tabindex="-1" aria-labelledby="paymentConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentConfirmModalLabel" style="color:black" >Xác nhận thanh toán</h5>
+                </div>
+                <div class="modal-body">
+                    Xác nhận thanh toán.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-success" onclick="submitForm('paymentForm')">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle form submission -->
+    <script>
+        function saveOrderIdsToLocalStorage(orderId) {
+            // Lấy danh sách orderId từ localStorage, nếu chưa có thì khởi tạo một mảng rỗng
+            let orderIds = JSON.parse(localStorage.getItem('orderIds')) || [];
+
+            // Kiểm tra xem orderId đã có trong danh sách chưa
+            if (!orderIds.includes(orderId)) {
+                // Nếu chưa có, thêm vào danh sách
+                orderIds.push(orderId);
+                // Lưu lại danh sách cập nhật vào localStorage
+                localStorage.setItem('orderIds', JSON.stringify(orderIds));
+            } else {
+                console.log("Order ID đã có trong danh sách.");
+            }
+        }
+        function submitForm(formId) {
+            document.getElementById(formId).submit();
+        }
+   
+
+
+    </script>
+
+
+    <script>
+
+        // Hàm mở modal và hiển thị ảnh phóng to
+        function openModal() {
+            var modal = document.getElementById("imageModal");
+            var img = document.getElementById("productImage");
+            var modalImg = document.getElementById("zoomedImage");
+
+            modal.style.display = "block";
+            modalImg.src = img.src; // Hiển thị ảnh trong modal
+        }
+
+        // Hàm đóng modal khi nhấp vào biểu tượng đóng
+        function closeModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+
+
+    </script>
+    <style>
+      
+      
+
+        /* Cải tiến badge cho số lượng còn lại */
+        .badge.bg-success {
+            background-color: #28a745;
+        }
+
+        .badge.bg-danger {
+            background-color: #dc3545;
+        }
+
+       
+
+      
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/bootstrap-icons.min.js"></script>
+
+    <script>
+
+        document.getElementById('manageOrders').addEventListener('click', function () {
+            this.parentElement.classList.toggle('open'); // Bật/tắt class 'open' để mở/đóng submenu
+        });
+
+    </script>
+
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="~/src/jquery.table2excel.js"></script>
+    <script src="~/js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="~/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <script>
+
+        oTable = $('#sampleTable').dataTable();
+        $('#all').click(function (e) {
+            $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
+            e.stopImmediatePropagation();
+        });
+
+
+        function time() {
+            var today = new Date();
+            var weekday = new Array(7);
+            weekday[0] = "Chủ Nhật";
+            weekday[1] = "Thứ Hai";
+            weekday[2] = "Thứ Ba";
+            weekday[3] = "Thứ Tư";
+            weekday[4] = "Thứ Năm";
+            weekday[5] = "Thứ Sáu";
+            weekday[6] = "Thứ Bảy";
+            var day = weekday[today.getDay()];
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1;
+            var yyyy = today.getFullYear();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            nowTime = h + " giờ " + m + " phút " + s + " giây";
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+            tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+                '</span>';
+            document.getElementById("clock").innerHTML = tmp;
+            clocktime = setTimeout("time()", "1000", "Javascript");
+
+            function checkTime(i) {
+                if (i < 10) {
+                    i = "0" + i;
+                }
+                return i;
+            }
+        }
+        ;
+    </script>
+</body>
+
+</html>

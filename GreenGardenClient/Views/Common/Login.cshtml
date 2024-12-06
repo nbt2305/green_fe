@@ -1,0 +1,673 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Đăng nhập &mdash; GreenGarden</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/css/aos.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .site-navbar {
+            position: fixed; /* Cố định header */
+            top: 0; /* Đặt header ở đầu trang */
+            left: 0; /* Canh trái */
+            width: 100%; /* Chiếm toàn bộ chiều rộng */
+            z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác */
+            background-color: #f6f5f5 !important;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho header */
+            padding: 10px 0; /* Khoảng cách trên và dưới */
+        }
+
+            /* Khoảng trống bên dưới để bù cho chiều cao header */
+            .site-navbar + .content {
+                padding-top: 70px; /* Điều chỉnh theo chiều cao thực tế của header */
+            }
+
+        .tile {
+            /* Khoảng cách dưới */
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 80%; /* Đặt chiều rộng form là 80% */
+        }
+
+        .bg-image {
+            background-image: url('~/images/hero_1.jpg');
+            background-size: cover;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .footer-heading {
+            color: #333;
+        }
+
+            .footer-heading a {
+                color: #666;
+            }
+    </style>
+</head>
+@{
+    if (TempData["Success"] != null)
+    {
+        <div id="notification" class="alert alert-warning" role="alert">
+            @TempData["Success"]
+        </div>
+    }
+}
+<style>
+    #notification {
+        position: fixed;
+        top: 20px; /* Khoảng cách từ đầu trang */
+        right: 20px; /* Khoảng cách từ bên phải */
+        z-index: 1050; /* Đảm bảo thông báo nằm trên các phần tử khác */
+        opacity: 1; /* Bắt đầu với độ mờ là 1 */
+        transition: opacity 1s ease-out, transform 1s ease-out; /* Hiệu ứng chuyển đổi cho độ mờ và biến đổi */
+        transform: translateY(-10px); /* Đưa thông báo lên một chút */
+        width: auto; /* Hoặc thay đổi thành một giá trị cụ thể, ví dụ: 300px */
+        max-width: 300px; /* Giới hạn chiều rộng tối đa */
+        padding: 15px; /* Khoảng cách bên trong cho thông báo */
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        if ($("#notification").length) {
+            setTimeout(function () {
+                $("#notification").css("opacity", "0"); // Đặt độ mờ thành 0
+                $("#notification").css("transform", "translateY(10px)"); // Đưa thông báo xuống một chút khi ẩn
+            }, 3000); // Sau 3 giây
+        }
+    });
+</script>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <div class="site-wrap" id="home-section">
+
+      
+        <header class="site-navbar site-navbar-target" role="banner">
+            <div class="site-mobile-menu site-navbar-target">
+                <div class="site-mobile-menu-header">
+                    <div class="site-mobile-menu-close mt-3">
+                        <span class="icon-close2 js-menu-toggle"></span>
+                    </div>
+                </div>
+                <div class="site-mobile-menu-body">
+                    <ul class="site-menu main-menu js-clone-nav ml-auto">
+                        <!-- Home link with icon -->
+                        <a href="/Home">
+                            <i class="fas fa-home"></i> Trang chủ
+                        </a>
+
+                        <!-- Event link with icon -->
+                        <a href="/Common/Event" class="nav-link">
+                            <i class="fas fa-calendar-alt"></i> Sự kiện
+                        </a>
+
+                        <!-- Service link with icon -->
+                        <a href="/Service" class="nav-link">
+                            <i class="fas fa-cogs"></i> Dịch vụ
+                        </a>
+                        <ul>
+                            <!-- Service sub-menu items with icons -->
+                            <a href="/Service/ComboList" class="nav-link">
+                                <i class="fas fa-ticket-alt"></i> Danh sách combo vé
+                            </a>
+                            <a href="/Service/OrderTicket" class="nav-link">
+                                <i class="fas fa-ticket"></i> Danh sách vé
+                            </a>
+                            <a href="/Service/OrderFoodAndDrink" class="nav-link">
+                                <i class="fas fa-utensils"></i> Danh sách đồ ăn
+                            </a>
+                            <a href="/Service/OrderGear" class="nav-link">
+                                <i class="fas fa-tools"></i> Danh sách dụng cụ
+                            </a>
+                        </ul>
+
+                        <!-- Contact link with icon -->
+                        <a href="~/Common/Contact" class="nav-link">
+                            <i class="fas fa-phone-alt"></i> Liên hệ
+                        </a>
+
+
+                        <a style="color: #efba6c " href="/Common/Login" class="nav-link">
+                            <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                        </a>
+                        <a href="/Common/Register" class="nav-link">
+                            <i class="fas fa-user-plus"></i> Đăng Ký
+                        </a>
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="container">
+                <div class="row align-items-center position-relative">
+                    <div class="col-3 ">
+                        <div class="site-logo">
+                            <a href="~/Home" class="font-weight-bold">
+                                <img src="~/images/newlogo.jpg" alt="Image" class="img-fluid" style="width: 55%; height: auto;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-9 text-right">
+                        <span class="d-inline-block d-lg-none">
+                            <a href="#" class="text-black site-menu-toggle js-menu-toggle py-5 text-white">
+                                <span class="icon-menu h3 text-black"></span> <!-- Nút mở menu -->
+                            </a>
+                        </span>
+                        <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                                <li><a href="/Home" class="nav-link">Trang chủ</a></li>
+
+
+                                <li>
+                                    <a href="/Common/Event" class="nav-link">Sự kiện</a>
+                                </li>
+                                <li class="has-dropdown">
+                                    <a href="/Service" class="nav-link">Dịch vụ</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/Service/ComboList" class="nav-link">Danh sách combo vé</a></li>
+                                        <li><a href="/Service/OrderTicket" class="nav-link">Danh sách vé</a></li>
+                                        <li><a href="/Service/OrderFoodAndDrink" class="nav-link">Danh sách đồ ăn</a></li>
+                                        <li><a href="/Service/OrderGear" class="nav-link">Danh sách dụng cụ</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="~/Common/Contact" class="nav-link">Liên hệ</a></li>
+                                <li class="active">
+                                    <a href="/Common/Login" class="nav-link">Đăng nhập</a>
+
+                                </li>
+                                <li>
+                                    <a href="/Common/Register" class="nav-link">Đăng Ký</a>
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .site-mobile-menu {
+                    width: 80%;
+                    max-width: 400px;
+                    position: fixed;
+                    right: 0;
+                    z-index: 2000;
+                    padding-top: 20px;
+                    background: #ffffff;
+                    height: 100vh;
+                    transform: translateX(110%);
+                    transition: transform 0.3s ease-in-out;
+                    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                }
+
+                .offcanvas-menu .site-mobile-menu {
+                    transform: translateX(0);
+                }
+
+                /* Close Button */
+                .site-mobile-menu-close {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    z-index: 1001;
+                    cursor: pointer;
+                }
+
+                    .site-mobile-menu-close span {
+                        font-size: 24px;
+                        color: #333;
+                        transition: color 0.3s ease;
+                    }
+
+                        .site-mobile-menu-close span:hover {
+                            color: #ff0000;
+                        }
+
+                /* Dropdown Menu */
+                .site-menu .dropdown {
+                    display: none;
+                    padding: 10px;
+                    background: #f9f9f9;
+                    border-radius: 4px;
+                }
+
+                .site-menu .has-dropdown.open .dropdown {
+                    display: block;
+                }
+
+                .site-menu a {
+                    text-decoration: none;
+                    color: #333;
+                    padding: 10px 20px;
+                    display: block;
+                    transition: background 0.3s ease;
+                }
+
+
+                /* General Styling */
+                .user-avatar img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+
+                .user-avatar span {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #333;
+                }
+                .site-menu .dropdown {
+                    display: none; /* Ẩn menu thả xuống */
+                    position: absolute; /* Để menu thả xuống xuất hiện bên dưới mục Services */
+                    text-align: center;
+                    background: #f0f0f0; /* Màu nền xám nhẹ cho menu thả xuống */
+                    padding: 10px; /* Khoảng cách bên trong */
+                    z-index: 999; /* Đảm bảo nó nằm trên các phần tử khác */
+                }
+
+
+                    .site-menu .dropdown li {
+                        display: block; /* Hiển thị các mục theo chiều dọc */
+                        margin: 5px 0; /* Khoảng cách giữa các mục theo chiều dọc */
+                    }
+
+                        .site-menu .dropdown li a {
+                            padding: 5px 10px; /* Thêm khoảng cách bên trong cho các liên kết */
+                            text-decoration: none; /* Bỏ gạch chân cho các liên kết */
+                            color: #333; /* Màu chữ cho các liên kết */
+                            transition: background-color 0.3s; /* Hiệu ứng chuyển màu nền */
+                        }
+
+                            .site-menu .dropdown li a:hover {
+                                background-color: #e0e0e0; /* Màu nền khi hover vào các liên kết */
+                            }
+
+                .site-menu .has-dropdown:hover .dropdown {
+                    display: block; /* Hiện menu thả xuống khi hover vào mục Services */
+                }
+                /* Đảm bảo phần site-section (phần màu vàng) liền mạch */
+                .bg-welcome {
+                    background-color: #fff7e6; /* Màu vàng nhạt */
+                    height: calc(100vh - 0px); /* Chiều cao đầy đủ, không chừa khoảng trống */
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    align-items: center;
+                    margin-top: 100px;
+                }
+
+                /* Căn chỉnh toàn bộ nội dung */
+                .h-100 {
+                    height: 100%;
+                }
+
+                /* Nội dung chào mừng */
+                .welcome-content {
+                    max-width: 600px;
+                    text-align: center;
+                    color: #333;
+                }
+
+                .welcome-heading {
+                    font-size: 3rem;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                }
+
+                .welcome-subtext {
+                    font-size: 1.2rem;
+                    margin-bottom: 30px;
+                    color: #555;
+                }
+
+                /* Nút CTA */
+                .btn-primary {
+                    background-color: #ffc107; /* Màu vàng đậm */
+                    border: none;
+                    padding: 10px 20px;
+                    font-size: 1rem;
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease, transform 0.2s ease;
+                }
+
+                    .btn-primary:hover {
+                        background-color: #e6ac00; /* Màu vàng tối hơn */
+                        transform: scale(1.05); /* Hiệu ứng phóng to nhẹ */
+                    }
+
+                /* Form đăng nhập */
+                .login-form {
+                    border-radius: 10px;
+                    width: 100%;
+                    max-width: 400px;
+                }
+
+                /* Xóa padding hoặc margin không cần thiết */
+                body, html {
+                    margin: 0;
+                    padding: 0;
+                    overflow-x: hidden;
+                }
+
+                .password-container {
+                    position: relative;
+                    width: 100%;
+                }
+
+                #password {
+                    width: 100%;
+                    padding-right: 40px; /* Chừa khoảng trống cho icon */
+                }
+
+                #togglePassword {
+                    position: absolute;
+                    top: 50%;
+                    right: 10px; /* Đặt icon ở bên phải */
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                    color: #888;
+                }
+
+                    #togglePassword:hover {
+                        color: #000; /* Đổi màu khi hover */
+                    }
+
+            </style>
+            <script>
+                $(document).ready(function () {
+                    $('.has-dropdown').hover(
+                        function () {
+                            $(this).find('.dropdown').stop(true, true).slideDown(200);
+                        },
+                        function () {
+                            $(this).find('.dropdown').stop(true, true).slideUp(200);
+                        }
+                    );
+                });
+            </script>
+        </header>
+        <script>
+            $(document).ready(function () {
+                // Toggle mobile menu visibility
+                $('.js-menu-toggle').on('click', function (e) {
+                    e.preventDefault();
+                    $('body').toggleClass('offcanvas-menu');
+                });
+
+                // Close the menu when clicking the close button
+                $('.site-mobile-menu-close').on('click', function () {
+                    $('body').removeClass('offcanvas-menu');
+                });
+
+                // Close the menu when clicking outside of it
+                $(document).mouseup(function (e) {
+                    var container = $(".site-mobile-menu");
+                    if (!container.is(e.target) && container.has(e.target).length === 0) {
+                        $('body').removeClass('offcanvas-menu');
+                    }
+                });
+
+                // Set the active class based on the current URL
+                var currentUrl = window.location.pathname; // Get the current URL path
+                $('.site-menu a').each(function () {
+                    if ($(this).attr('href') === currentUrl || (currentUrl === '/' && $(this).attr('href') === '/Home')) {
+                        $('.site-menu a').removeClass('active'); // Remove active from all links
+                        $(this).addClass('active'); // Add active to the matching link
+                    }
+                });
+
+                // Ensure menu is hidden when resizing to desktop
+                $(window).resize(function () {
+                    if ($(window).width() > 991.98) { // Bootstrap lg breakpoint
+                        $('body').removeClass('offcanvas-menu'); // Reset menu state
+                    }
+                });
+            });
+
+
+        </script>
+        <div class="site-section bg-welcome full-height">
+            <div class="container-fluid h-100">
+                <div class="row h-100">
+                    <!-- Phía bên trái: Chào mừng -->
+                    <div class="col-md-6 d-flex align-items-center justify-content-center">
+                        <div class="text-center welcome-content">
+                            <h1 class="display-4 welcome-heading">Chào mừng quý khách</h1>
+                            <p class="lead welcome-subtext">Khám phá những trải nghiệm tuyệt vời của chúng tôi!</p>
+                            <a href="~/Service" class="btn btn-primary btn-lg mt-3">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+
+                    <!-- Phía bên phải: Form đăng nhập -->
+                    <div class="col-md-6 d-flex align-items-center justify-content-center">
+                        <form asp-action="Login" method="post" class="p-5 bg-light shadow-lg login-form">
+                            <h2 class="text-center mb-4">Đăng Nhập</h2>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Nhập email của bạn" value="@ViewBag.email">
+                                @if (ViewData.ModelState["EmailError"]?.Errors.Count > 0)
+                                {
+                                    <span class="text-danger">
+                                        @ViewData.ModelState["EmailError"]?.Errors[0]?.ErrorMessage
+                                    </span>
+                                }
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Mật khẩu:</label>
+                                <div class="password-container">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" value="@ViewBag.pass">
+                                    <i id="togglePassword" class="fas fa-eye-slash"></i>
+                                </div>
+                                @if (ViewData.ModelState["PasswordError"]?.Errors.Count > 0)
+                                {
+                                    <span class="text-danger">
+                                        @ViewData.ModelState["PasswordError"]?.Errors[0]?.ErrorMessage
+                                    </span>
+                                }
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">Đăng Nhập</button>
+                            <p class="text-center mt-3"><a href="/Common/ResetPassword" class="text-muted">Quên mật khẩu?</a></p>
+                            <p class="text-center">Chưa có tài khoản? <a href="/Common/Register">Đăng ký</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById("togglePassword").addEventListener("click", function () {
+                const passwordInput = document.getElementById("password");
+                const isPassword = passwordInput.type === "password";
+
+                // Đổi loại của input giữa 'password' và 'text'
+                passwordInput.type = isPassword ? "text" : "password";
+
+                // Đổi icon (mắt mở -> mắt gạch)
+                this.classList.toggle("fa-eye-slash");
+                this.classList.toggle("fa-eye");
+            });
+
+        </script>
+
+
+       
+        <style>
+            /* Footer chung */
+            .site-footer {
+                background: #f8f9fa; /* Màu nền sáng */
+                color: #212529; /* Màu chữ */
+                padding: 20px 0; /* Giảm chiều cao padding */
+            }
+
+            .footer-heading {
+                font-size: 1rem; /* Giảm kích thước tiêu đề */
+                font-weight: bold;
+                color: #212529; /* Màu chữ tiêu đề */
+                border-bottom: 2px solid #dee2e6;
+                padding-bottom: 8px;
+            }
+
+            .site-footer a {
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+                .site-footer a:hover {
+                    color: #efba6c; /* Màu hover */
+                }
+
+            /* Áp dụng màu #efba6c cho liên kết */
+            .link-colored {
+                color: #efba6c;
+            }
+
+                .link-colored:hover {
+                    color: #d99a50; /* Màu hover nhẹ hơn */
+                }
+
+            /* Hình ảnh Facebook */
+            .gal_col img {
+                border-radius: 4px; /* Bo góc nhẹ */
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+                .gal_col img:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Bóng khi hover */
+                }
+
+            /* Google Maps */
+            .map iframe {
+                border-radius: 8px;
+                border: none;
+            }
+
+            /* Giảm khoảng cách giữa các phần */
+            .site-footer .row {
+                margin-bottom: 10px; /* Giảm khoảng cách */
+            }
+
+            hr {
+                margin: 15px 0; /* Thu gọn khoảng cách giữa các phần */
+            }
+
+        </style>
+    </div>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/jquery-migrate-3.0.0.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.sticky.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/jquery.fancybox.min.js"></script>
+    <script src="~/js/jquery.stellar.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/js/isotope.pkgd.min.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/main.js"></script>
+</body>
+<footer class="site-footer bg-light">
+    <div class="container">
+        <div class="row gy-3">
+            <!-- Facebook Section -->
+            <div class="col-lg-3">
+                <h2 class="footer-heading mb-3 text-uppercase">Facebook</h2>
+                <div class="row g-2">
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture1.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture8.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture7.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture1.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture8.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture7.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Quick Links Section -->
+            <div class="col-lg-4">
+                <h2 class="footer-heading mb-3 text-uppercase">Truy cập nhanh</h2>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="https://www.facebook.com/profile.php?id=100063831185228" class="text-decoration-none link-colored">
+                            <i class="fab fa-facebook" style="margin-right: 10px;"></i>Facebook
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <span class="text-decoration-none link-colored">
+                            <i class="fas fa-phone me-3" style="margin-right: 10px;"></i>Số điện thoại: 098 732 76 69
+                        </span>
+                    </li>
+                    <li class="mb-2">
+                        <span class="text-decoration-none link-colored">
+                            <i class="fas fa-envelope me-3" style="margin-right: 10px;"></i>Email: hocausongque@gmail.com
+                        </span>
+                    </li>
+
+
+
+                </ul>
+            </div>
+
+            <!-- Google Maps Section -->
+            <div class="col-lg-5">
+                <h2 class="footer-heading mb-3 text-uppercase">Địa chỉ</h2>
+                <div class="map rounded overflow-hidden">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.2711745514057!2d105.91792687476992!3d21.05656318682401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a9ad89ed0681%3A0xdfe74944a2df349b!2sS%C3%B4ng%20Qu%C3%AA%20Green%20Garden!5e1!3m2!1svi!2s!4v1730041487949!5m2!1svi!2s"
+                            width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen=""
+                            aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <hr class="bg-secondary my-3">
+
+        <!-- Footer Bottom -->
+        <div class="row">
+            <div class="col text-center">
+                <p class="mb-0 small text-secondary">&copy; 2024 Green Garden. All Rights Reserved. Designed by <a href="#" class="text-dark text-decoration-none">G43_SEP490</a>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</html>
+
+

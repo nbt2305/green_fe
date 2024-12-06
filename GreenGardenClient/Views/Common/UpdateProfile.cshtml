@@ -1,0 +1,1028 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@using GreenGardenClient.Models;
+@{
+    var user = ViewBag.UserProfile as Account;
+}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Trang cá nhân &mdash; GreenGarden</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/css/aos.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 80%; /* Đặt chiều rộng form là 80% */
+        }
+
+        .bg-image {
+            background-image: url('~/images/hero_1.jpg');
+            background-size: cover;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .footer-heading {
+            color: #333;
+        }
+
+            .footer-heading a {
+                color: #666;
+            }
+    </style>
+</head>
+@{
+    if (TempData["Success"] != null)
+    {
+        <div id="notification" class="alert alert-warning" role="alert">
+            @TempData["Success"]
+        </div>
+    }
+}
+<style>
+    #notification {
+        position: fixed;
+        top: 20px; /* Khoảng cách từ đầu trang */
+        right: 20px; /* Khoảng cách từ bên phải */
+        z-index: 1050; /* Đảm bảo thông báo nằm trên các phần tử khác */
+        opacity: 1; /* Bắt đầu với độ mờ là 1 */
+        transition: opacity 1s ease-out, transform 1s ease-out; /* Hiệu ứng chuyển đổi cho độ mờ và biến đổi */
+        transform: translateY(-10px); /* Đưa thông báo lên một chút */
+        width: auto; /* Hoặc thay đổi thành một giá trị cụ thể, ví dụ: 300px */
+        max-width: 300px; /* Giới hạn chiều rộng tối đa */
+        padding: 15px; /* Khoảng cách bên trong cho thông báo */
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        if ($("#notification").length) {
+            setTimeout(function () {
+                $("#notification").css("opacity", "0"); // Đặt độ mờ thành 0
+                $("#notification").css("transform", "translateY(10px)"); // Đưa thông báo xuống một chút khi ẩn
+            }, 3000); // Sau 3 giây
+        }
+    });
+</script>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <div class="site-wrap" id="home-section">
+       
+        <header class="site-navbar site-navbar-target" role="banner">
+            <div class="site-mobile-menu site-navbar-target">
+                <div class="site-mobile-menu-header">
+                    <div class="site-mobile-menu-close mt-3">
+                        <span class="icon-close2 js-menu-toggle"></span>
+                    </div>
+                </div>
+                <div class="site-mobile-menu-body">
+                    <ul class="site-menu main-menu js-clone-nav ml-auto">
+                        <!-- Home link with icon -->
+                        <a href="/Home">
+                            <i class="fas fa-home"></i> Trang chủ
+                        </a>
+
+                        <!-- Event link with icon -->
+                        <a href="/Common/Event" class="nav-link">
+                            <i class="fas fa-calendar-alt"></i> Sự kiện
+                        </a>
+
+                        <!-- Service link with icon -->
+                        <a href="/Service" class="nav-link">
+                            <i class="fas fa-cogs"></i> Dịch vụ
+                        </a>
+                        <ul>
+                            <!-- Service sub-menu items with icons -->
+                            <a href="/Service/ComboList" class="nav-link">
+                                <i class="fas fa-ticket-alt"></i> Danh sách combo vé
+                            </a>
+                            <a href="/Service/OrderTicket" class="nav-link">
+                                <i class="fas fa-ticket"></i> Danh sách vé
+                            </a>
+                            <a href="/Service/OrderFoodAndDrink" class="nav-link">
+                                <i class="fas fa-utensils"></i> Danh sách đồ ăn
+                            </a>
+                            <a href="/Service/OrderGear" class="nav-link">
+                                <i class="fas fa-tools"></i> Danh sách dụng cụ
+                            </a>
+                        </ul>
+
+                        <!-- Contact link with icon -->
+                        <a href="~/Common/Contact" class="nav-link">
+                            <i class="fas fa-phone-alt"></i> Liên hệ
+                        </a>
+
+                        <!-- User not authenticated, show Login and Register with icons -->
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("Email") == null)
+                        {
+                            <a href="/Common/Login" class="nav-link">
+                                <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                            </a>
+                            <a href="/Common/Register" class="nav-link">
+                                <i class="fas fa-user-plus"></i> Đăng Ký
+                            </a>
+                        }
+                        else
+                        {
+                            <!-- User authenticated, show profile and user-specific links -->
+                            <a style="color: #efba6c " href="~/Common/UpdateProfile" class="nav-link" style="display: flex; align-items: center;">
+                                @if (@HttpContextAccessor.HttpContext.Session.GetString("Img") == null)
+                                {
+                                    <div style="width: 30px; height: 30px; border-radius: 50%; overflow: hidden; margin-right: 8px;">
+                                        <img src="~/images/p22.jpg" alt="Trang cá nhân" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div style="width: 30px; height: 30px; border-radius: 50%; overflow: hidden; margin-right: 8px;">
+                                        <img src="@HttpContextAccessor.HttpContext.Session.GetString("Img")" alt="Trang cá nhân" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                }
+                                <i class="fas fa-user"></i> @HttpContextAccessor.HttpContext.Session.GetString("Fullname")
+                            </a>
+
+                            <ul>
+                                <!-- User role-based links with icons -->
+                                @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+                                {
+                                   
+                                        <a href="~/DashBoard" class="nav-link">
+                                            <i class="fas fa-tachometer-alt"></i> Quản lí
+                                        </a>
+                                    
+                                        <a href="~/Home/Logout" class="nav-link">
+                                            <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                                        </a>
+                                    
+                                }
+                                else if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 2)
+                                {
+                                   
+                                        <a href="~/OrderManagement/OrderOnline" class="nav-link">
+                                            <i class="fas fa-box"></i> Quản lí
+                                        </a>
+                                   
+                                        <a href="~/Home/Logout" class="nav-link">
+                                            <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                                        </a>
+                                    
+                                }
+                                else
+                                {
+                                   
+                                        <a href="~/Service/OrderHistory" class="nav-link">
+                                            <i class="fas fa-history"></i> Lịch sử đặt hàng
+                                        </a>
+                                   
+                                        <a href="~/Service/Cart" class="nav-link">
+                                            <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                                        </a>
+                                    
+                                        <a href="~/Home/Logout" class="nav-link">
+                                            <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                                        </a>
+                                    
+                                }
+                            </ul>
+                        }
+
+                        <!-- Shopping cart icon -->
+                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 3)
+                        {
+                            <a href="~/Service/Cart" class="nav-link cart-icon">
+                                <span class="cart-wrapper">
+                                    <i id="cart-count" class="fas fa-shopping-cart"></i>
+                                    @if (HttpContextAccessor.HttpContext.Session.GetInt32("CartItemCount") > 0)
+                                    {
+                                        <span class="cart-badge">
+                                            @HttpContextAccessor.HttpContext.Session.GetInt32("CartItemCount")
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="cart-badge">0</span>
+                                    }
+                                </span>
+                            </a>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+            <div class="container">
+                <div class="row align-items-center position-relative">
+                    <div class="col-3 ">
+                        <div class="site-logo">
+                            <a href="~/Home" class="font-weight-bold">
+                                <img src="~/images/newlogo.jpg" alt="Image" class="img-fluid" style="width: 55%; height: auto;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-9 text-right">
+                        <span class="d-inline-block d-lg-none">
+                            <a href="#" class="text-black site-menu-toggle js-menu-toggle py-5 text-white">
+                                <span class="icon-menu h3 text-black"></span> <!-- Nút mở menu -->
+                            </a>
+                        </span>
+                        <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                                <li><a href="/Home" class="nav-link">Trang chủ</a></li>
+                                <li><a href="/Common/Event" class="nav-link">Sự kiện</a></li>
+                                <li class="has-dropdown">
+                                    <a href="/Service" class="nav-link">Dịch vụ</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/Service/ComboList" class="nav-link">Danh sách combo vé</a></li>
+                                        <li><a href="/Service/OrderTicket" class="nav-link">Danh sách vé</a></li>
+                                        <li><a href="/Service/OrderFoodAndDrink" class="nav-link">Danh sách đồ ăn</a></li>
+                                        <li><a href="/Service/OrderGear" class="nav-link">Danh sách dụng cụ</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="~/Common/Contact" class="nav-link">Liên hệ</a></li>
+                                <li>
+                                    @if (HttpContextAccessor.HttpContext.Session.GetString("Email") == null)
+                                    {
+                                        <a href="/Common/Login" class="nav-link">Đăng nhập</a>
+                                        <a href="/Common/Register" class="nav-link">Đăng Ký</a>
+                                    }
+                                    else
+                                    {
+                                    <li class="has-dropdown">
+                                        <a href="~/Common/UpdateProfile" class="nav-link" style="display: flex; align-items: center;" id="profileLink">
+                                                @if (@HttpContextAccessor.HttpContext.Session.GetString("Img") == null)
+                                                {
+                                                <div style="width: 30px; height: 30px; border-radius: 50%; overflow: hidden; margin-right: 8px;">
+                                                    <img src="~/images/p22.jpg" alt="Trang cá nhân" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                                }
+                                                else
+                                                {
+                                                <div style="width: 30px; height: 30px; border-radius: 50%; overflow: hidden; margin-right: 8px;">
+                                                    <img src="@HttpContextAccessor.HttpContext.Session.GetString("Img")" alt="Trang cá nhân" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                                }
+
+                                            <span class="active" id="profileFullName">@HttpContextAccessor.HttpContext.Session.GetString("Fullname")</span>
+                                        </a>
+
+
+
+                                        <ul class="dropdown">
+                                                @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+                                                {
+                                                <li><a href="~/DashBoard" class="nav-link">Quản lí</a></li>
+                                                <li><a href="~/Home/Logout" onclick="return Logout();" class="nav-link">Đăng xuất</a></li>
+                                                }
+                                                else if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 2)
+                                                {
+                                                <li><a href="~/OrderManagement/OrderOnline" class="nav-link">Quản lí</a></li>
+                                                <li><a href="~/Home/Logout" onclick="return Logout();" class="nav-link">Đăng xuất</a></li>
+                                                }
+                                                else
+                                                {
+
+                                                <li><a href="~/Service/OrderHistory" class="nav-link">Lịch sử đặt hàng</a></li>
+                                                <li><a href="~/Service/Cart" class="nav-link">Giỏ hàng</a></li>
+                                                <li><a href="~/Home/Logout" onclick="return Logout();" class="nav-link">Đăng xuất</a></li>
+
+                                                }
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                </li>
+                                @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 3)
+                                {
+                                    <li>
+                                        <a href="~/Service/Cart" class="nav-link cart-icon">
+                                            <span class="cart-wrapper">
+                                                <i id="cart-count" class="fas fa-shopping-cart"></i>
+                                                @if (HttpContextAccessor.HttpContext.Session.GetInt32("CartItemCount") > 0)
+                                                {
+                                                    <span class="cart-badge">
+                                                        @HttpContextAccessor.HttpContext.Session.GetInt32("CartItemCount")
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="cart-badge">0</span>
+                                                }
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function Logout() {
+                    sessionStorage.removeItem('usageDateForAll');
+                }
+
+            </script>
+            <style>
+                .site-mobile-menu {
+                    width: 80%;
+                    max-width: 400px;
+                    position: fixed;
+                    right: 0;
+                    z-index: 2000;
+                    padding-top: 20px;
+                    background: #ffffff;
+                    height: 100vh;
+                    transform: translateX(110%);
+                    transition: transform 0.3s ease-in-out;
+                    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                }
+
+                .offcanvas-menu .site-mobile-menu {
+                    transform: translateX(0);
+                }
+
+                /* Close Button */
+                .site-mobile-menu-close {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    z-index: 1001;
+                    cursor: pointer;
+                }
+
+                    .site-mobile-menu-close span {
+                        font-size: 24px;
+                        color: #333;
+                        transition: color 0.3s ease;
+                    }
+
+                        .site-mobile-menu-close span:hover {
+                            color: #ff0000;
+                        }
+
+                /* Dropdown Menu */
+                .site-menu .dropdown {
+                    display: none;
+                    padding: 10px;
+                    background: #f9f9f9;
+                    border-radius: 4px;
+                }
+
+                .site-menu .has-dropdown.open .dropdown {
+                    display: block;
+                }
+
+                .site-menu a {
+                    text-decoration: none;
+                    color: #333;
+                    padding: 10px 20px;
+                    display: block;
+                    transition: background 0.3s ease;
+                }
+
+
+                /* General Styling */
+                .user-avatar img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+
+                .user-avatar span {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #333;
+                }
+                .cart-wrapper {
+                    position: relative;
+                    display: inline-block;
+                }
+
+                    .cart-wrapper .fas.fa-shopping-cart {
+                        font-size: 24px; /* Adjust icon size */
+                        color: #000; /* Adjust icon color */
+                    }
+
+                .cart-badge {
+                    position: absolute;
+                    top: -5px; /* Adjust vertical position */
+                    right: -10px; /* Adjust horizontal position */
+                    background-color: yellow; /* Badge background color */
+                    color: black; /* Text color */
+                    font-size: 14px; /* Badge font size */
+                    font-weight: bold;
+                    line-height: 1; /* Adjust text alignment */
+                    border-radius: 50%;
+                    padding: 4px 8px; /* Padding for badge shape */
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+                    z-index: 10;
+                    white-space: nowrap; /* Prevent text wrapping */
+                }
+
+                .site-navbar {
+                    position: fixed; /* Cố định header */
+                    top: 0; /* Đặt header ở đầu trang */
+                    left: 0; /* Canh trái */
+                    width: 100%; /* Chiếm toàn bộ chiều rộng */
+                    z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác */
+                    background-color: #f6f5f5 !important;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho header */
+                    padding: 10px 0; /* Khoảng cách trên và dưới */
+                }
+
+                    /* Khoảng trống bên dưới để bù cho chiều cao header */
+                    .site-navbar + .content {
+                        padding-top: 70px; /* Điều chỉnh theo chiều cao thực tế của header */
+                    }
+
+                .tile {
+                    margin-top: 150px; /* Khoảng cách dưới */
+                }
+
+                .site-menu .dropdown {
+                    display: none; /* Ẩn menu thả xuống */
+                    position: absolute; /* Để menu thả xuống xuất hiện bên dưới mục Services */
+                    text-align: center;
+                    background: #f0f0f0; /* Màu nền xám nhẹ cho menu thả xuống */
+                    padding: 10px; /* Khoảng cách bên trong */
+                    z-index: 999; /* Đảm bảo nó nằm trên các phần tử khác */
+                }
+
+
+                    .site-menu .dropdown li {
+                        display: block; /* Hiển thị các mục theo chiều dọc */
+                        margin: 5px 0; /* Khoảng cách giữa các mục theo chiều dọc */
+                    }
+
+                        .site-menu .dropdown li a {
+                            padding: 5px 10px; /* Thêm khoảng cách bên trong cho các liên kết */
+                            text-decoration: none; /* Bỏ gạch chân cho các liên kết */
+                            color: #333; /* Màu chữ cho các liên kết */
+                            transition: background-color 0.3s; /* Hiệu ứng chuyển màu nền */
+                        }
+
+                            .site-menu .dropdown li a:hover {
+                                background-color: #e0e0e0; /* Màu nền khi hover vào các liên kết */
+                            }
+
+                .site-menu .has-dropdown:hover .dropdown {
+                    display: block; /* Hiện menu thả xuống khi hover vào mục Services */
+                }
+
+                .custom-img {
+                    background: #efefef;
+                    height: 10rem; /* Increased size */
+                    width: 10rem; /* Increased size */
+                    border-radius: 50%;
+                    object-fit: cover;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+
+                .button-container {
+                    display: flex;
+                    justify-content: start;
+                    margin-top: 10px; /* Adjust the spacing as needed */
+                }
+
+                .text-danger {
+                    color: #dc3545; /* Màu đỏ */
+                    font-size: 1rem; /* Kích thước chữ sao */
+                    margin-left: 2px; /* Khoảng cách giữa dấu sao và chữ */
+                }
+
+                .event-image-container {
+                    flex-shrink: 0;
+                    width: 200px; /* Fixed width for the image */
+                    text-align: center;
+                }
+
+                .event-thumbnail {
+                    width: 100%;
+                    height: 250px; /* Set a fixed height */
+                    object-fit: cover; /* Crop the image to fit within the specified height */
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s ease;
+                }
+
+
+
+                    .event-thumbnail:hover {
+                        transform: scale(1.05);
+                    }
+
+                .image-preview {
+                    width: 300px; /* Set a consistent width for the image */
+                    height: 300px; /* Set a consistent height */
+                    border-radius: 50%; /* Make the container circular */
+                    overflow: hidden; /* Ensure the image doesn't overflow the container */
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 2px solid #ddd; /* Optional: Add a subtle border */
+                    margin: 0 auto; /* Center the container */
+                }
+
+                /* Container for the image */
+                .image-preview-container {
+                    width: 300px; /* Set a consistent width for the image */
+                    height: 300px; /* Set a consistent height */
+                    border-radius: 50%; /* Make the container circular */
+                    overflow: hidden; /* Ensure the image doesn't overflow the container */
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 2px solid #ddd; /* Optional: Add a subtle border */
+                    margin: 0 auto; /* Center the container */
+                }
+
+                /* Style for the image */
+                .event-thumbnail-large {
+                    width: 300px; /* Set a consistent width for the image */
+                    height: 300px; /* Set a consistent height */
+                    object-fit: cover; /* Crop the image to fit the dimensions without distortion */
+                    border-radius: 50%; /* Make the image circular (optional, for avatars) */
+                    border: 2px solid #ddd; /* Add a subtle border */
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a soft shadow for a modern look */
+                    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth hover effects */
+                }
+
+                /* Hide the default file input */
+                .file-input {
+                    display: none;
+                }
+
+                /* Custom button for file upload */
+                .file-upload-label {
+                    display: inline-block;
+                    margin-top: 10px; /* Space between the button and the image */
+                    background-color: #efba6c; /* Blue background */
+                    color: white; /* White text */
+                    padding: 10px 20px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    text-align: center;
+                    transition: background-color 0.3s ease, transform 0.2s ease;
+                    margin-left: 80px;
+                }
+
+                    /* Hover effect for the button */
+                    .file-upload-label:hover {
+                        background-color: #efba6c;
+                        transform: scale(1.05); /* Slightly enlarge the button on hover */
+                    }
+            </style>
+            <script>
+                $(document).ready(function () {
+                    $('.has-dropdown').hover(
+                        function () {
+                            $(this).find('.dropdown').stop(true, true).slideDown(200);
+                        },
+                        function () {
+                            $(this).find('.dropdown').stop(true, true).slideUp(200);
+                        }
+                    );
+                });
+
+            </script>
+        </header>
+        <script>
+            $(document).ready(function () {
+                // Toggle mobile menu visibility
+                $('.js-menu-toggle').on('click', function (e) {
+                    e.preventDefault();
+                    $('body').toggleClass('offcanvas-menu');
+                });
+
+                // Close the menu when clicking the close button
+                $('.site-mobile-menu-close').on('click', function () {
+                    $('body').removeClass('offcanvas-menu');
+                });
+
+                // Close the menu when clicking outside of it
+                $(document).mouseup(function (e) {
+                    var container = $(".site-mobile-menu");
+                    if (!container.is(e.target) && container.has(e.target).length === 0) {
+                        $('body').removeClass('offcanvas-menu');
+                    }
+                });
+
+                // Set the active class based on the current URL
+                var currentUrl = window.location.pathname; // Get the current URL path
+                $('.site-menu a').each(function () {
+                    if ($(this).attr('href') === currentUrl || (currentUrl === '/' && $(this).attr('href') === '/Home')) {
+                        $('.site-menu a').removeClass('active'); // Remove active from all links
+                        $(this).addClass('active'); // Add active to the matching link
+                    }
+                });
+
+                // Ensure menu is hidden when resizing to desktop
+                $(window).resize(function () {
+                    if ($(window).width() > 991.98) { // Bootstrap lg breakpoint
+                        $('body').removeClass('offcanvas-menu'); // Reset menu state
+                    }
+                });
+            });
+
+
+        </script>
+        <div class="container mt-5" data-aos="fade-up">
+            <div class="tile">
+                <form id="updateProfileForm" enctype="multipart/form-data" method="post" accept-charset="UTF-8" action="@Url.Action("ChangeProfile", "Common")" onsubmit="return validateForm()" novalidate>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="event-image-container flex-grow-1">
+                                @if (!string.IsNullOrEmpty(user?.ProfilePictureUrl))
+                                {
+                                    <img id="currentImage_@user.UserId" src="@user.ProfilePictureUrl" alt="Avt Image" class="event-thumbnail-large" />
+                                }
+                                @if (@HttpContextAccessor.HttpContext.Session.GetString("Img") == null)
+                                {
+                                    <img id="currentImage_@user.UserId" src="~/images/p22.jpg" alt="Avt Image" class="event-thumbnail-large" />
+                                }
+                                <input type="hidden" name="CurrentPictureUrl" value="@user?.ProfilePictureUrl" />
+                                <div class="mt-3">
+                                    <label for="ProfilePictureUrl_@user.UserId" class="file-upload-label">Chọn Ảnh</label>
+                                    <input type="file" name="ProfilePictureUrl" id="ProfilePictureUrl_@user.UserId" accept=".jpg, .png" class="file-input" onchange="previewImage(event, @user.UserId)" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: User Information -->
+                        <div class="col-md-6">
+                            <h2 style="font-size: 1.5rem;">Hồ Sơ Của Tôi</h2>
+                            <p class="text-muted" style="font-size: 0.9rem;">Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+
+                            <input type="hidden" name="UserId" value="@Model.UserId" /> <!-- Hidden input for UserId -->
+
+                            <div class="form-group form-row align-items-center mt-3">
+                                <label for="FirstName" class="col-sm-3 col-form-label">Họ:<span class="text-danger">*</span></label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="FirstName" name="FirstName" class="form-control form-control-sm" value="@Model.FirstName" required>
+                                    <small class="text-danger" id="firstNameError" style="display: none;">Vui lòng nhập họ hợp lệ.</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-row align-items-center mt-3">
+                                <label for="LastName" class="col-sm-3 col-form-label">Tên:<span class="text-danger">*</span></label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="LastName" name="LastName" class="form-control form-control-sm" value="@Model.LastName" required>
+                                    <small class="text-danger" id="lastNameError" style="display: none;">Vui lòng nhập tên hợp lệ.</small>
+                                </div>
+                            </div>
+                            @if (@HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+                            {
+                                <div class="form-group form-row align-items-center mt-3">
+                                    <label for="Email" class="col-sm-3 col-form-label">Email:<span class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input type="email" id="Email" name="Email" class="form-control form-control-sm" value="@Model.Email" required>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group form-row align-items-center mt-3">
+                                    <label for="Email" class="col-sm-3 col-form-label">Email:<span class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input readonly type="email" id="Email" name="Email" class="form-control form-control-sm" value="@Model.Email" required>
+                                    </div>
+                                </div>
+                            }
+                           
+
+                            <div class="form-group form-row align-items-center mt-3">
+                                <label for="PhoneNumber" class="col-sm-3 col-form-label">Số điện thoại:<span class="text-danger">*</span></label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="PhoneNumber" name="PhoneNumber" class="form-control form-control-sm" value="@Model.PhoneNumber" required pattern="^\d{10}$">
+                                    <small class="text-danger" id="phoneNumberError" style="display: none;">Vui lòng nhập hợp lệ. Số điện thoại phải gồm 10 chữ số.</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-row align-items-center mt-3">
+                                <label for="Address" class="col-sm-3 col-form-label">Địa chỉ:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="Address" name="Address" class="form-control form-control-sm" value="@Model.Address">
+                                </div>
+                            </div>
+
+                            <div class="form-group form-row align-items-center mt-3">
+                                <label class="col-sm-3 col-form-label">Giới tính:</label>
+                                <div class="col-sm-9">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="male" name="Gender" value="male" @(Model.Gender?.ToLower() == "male  " ? "checked" : "")>
+                                        <label class="form-check-label" for="male">Nam</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="female" name="Gender" value="female" @(Model.Gender?.ToLower() == "female" ? "checked" : "")>
+                                        <label class="form-check-label" for="female">Nữ</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="other" name="Gender" value="other" @(Model.Gender?.ToLower() == "other " ? "checked" : "")>
+                                        <label class="form-check-label" for="other">Khác</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-row align-items-center mt-3">
+                                <label for="DateOfBirth" class="col-sm-3 col-form-label">Ngày sinh:</label>
+                                <div class="col-sm-9">
+                                    <input type="date" id="DateOfBirth" name="DateOfBirth" class="form-control form-control-sm" value="@Model.DateOfBirth?.ToString("yyyy-MM-dd")">
+                                </div>
+                                <small id="dateError" class="text-danger" style="display: none;">Ngày sinh không được vượt quá ngày hiện tại.</small>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-danger btn-sm" style="margin-bottom: 20px; margin-right: 10px;">Cập nhật thông tin</button>
+                                <a href="~/Common/ChangePassword" class="btn btn-secondary btn-sm" style="margin-bottom: 20px;">Đổi Mật Khẩu</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+            function previewImage(event, eventId) {
+                const fileInput = event.target;
+                const file = fileInput.files[0]; // Get the selected file
+
+                if (file) {
+                    // Validate file type
+                    const allowedExtensions = ['image/jpeg', 'image/png', 'image/jpg'];
+                    if (!allowedExtensions.includes(file.type)) {
+                        alert("Vui lòng chọn một hình ảnh hợp lệ (.jpg, .png).");
+                        fileInput.value = ""; // Reset the input
+                        return;
+                    }
+
+                    // Create a temporary object URL for the new image
+                    const newImageUrl = URL.createObjectURL(file);
+
+                    // Find the current image element by ID
+                    let currentImage = document.getElementById(`currentImage_${eventId}`);
+
+                    if (currentImage) {
+                        // Update the `src` of the existing image element
+                        currentImage.src = newImageUrl;
+                    } else {
+                        // Create a new image element if none exists
+                        currentImage = document.createElement("img");
+                        currentImage.src = newImageUrl;
+                        currentImage.alt = "Preview Image";
+                        currentImage.className = "event-thumbnail-large";
+                        currentImage.id = `currentImage_${eventId}`;
+
+                        // Insert the new image before the file input element
+                        fileInput.parentElement.insertBefore(currentImage, fileInput);
+                    }
+
+                    // Revoke the temporary URL after the image is loaded
+                    currentImage.onload = function () {
+                        URL.revokeObjectURL(newImageUrl);
+                    };
+                } else {
+                    alert("Không thể tải ảnh. Vui lòng thử lại.");
+                }
+            }
+        </script>
+        <script>
+
+            function validateForm() {
+                let valid = true;
+
+                const namePattern = /^[\p{L}\s]+$/u; // Hỗ trợ Unicode
+                const firstNameInput = document.getElementById("FirstName");
+                const lastNameInput = document.getElementById("LastName");
+                const phoneNumberInput = document.getElementById("PhoneNumber");
+                const dateOfBirthInput = document.getElementById("DateOfBirth");
+                if (!namePattern.test(firstNameInput.value.trim())) {
+                    document.getElementById("firstNameError").style.display = "block";
+                    valid = false;
+                } else {
+                    document.getElementById("firstNameError").style.display = "none";
+                }
+
+                if (!namePattern.test(lastNameInput.value.trim())) {
+                    document.getElementById("lastNameError").style.display = "block";
+                    valid = false;
+                } else {
+                    document.getElementById("lastNameError").style.display = "none";
+                }
+
+                if (!/^\d{10}$/.test(phoneNumberInput.value.trim())) {
+                    document.getElementById("phoneNumberError").style.display = "block";
+                    valid = false;
+                } else {
+                    document.getElementById("phoneNumberError").style.display = "none";
+                }
+                const today = new Date(); // Ngày hiện tại
+                const selectedDate = new Date(dateOfBirthInput.value); // Ngày nhập vào
+
+                if (selectedDate > today) {
+                    document.getElementById("dateError").style.display = "block";
+                    valid = false;
+                } else {
+                    document.getElementById("dateError").style.display = "none";
+                }
+
+                return valid;
+            }
+        </script>
+
+
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200, // Đặt thời gian cho hiệu ứng (tùy chọn)
+        });
+    </script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/jquery-migrate-3.0.0.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.sticky.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/jquery.fancybox.min.js"></script>
+    <script src="~/js/jquery.stellar.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/js/isotope.pkgd.min.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/main.js"></script>
+
+</body>
+<footer class="site-footer bg-light">
+    <div class="container">
+        <div class="row gy-3">
+            <!-- Facebook Section -->
+            <div class="col-lg-3">
+                <h2 class="footer-heading mb-3 text-uppercase">Facebook</h2>
+                <div class="row g-2">
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture1.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture8.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture7.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture1.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture8.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture7.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Quick Links Section -->
+            <div class="col-lg-4">
+                <h2 class="footer-heading mb-3 text-uppercase">Truy cập nhanh</h2>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="https://www.facebook.com/profile.php?id=100063831185228" class="text-decoration-none link-colored">
+                            <i class="fab fa-facebook" style="margin-right: 10px;"></i>Facebook
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <span class="text-decoration-none link-colored">
+                            <i class="fas fa-phone me-3" style="margin-right: 10px;"></i>Số điện thoại: 098 732 76 69
+                        </span>
+                    </li>
+                    <li class="mb-2">
+                        <span class="text-decoration-none link-colored">
+                            <i class="fas fa-envelope me-3" style="margin-right: 10px;"></i>Email: hocausongque@gmail.com
+                        </span>
+                    </li>
+
+
+
+                </ul>
+            </div>
+
+            <!-- Google Maps Section -->
+            <div class="col-lg-5">
+                <h2 class="footer-heading mb-3 text-uppercase">Địa chỉ</h2>
+                <div class="map rounded overflow-hidden">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.2711745514057!2d105.91792687476992!3d21.05656318682401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a9ad89ed0681%3A0xdfe74944a2df349b!2sS%C3%B4ng%20Qu%C3%AA%20Green%20Garden!5e1!3m2!1svi!2s!4v1730041487949!5m2!1svi!2s"
+                            width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen=""
+                            aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <hr class="bg-secondary my-3">
+
+        <!-- Footer Bottom -->
+        <div class="row">
+            <div class="col text-center">
+                <p class="mb-0 small text-secondary">&copy; 2024 Green Garden. All Rights Reserved. Designed by <a href="#" class="text-dark text-decoration-none">G43_SEP490</a>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<style>
+    /* Footer chung */
+    .site-footer {
+        background: #f8f9fa; /* Màu nền sáng */
+        color: #212529; /* Màu chữ */
+        padding: 20px 0; /* Giảm chiều cao padding */
+    }
+
+    .footer-heading {
+        font-size: 1rem; /* Giảm kích thước tiêu đề */
+        font-weight: bold;
+        color: #212529; /* Màu chữ tiêu đề */
+        border-bottom: 2px solid #dee2e6;
+        padding-bottom: 8px;
+    }
+
+    .site-footer a {
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .site-footer a:hover {
+            color: #efba6c; /* Màu hover */
+        }
+
+    /* Áp dụng màu #efba6c cho liên kết */
+    .link-colored {
+        color: #efba6c;
+    }
+
+        .link-colored:hover {
+            color: #d99a50; /* Màu hover nhẹ hơn */
+        }
+
+    /* Hình ảnh Facebook */
+    .gal_col img {
+        border-radius: 4px; /* Bo góc nhẹ */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .gal_col img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Bóng khi hover */
+        }
+
+    /* Google Maps */
+    .map iframe {
+        border-radius: 8px;
+        border: none;
+    }
+
+    /* Giảm khoảng cách giữa các phần */
+    .site-footer .row {
+        margin-bottom: 10px; /* Giảm khoảng cách */
+    }
+
+    hr {
+        margin: 15px 0; /* Thu gọn khoảng cách giữa các phần */
+    }
+
+</style>
+</html>

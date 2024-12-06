@@ -1,0 +1,1136 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@using GreenGardenClient.Models
+@functions {
+    private string GetRoundedDeposit(decimal total, decimal factor)
+    {
+        // Calculate the deposit amount
+        decimal deposit = total * factor;
+
+        // Round to the nearest 10k, 100k, or 1M
+        int roundedDeposit;
+        if (deposit >= 1000000)
+            roundedDeposit = ((int)Math.Round(deposit) / 1000000) * 1000000;
+        else if (deposit >= 100000)
+            roundedDeposit = ((int)Math.Round(deposit) / 100000) * 100000;
+        else
+            roundedDeposit = ((int)Math.Round(deposit) / 10000) * 10000;
+
+        return roundedDeposit.ToString("N0") + " ₫";
+    }
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Quản lí đơn hàng | Đơn đặt trước</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+
+    <!-- Boxicons CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <!-- jQuery CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.foundation.min.css">
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.foundation.min.js"></script>
+
+    <!-- SweetAlert JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <style>
+        /* Định nghĩa hiệu ứng nhấp nháy */
+        .highlight-row {
+            background-color: rgba(144, 238, 144, 0.3); /* Màu xanh lá nhạt ban đầu */
+        }
+    </style>
+
+
+</head>
+<header class="app-header">
+    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+                                    aria-label="Hide Sidebar"></a>
+    <!-- Navbar Right Menu-->
+    <ul class="app-nav">
+
+
+        <!-- User Menu-->
+        <li>
+            <a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+
+        </li>
+    </ul>
+</header>
+<style>
+    .product-card {
+        padding: 15px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: none; /* Bỏ viền */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Dấu gạch mờ ngăn cách */
+    }
+
+        .product-card:last-child {
+            border-bottom: none; /* Bỏ dấu gạch mờ ở sản phẩm cuối cùng */
+        }
+
+    .product-image img {
+        max-width: 80px;
+        border-radius: 5px;
+    }
+
+    .product-details {
+        flex: 1;
+        margin-left: 15px;
+    }
+
+    .product-name {
+        font-weight: bold;
+        color: #d9534f;
+    }
+
+    .product-description {
+        font-size: 0.9em;
+        color: #555;
+    }
+
+    .product-price {
+        font-weight: bold;
+        color: #000;
+    }
+
+    .discounted-price {
+        text-decoration: line-through;
+        color: gray;
+    }
+
+    .btn-add {
+        background-color: #d9534f;
+        color: white;
+    }
+
+    .quantity-control {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn-quantity {
+        background-color: transparent;
+        border: none;
+        font-size: 18px; /* Kích thước nhỏ hơn */
+        color: red;
+        cursor: pointer;
+        padding: 5px 10px;
+    }
+
+    .quantity-value {
+        margin: 0 10px;
+        font-size: 13px; /* Kích thước nhỏ hơn */
+        font-weight: bold;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+        .search-container label {
+            margin-right: 10px; /* Khoảng cách giữa nhãn và ô input */
+            font-weight: bold; /* Làm đậm nhãn để giống trong hình */
+        }
+
+        .search-container input {
+            background-color: #f5f5f5; /* Màu nền cho ô input */
+            border: 1px solid #ddd; /* Viền nhạt cho ô input */
+            padding: 5px;
+            border-radius: 5px; /* Bo góc cho ô input */
+            width: 200px; /* Độ rộng cho ô input */
+        }
+
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Căn chỉnh các phần tử về phía bên phải */
+    }
+
+    .container-pagination-cart {
+        display: flex;
+        justify-content: space-between; /* Đưa nút giỏ hàng sang trái và phân trang sang phải */
+        align-items: center; /* Căn giữa theo chiều dọc */
+        margin-bottom: 20px; /* Khoảng cách dưới nếu cần */
+    }
+
+    .pagination {
+        list-style: none; /* Bỏ các dấu bullet */
+        padding: 0;
+        margin: 0;
+        display: flex; /* Hiển thị các mục theo hàng ngang */
+    }
+
+        .pagination li {
+            margin-left: 5px; /* Khoảng cách giữa các nút */
+        }
+
+    .page-link {
+        text-decoration: none;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        color: #007bff;
+    }
+
+    .btn-primary {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+
+
+    /* Đặt nền màu #eee cho cả header và sidebar */
+    .app-header, .app-sidebar {
+        background-color: #eee;
+    }
+
+    .app-header {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        z-index: 1;
+    }
+
+        .app-header .app-nav {
+            margin-left: auto;
+        }
+
+    .app-nav__item {
+        text-decoration: none;
+        color: #333;
+        padding: 8px 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .app-sidebar {
+        position: fixed;
+        top: 0px; /* Để không đè lên header */
+        left: 0;
+        width: 250px;
+        height: 100%;
+        padding-top: 20px;
+        background-color: #eee;
+        border-right: 1px solid #ccc; /* Viền phải của sidebar */
+    }
+
+    .app-sidebar__user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .app-sidebar__user-avatar {
+        width: 100px; /* hoặc một giá trị cụ thể khác tùy thuộc vào kích thước bạn muốn */
+        height: 100px; /* cần phải bằng width */
+        border-radius: 50%;
+        margin-right: 10px;
+        object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+    }
+
+
+    .app-sidebar__user-name {
+        margin: 0;
+        font-weight: bold;
+        color: black;
+    }
+
+    .app-sidebar__user-designation {
+        margin: 0;
+        color: black;
+    }
+
+    .app-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .app-menu__item {
+        text-decoration: none;
+        color: #333;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .app-menu__icon {
+        margin-right: 10px;
+        color: #333;
+    }
+
+    .app-menu__item.active {
+        background-color: #ccc;
+        font-weight: bold;
+    }
+
+    hr {
+        border: 1px solid #ccc;
+        margin: 10px 0;
+    }
+    /* Ẩn submenu mặc định */
+    .submenu {
+        display: none;
+        list-style-type: none;
+        padding-left: 20px;
+    }
+
+    /* Hiển thị submenu khi có class 'open' */
+    .has-submenu.open .submenu {
+        display: block;
+    }
+    /* chỉnh icon cho app menu' */
+    .app-menu__item {
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        display: block;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .submenu .app-menu__item {
+        padding-left: 40px; /* Đẩy các mục con thụt vào */
+    }
+
+    .app-menu__item {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item i {
+            margin-right: 10px; /* Khoảng cách giữa icon và chữ */
+            font-size: 18px; /* Kích thước icon */
+        }
+
+
+</style>
+<body onload="time()" class="app sidebar-mini rtl">
+    <header class="app-header" style="display: flex; align-items: center; padding: 0 15px; background-color: #f6f5f5 !important;">
+   
+
+        <!-- Centered Logo -->
+        <div style="flex: 500; display: flex; justify-content: center; align-items: center; padding-left: 50px;">
+            <img src="~/images/newlogo.jpg" alt="Logo" style="height: auto; width: 55%; max-width: 120px;margin-top: 10px;">
+        </div>
+
+
+        <!-- User Menu -->
+        <ul class="app-nav" style="display: flex; align-items: center; margin-left: auto; list-style: none; padding: 0;">
+            <li>
+                <a class="app-nav__item" href="~/Home" style="display: flex; align-items: center; text-decoration: none; color: black; background: rgb(195 195 195); padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s;">
+                    <!-- Replace with an icon -->
+                    <i class="bx bx-home" style="font-size: 1.5rem; margin-right: 8px;"></i>
+                    <!-- Add text next to the icon -->
+                    <span style="font-size: 1rem;">Quay lại trang chủ</span>
+                </a>
+            </li>
+        </ul>
+
+    </header>
+    @{
+        if (ViewBag.NotificationSuccess != null)
+        {
+            <div id="notification-success" class="notification alert alert-success" role="alert">
+                <i class="fas fa-bell"></i> <!-- Bell Icon -->
+                @ViewBag.NotificationSuccess
+            </div>
+        }
+    }
+    @{
+        if (ViewBag.NotificationError != null)
+        {
+            <div id="notification-success" class="notification alert alert-danger" role="alert">
+                <i class="fas fa-bell"></i> <!-- Bell Icon -->
+                @ViewBag.NotificationError
+            </div>
+        }
+    }
+    <style>
+        .notification {
+            position: fixed;
+            top: 20px; /* Distance from the top */
+            right: -350px; /* Start outside the viewport */
+            z-index: 1050; /* Ensure it appears above other elements */
+            opacity: 1; /* Fully visible initially */
+            transition: transform 0.5s ease-out, opacity 1s ease-out; /* Smooth slide and fade effects */
+            max-width: 300px; /* Restrict maximum width */
+            padding: 15px; /* Padding inside the notification */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        /* Success notification styles */
+        .alert-success {
+            background-color: #d4edda; /* Light green background */
+            color: #155724; /* Dark green text */
+            border: 1px solid #c3e6cb; /* Green border */
+        }
+
+        /* Error notification styles */
+        .alert-danger {
+            background-color: #f8d7da; /* Light red background */
+            color: #721c24; /* Dark red text */
+            border: 1px solid #f5c6cb; /* Red border */
+        }
+    </style>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function showAndHideNotification(selector) {
+                if ($(selector).length) {
+                    // Slide notification into view
+                    $(selector).css("transform", "translateX(-350px)"); // Slide in
+                    setTimeout(function () {
+                        // Slide notification back out after 5 seconds
+                        $(selector).css("transform", "translateX(0)"); // Slide out
+                        $(selector).css("opacity", "0"); // Optional fade-out effect
+                    }, 5000); // Display for 5 seconds before sliding out
+                }
+            }
+
+            // Show success and error notifications
+            showAndHideNotification("#notification-success");
+            showAndHideNotification("#notification-error");
+        });
+    </script>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar" style="margin-right: auto;">
+            <!-- Add an icon or text for the sidebar toggle -->
+        </a>
+        <div class="app-sidebar__user">
+            @if (@HttpContextAccessor.HttpContext.Session.GetString("Img") == null)
+            {
+
+                <img src="~/images/p22.jpg" alt="Trang cá nhân" class="app-sidebar__user-avatar" width="50px">
+
+            }
+            else
+            {
+                <img src="@HttpContextAccessor.HttpContext.Session.GetString("Img")" alt="Trang cá nhân" class="app-sidebar__user-avatar" src="~/images/img_1.jpg" width="50px">
+            }               <div>
+                <p class="app-sidebar__user-designation">Xin chào</p>
+
+                <p class="app-sidebar__user-name"><b>@HttpContextAccessor.HttpContext.Session.GetString("Fullname")</b></p>
+            </div>
+        </div>
+        <hr>
+        <ul class="app-menu">
+            <style>
+             
+
+                .app-menu__item.selected {
+                    font-weight: bold;
+                }
+
+             
+                
+
+            </style>
+            @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+            {
+                <li>
+                    <a class="app-menu__item" href="~/DashBoard">
+                        <i class='app-menu__icon bx bx-task'></i>
+                        <span class="app-menu__label">Thống kê</span>
+                    </a>
+                </li>
+            }
+            <li class="has-submenu" style="display:block" id="manageOrdersMenu">
+                <a class="app-menu__item" href="javascript:void(0)" id="manageOrders">
+                    <i class='app-menu__icon bx bx-id-card'></i>
+                    <span class="app-menu__label">Quản lý Đơn hàng</span>
+                </a>
+                <!-- Submenu items -->
+                <ul class="submenu" style="display: none;" id="submenuList">
+                    <li>
+                        <a href="~/OrderManagement/OrderOnline" class="app-menu__item" id="orderOnline">
+                            <i class='bx bx-notepad'></i> Đơn đặt trước
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderUsing" class="app-menu__item" id="orderUsing">
+                            <i class='bx bx-time-five'></i> Đơn đang sử dụng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderCheckOut" class="app-menu__item" id="orderCheckOut">
+                            <i class='bx bx-check-circle'></i> Đơn đã thanh toán
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderCancel" class="app-menu__item" id="orderCancel">
+                            <i class='bx bx-x-circle'></i> Đơn đã hủy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/CreateOrder" class="app-menu__item" id="createOrder">
+                            <i class='bx bx-plus'></i> Tạo đơn mới
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const submenu = document.getElementById("submenuList");
+                    const manageOrdersMenu = document.getElementById("manageOrdersMenu");
+                    const manageOrdersButton = document.getElementById("manageOrders");
+                    const submenuItems = document.querySelectorAll("#manageOrdersMenu .submenu .app-menu__item");
+
+                    const currentUrl = window.location.pathname;
+
+                    console.log("Current URL:", currentUrl);
+
+                    // Map submenu items with their corresponding IDs and URLs
+                    const menuMappings = {
+                        "orderOnline": "/OrderOnline",
+                        "orderUsing": "/OrderUsing",
+                        "orderCheckOut": "/OrderCheckOut",
+                        "orderCancel": "/OrderCancel",
+                        "createOrder": "/CreateOrder",
+                    };
+
+                    // Reset all submenu items before highlighting
+                    submenuItems.forEach(item => {
+                        item.classList.remove("selected");
+                        console.log("Removed 'selected' class from:", item.id);
+                    });
+
+                    // Automatically open submenu and highlight based on URL or localStorage
+                    let matched = false; // Flag to track if a match was found
+                    for (const [id, path] of Object.entries(menuMappings)) {
+                        if (currentUrl.includes(path)) {
+                            console.log(`URL match found for path: ${path} (ID: ${id})`);
+                            const activeItem = document.getElementById(id);
+                            if (activeItem) {
+                                activeItem.classList.add("selected"); // Highlight active submenu item
+                                console.log("Active submenu item set to:", id);
+                                submenu.style.display = "block"; // Keep submenu open
+                                console.log("Submenu opened.");
+                                manageOrdersMenu.classList.add("selected"); // Highlight parent menu
+                                localStorage.setItem("activeSubmenuItem", id); // Save the active submenu item
+                                console.log("Saved active submenu item to localStorage:", id);
+                            }
+                            matched = true;
+                            break;
+                        }
+                    }
+
+                    if (!matched) {
+                        console.log("No matching submenu item for the current URL.");
+                    }
+
+                    // Restore submenu state and active submenu item on page load
+                    const savedActiveItem = localStorage.getItem("activeSubmenuItem");
+                    console.log("Saved active item from localStorage:", savedActiveItem);
+
+                    if (!matched && savedActiveItem) {
+                        const activeItem = document.getElementById(savedActiveItem);
+                        if (activeItem) {
+                            activeItem.classList.add("selected");
+                            console.log("Restored active submenu item from localStorage:", savedActiveItem);
+                            submenu.style.display = "block";
+                            console.log("Submenu reopened based on saved state.");
+                            manageOrdersMenu.classList.add("selected");
+                        }
+                    }
+
+                    // Toggle submenu visibility only when clicking the parent menu
+                    manageOrdersButton.addEventListener("click", function (event) {
+                        event.stopPropagation(); // Prevent event bubbling
+                        const isVisible = submenu.style.display === "block";
+                        submenu.style.display = isVisible ? "none" : "block";
+
+                        console.log(`Parent menu clicked. Submenu visibility toggled to: ${isVisible ? "hidden" : "visible"}`);
+
+                        if (!isVisible) {
+                            // Restore active state if submenu is reopened
+                            const savedItem = localStorage.getItem("activeSubmenuItem");
+                            if (savedItem) {
+                                document.getElementById(savedItem)?.classList.add("selected");
+                                console.log("Restored active submenu item on reopening:", savedItem);
+                            }
+                        }
+                    });
+
+                    // Ensure submenu stays open when clicking a submenu item and save active state
+                    submenuItems.forEach(item => {
+                        item.addEventListener("click", function (event) {
+                            submenu.style.display = "block"; // Ensure submenu stays open
+                            console.log("Submenu item clicked:", this.id);
+
+                            // Save the clicked submenu item as active
+                            submenuItems.forEach(i => {
+                                i.classList.remove("selected"); // Remove active class from all items
+                                console.log("Removed 'selected' class from:", i.id);
+                            });
+                            this.classList.add("selected"); // Add active class to clicked item
+                            console.log("Set 'selected' class for:", this.id);
+                            localStorage.setItem("activeSubmenuItem", this.id); // Save to localStorage
+                            console.log("Saved new active submenu item to localStorage:", this.id);
+                        });
+                    });
+                });
+
+            </script>
+            <li>
+                <a class="app-menu__item" href="~/TicketManagement/Index">
+                    <i class='app-menu__icon bx bx-receipt'></i> <!-- Receipt icon as alternative -->
+                    <span class="app-menu__label">Quản lý vé</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="app-menu__item" href="~/GearManagement/Index">
+                    <i class='app-menu__icon bx bx-wrench'></i> <!-- Gear/Tools icon -->
+                    <span class="app-menu__label">Quản lý dụng cụ</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="~/FoodAndDrinkManagement/Index">
+                    <i class='app-menu__icon bx bx-coffee'></i> <!-- Food and drink icon -->
+                    <span class="app-menu__label">Quản lý đồ ăn</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="~/EventManagement/Index">
+                    <i class='app-menu__icon bx bx-calendar-event'></i>
+                    <span class="app-menu__label">Quản lý sự kiện</span>
+                </a>
+            </li>
+             @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+            {
+                <li>
+                    <a class="app-menu__item" href="~/UserManagement/Index">
+                        <i class='app-menu__icon bx bx-user-voice'></i>
+                        <span class="app-menu__label">Quản lý khách hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="app-menu__item" href="~/EmployeeManagement/Index">
+                    <i class='app-menu__icon bx bx-purchase-tag-alt'></i>
+                    <span class="app-menu__label">Quản lý nhân viên</span>
+                </a>
+            </li>
+            }
+
+        </ul>
+    </aside>
+
+    <main class="app-content">
+        <div class="app-title">
+            <ul class="app-breadcrumb breadcrumb side">
+                <li class="breadcrumb-item active">Quản lí đơn hàng/Đơn đặt trước</li>
+            </ul>
+            <div id="clock"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile">
+                    <div class="d-flex gap-3">
+                        <a href="~/OrderManagement/OrderOnline" class="btn btn-outline-primary active">
+                            <i class="fas fa-list-ul"></i> Tất cả
+                        </a>
+                        <a href="~/OrderManagement/OrderToday" class="btn btn-outline-success">
+                            <i class="fas fa-calendar-day"></i> Hôm nay
+                        </a>
+                    </div>
+
+                    <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0"
+                           id="sampleTable">
+                        <thead>
+                            <tr>
+                                <th width="2%"></th>
+                                <th width="8%">Mã đơn</th>           <!-- Order ID -->
+                                <th width="15%">Khách hàng</th>      <!-- Customer Name -->
+                                <th width="10%">Số điện thoại</th>   <!-- Phone Number -->
+                                <th width="12%">Ngày đặt</th>         <!-- Order Date -->
+                                <th width="12%">Ngày sử dụng</th>     <!-- Usage Date -->
+                                <th width="10%">Tiền cọc</th>        <!-- Deposit -->
+                                <th width="10%">Tổng tiền</th>   
+                                <!-- Income -->
+                                @if(HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+                                {
+                                    <th width="10%">Tính năng</th>       <!-- Total Amount -->
+                                }
+
+
+
+                            </tr>
+                           <style>
+                                .custom-button-style {
+                                    margin: 1px;
+                                    width: 40px;
+                                    padding: 0; /* Remove padding if you want the width to be exact */
+                                }
+                           </style>
+                        </thead>
+                        <tbody>
+                            @foreach (OrderVM item in ViewBag.dataorder)
+                            {
+
+                                <tr onclick="window.location.href='@Url.Action("OrderDetail", "OrderManagement", new { id = item.OrderId })'"
+                                    class="@(item.StatusOrder == true ? "highlight-row" : "")">
+                                    <td>
+                                        <i class="fas fa-clipboard-list" style="color: green;"></i>
+                                    </td> <!-- Trạng thái đặt trước -->
+
+
+                                    <td>
+                                        #@item.OrderId
+                                    </td>
+                                    <td>@item.CustomerName</td>
+                                    <td>@item.PhoneCustomer</td>
+                                    <td>@item.OrderDate?.ToString("hh:mm:ss tt dd/MM/yyyy")</td>
+                                    <td style="display:flex">
+                                        @item.OrderUsageDate?.ToString("hh:mm:ss tt dd/MM/yyyy")
+                                        <button type="button" class="custom-button-style" onclick="showModal(@item.OrderId, 'modal'); event.stopPropagation();">
+                                            <i class="fas fa-calendar-alt"></i> <!-- Icon calendar -->
+                                        </button>
+                                    </td>
+
+                                    <!-- Modal chọn ngày sử dụng -->
+                                    <div id="modal-@item.OrderId" class="modal" style="display: none;">
+                                        <div class="modal-content p-4">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h3 class="modal-title">Chọn ngày bạn muốn chuyển cho đơn #@item.OrderId</h3>
+                                                <span class="close" onclick="closeModal(@item.OrderId, 'modal')">&times;</span>
+                                            </div>
+                                            <form asp-controller="OrderManagement" asp-action="ChangeUsagedate" method="get" onsubmit="return validateDate('@item.OrderUsageDate?.ToString("yyyy-MM-dd")', @item.OrderId);">
+                                                <label for="date-@item.OrderId" class="form-label">Chọn ngày bạn muốn chuyển:</label>
+                                                <input type="datetime-local" name="changedate" id="date-@item.OrderId" class="form-control" required />
+                                                <input type="hidden" name="idorder" value="@item.OrderId" />
+                                                <div id="error-message-@item.OrderId" style="color: red; display: none;">Ngày sử dụng đã trùng với ngày cũ.</div>
+                                                <div class="d-flex justify-content-end mt-3">
+                                                    <button type="submit" class="btn btn-primary">Xác nhận</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <td class="text-right">@String.Format("{0:0,0} ₫", item.Deposit)</td>
+                                    <td class="text-right">@String.Format("{0:0,0} ₫", @item.TotalAmount)</td>
+
+                                    <script>
+                                        function validateDate(existingOrderDate, orderId) {
+                                            // Get only the date part (year, month, day) of the existing date
+                                            const existingDate = new Date(existingOrderDate);
+                                            const selectedDate = new Date(document.getElementById(`date-${orderId}`).value);
+                                            const currentDate = new Date();
+
+                                            // Set current date to the start of the day for comparison
+                                            currentDate.setHours(0, 0, 0, 0);
+
+                                            // Check if the selected date is the same as the existing date
+                                            if (
+                                                selectedDate.getFullYear() === existingDate.getFullYear() &&
+                                                selectedDate.getMonth() === existingDate.getMonth() &&
+                                                selectedDate.getDate() === existingDate.getDate()
+                                            ) {
+                                                alert("Ngày sử dụng đã trùng với ngày cũ. Vui lòng chọn ngày khác.");
+                                                return false; // Prevent form submission
+                                            }
+
+                                            // Check if the selected date is in the past
+                                            if (selectedDate < currentDate) {
+                                                alert("Ngày sử dụng phải lớn hơn hoặc bằng ngày hiện tại. Vui lòng chọn ngày hợp lệ");
+                                                return false; // Prevent form submission
+                                            }
+
+                                            return true; // Allow form submission
+                                        }
+
+                                        function showModal(orderId, modalType) {
+                                            var modal = document.getElementById(modalType + "-" + orderId);
+                                            if (modal) {
+                                                modal.style.display = "block"; // Show the modal
+                                            }
+                                        }
+
+                                        function closeModal(orderId, modalType) {
+                                            var modal = document.getElementById(modalType + "-" + orderId);
+                                            if (modal) {
+                                                modal.style.display = "none"; // Hide the modal
+                                            }
+                                        }
+
+                                        function confirmCancel(orderId) {
+                                            if (confirm("Bạn có chắc chắn muốn hủy đặt cọc này không?")) {
+                                                document.getElementById("cancelDepositForm-" + orderId).submit(); // Submit cancel form
+                                            }
+                                        }
+                                    </script>
+
+
+                                    @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+                                    {
+                                        <!-- Modal nhập tiền đặt cọc -->
+                                        <div id="depositModal-@item.OrderId" class="modal" style="display: none;">
+                                            <div class="modal-content p-4">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h3 class="modal-title">Nhập số tiền đặt cọc cho đơn hàng #@item.OrderId</h3>
+                                                    <span class="close" onclick="closeModal(@item.OrderId, 'depositModal')">&times;</span>
+                                                </div>
+                                                <form asp-controller="OrderManagement" asp-action="EnterDeposit" method="post" onsubmit="return validateDepositAmount('@item.OrderId', @item.TotalAmount)">
+                                                    <label for="depositAmount" class="form-label">Nhập số tiền đặt cọc:</label>
+                                                    <!-- Input field for deposit -->
+                                                    <input type="number"
+                                                           name="money"
+                                                           id="depositAmount-@item.OrderId"
+                                                           class="form-control"
+                                                           
+                                                           placeholder="Nhập số tiền đặt cọc" />
+                                                    <!-- Predefined rounded deposit amounts -->
+                                                    <div class="mt-3 text-center">
+                                                        <p>Chọn số tiền đặt cọc gợi ý:</p>
+                                                        <div class="mt-3 text-center">
+                                                            <div class="d-flex flex-wrap justify-content-center gap-3">
+                                                                <button type="button" style="margin:5px"
+                                                                        class="btn btn-outline-secondary"
+                                                                        onclick="setDeposit('@GetRoundedDeposit(@item.TotalAmount, 0.2m)', '@item.OrderId')">
+                                                                    @GetRoundedDeposit(@item.TotalAmount, 0.2m)
+                                                                </button>
+                                                                <button type="button" style="margin:5px"
+                                                                        class="btn btn-outline-secondary"
+                                                                        onclick="setDeposit('@GetRoundedDeposit(@item.TotalAmount, 0.4m)', '@item.OrderId')">
+                                                                    @GetRoundedDeposit(@item.TotalAmount, 0.4m)
+                                                                </button>
+                                                                <button type="button" style="margin:5px"
+                                                                        class="btn btn-outline-secondary"
+                                                                        onclick="setDeposit('@GetRoundedDeposit(@item.TotalAmount, 0.6m)', '@item.OrderId')">
+                                                                    @GetRoundedDeposit(@item.TotalAmount, 0.6m)
+                                                                </button>
+                                                                <button type="button" style="margin:5px"
+                                                                        class="btn btn-outline-secondary"
+                                                                        onclick="setDeposit('@GetRoundedDeposit(@item.TotalAmount, 0.8m)', '@item.OrderId')">
+                                                                    @GetRoundedDeposit(@item.TotalAmount, 0.8m)
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- Hidden inputs -->
+                                                    <input type="hidden" name="totalAmount" value="@item.TotalAmount" />
+                                                    <input type="hidden" name="idorder" value="@item.OrderId" />
+                                                    <input type="hidden" name="page" value="0" />
+                                                    <div class="d-flex justify-content-end mt-3">
+                                                        <button type="submit" class="btn btn-success">Xác nhận</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+
+                                        <script>
+                                            // Function to validate deposit amount before submitting
+                                            function validateDepositAmount(orderId, totalAmount) {
+                                                const depositAmountInput = document.getElementById(`depositAmount-${orderId}`);
+                                                const depositAmount = parseFloat(depositAmountInput.value);
+
+                                                if (isNaN(depositAmount)) {
+                                                    alert("Số tiền không được để trống.");
+                                                    return false; // Prevent form submission
+                                                }
+
+                                                // Check if the deposit amount is valid and not greater than totalAmount
+                                                if ( depositAmount <= 1000) {
+                                                    alert("Số tiền đặt cọc phải lớn hơn 1.000 VNĐ. Vui lòng nhập số tiền hợp lệ.");
+                                                    return false; // Prevent form submission
+                                                }
+
+                                                if (depositAmount > totalAmount) {
+                                                    alert("Số tiền đặt cọc không được vượt quá tổng số tiền.");
+                                                    return false; // Prevent form submission
+                                                }
+
+                                                return true; // Allow form submission
+                                            }
+
+                                            function setDeposit(deposit, orderId) {
+                                                // Lấy giá trị ô input
+                                                const depositAmountInput = document.getElementById(`depositAmount-${orderId}`);
+
+                                                // Cập nhật giá trị trong ô input
+                                                depositAmountInput.value = parseInt(deposit.replace(/\D/g, ''));
+                                            }
+
+
+                                        </script>
+
+                                        <!-- Modal hủy đặt cọc -->
+                                        <div id="cancelModal-@item.OrderId" class="modal" style="display: none;">
+                                            <div class="modal-content p-4">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h3 class="modal-title">Hủy tiền cọc cho đơn hàng #@item.OrderId?</h3>
+                                                    <span class="close" onclick="closeModal(@item.OrderId, 'cancelModal')">&times;</span>
+                                                </div>
+                                                <form id="cancelDepositForm-@item.OrderId" asp-controller="OrderManagement" asp-action="CancelDeposit" method="post">
+                                                    <input type="hidden" name="idorder" value="@item.OrderId" />
+                                                    <input type="hidden" name="page" value="0" />
+                                                    <div class="d-flex justify-content-end gap-2 mt-3">
+                                                        <button type="button" onclick="confirmCancel(@item.OrderId)" class="btn btn-danger">Xác nhận</button>
+                                                        <button type="button" onclick="closeModal(@item.OrderId, 'cancelModal')" class="btn btn-secondary">Hủy</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <td style="text-align: center; padding: 0;">
+                                            <div class="d-flex justify-content-center align-items-center" style="gap: 10px; margin-top: -2px;">
+                                                @if (item.StatusOrder == false)
+                                                {
+                                                    <button class="btn btn-success" onclick="showModal(@item.OrderId, 'depositModal'); event.stopPropagation();">Đặt cọc</button>
+                                                }
+                                                else
+                                                {
+                                                    <button class="btn btn-danger" onclick="showModal(@item.OrderId, 'cancelModal'); event.stopPropagation();">Hủy cọc</button>
+                                                }
+                                            </div>
+                                        </td>
+                                    }
+
+                                       
+
+                                    
+
+
+
+                                 
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+      
+
+    </main>
+    <script>
+
+        document.getElementById('manageOrders').addEventListener('click', function () {
+            this.parentElement.classList.toggle('open'); // Bật/tắt class 'open' để mở/đóng submenu
+        });
+
+    </script>
+    <style>
+        /* Background overlay for modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Màu nền tối */
+            padding-top: 60px;
+        }
+
+        /* Modal content styling */
+        .modal-content {
+            background-color: #fefefe; /* Màu trắng */
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #f5f5dc; /* Màu be nhạt nhất (beige) */
+            border-radius: 10px;
+            width: 30%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Close button styling */
+        .close {
+            color: #333;
+            float: right;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            .close:hover {
+                color: #ff0000; /* Đổi màu thành đỏ khi hover */
+            }
+
+        /* Button styling */
+        button {
+            background-color: #f5f5dc; /* Màu be nhạt */
+            color: #333;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #e0e0c0; /* Màu be tối hơn khi hover */
+            }
+
+        /* Input field styling */
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #fefefe; /* Nền trắng */
+        }
+
+        /* Form alignment */
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+    </style>
+
+    
+
+
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="~/src/jquery.table2excel.js"></script>
+    <script src="~/js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="~/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <script>
+
+        function showDateTimeForm(orderId, event) {
+            event.stopPropagation(); // Ngăn sự kiện click của dòng
+            document.getElementById("dateTimeModal-" + orderId).style.display = "block";
+        }
+
+        // Đóng modal cho OrderId cụ thể
+        function closeDateTimeForm(orderId) {
+            document.getElementById("dateTimeModal-" + orderId).style.display = "none";
+        }
+
+        // Submit form cho OrderId cụ thể
+        function submitForm(orderId) {
+            document.getElementById("dateTimeForm-" + orderId).submit();
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const rows = document.querySelectorAll(".highlight-row");
+
+            rows.forEach(row => {
+                let isLight = true;
+
+                // Thiết lập khoảng thời gian để thay đổi màu nền
+                setInterval(() => {
+                    row.style.backgroundColor = isLight ? "rgba(144, 238, 144, 0.5)" : "rgba(144, 238, 144, 0.3)";
+                    isLight = !isLight;
+                }, 1000); // Nhấp nháy mỗi 1 giây
+            });
+        });
+
+        oTable = $('#sampleTable').dataTable();
+        $('#all').click(function (e) {
+            $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
+            e.stopImmediatePropagation();
+        });
+
+
+        function time() {
+            var today = new Date();
+            var weekday = new Array(7);
+            weekday[0] = "Chủ Nhật";
+            weekday[1] = "Thứ Hai";
+            weekday[2] = "Thứ Ba";
+            weekday[3] = "Thứ Tư";
+            weekday[4] = "Thứ Năm";
+            weekday[5] = "Thứ Sáu";
+            weekday[6] = "Thứ Bảy";
+            var day = weekday[today.getDay()];
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1;
+            var yyyy = today.getFullYear();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            nowTime = h + " giờ " + m + " phút " + s + " giây";
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+            tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+                '</span>';
+            document.getElementById("clock").innerHTML = tmp;
+            clocktime = setTimeout("time()", "1000", "Javascript");
+
+            function checkTime(i) {
+                if (i < 10) {
+                    i = "0" + i;
+                }
+                return i;
+            }
+        }
+        ;
+    </script>
+</body>
+
+</html>

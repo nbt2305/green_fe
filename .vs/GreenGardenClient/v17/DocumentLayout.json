@@ -1,0 +1,2173 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\common\\eventdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\common\\eventdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\orderdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\orderdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|c:\\users\\admin\\documents\\zalo received files\\greengardenclient\\greengardenclient\\greengardenclient\\controllers\\admincontroller\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\controllers\\admincontroller\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\controllers\\admincontroller\\ordermanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\controllers\\admincontroller\\ordermanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\controllers\\admincontroller\\employeemanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\controllers\\admincontroller\\employeemanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\p22.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\p22.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\newlogo.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\newlogo.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\picture8.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\picture8.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\picture7.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\picture7.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\picture4.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\picture4.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\picture17.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\picture17.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\picture11.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\picture11.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\picture10.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\picture10.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\picture1.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\picture1.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\contact.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\contact.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\changeusagedate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\changeusagedate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\orderusing.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\orderusing.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\ordercheckout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\ordercheckout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\ordercancel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\ordercancel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\createorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\createorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\ordervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\ordervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\updategearchangedate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\updategearchangedate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\updateticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\updateticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\updategear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\updategear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\controllers\\admincontroller\\gearmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\controllers\\admincontroller\\gearmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\orderdetailvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\orderdetailvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\gearvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\gearvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\ticketdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\ticketdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\orderonline.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\orderonline.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\controllers\\commoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\controllers\\commoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\ordertoday.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\ordertoday.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\controllers\\servicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\controllers\\servicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\controllers\\admincontroller\\usermanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\controllers\\admincontroller\\usermanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\controllers\\admincontroller\\ticketmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\controllers\\admincontroller\\ticketmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\controllers\\admincontroller\\foodanddrinkmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\controllers\\admincontroller\\foodanddrinkmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\controllers\\admincontroller\\eventmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\controllers\\admincontroller\\eventmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\orderfood.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\orderfood.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\ordercombo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\ordercombo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\combofooddetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\combofooddetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\combodetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\combodetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\common\\event.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\common\\event.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\services\\dichvu3.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\services\\dichvu3.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\services\\dichvu2.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\services\\dichvu2.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\services\\dichvu1.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\services\\dichvu1.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\services\\d1.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\services\\d1.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\picture16.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\picture16.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\common\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\common\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\employeemanagement\\createemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\employeemanagement\\createemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\combo\\combo510.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\combo\\combo510.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\combo\\combo1520.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\images\\combo\\combo1520.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\service\\orderfoodanddrink.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\service\\orderfoodanddrink.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\foodanddrinkvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\foodanddrinkvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\eventmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\eventmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\common\\utilities.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\common\\utilities.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\eventmanagement\\createevent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\eventmanagement\\createevent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\eventmanagement\\updateevent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\eventmanagement\\updateevent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\service\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\service\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\gearmanagement\\geardetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\gearmanagement\\geardetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\gearmanagement\\creategear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\gearmanagement\\creategear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\updatefood.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\updatefood.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\updatecombo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\updatecombo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\updatecombofood.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\updatecombofood.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\gearmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\gearmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\service\\orderticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\service\\orderticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\service\\ticketdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\service\\ticketdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\usermanagement\\updateuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\usermanagement\\updateuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\usermanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\usermanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ticketmanagement\\updateticketdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ticketmanagement\\updateticketdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ticketmanagement\\createticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ticketmanagement\\createticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ticketmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ticketmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\common\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\common\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\loginvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\loginvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\eventvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\eventvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\css\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\css\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\common\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\common\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\service\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\service\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\css\\jquery.fancybox.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\css\\jquery.fancybox.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\js\\plugins\\jquery.datatables.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\js\\plugins\\jquery.datatables.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\js\\plugins\\datatables.bootstrap.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\js\\plugins\\datatables.bootstrap.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\orderticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\orderticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\geardetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\geardetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\ordergear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\ordergear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\ordermanagement\\ordercombofood.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\ordermanagement\\ordercombofood.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\foodanddrinkmanagement\\createfoodanddrink.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\foodanddrinkmanagement\\createfoodanddrink.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\service\\combodetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\service\\combodetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\service\\fooddetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\service\\fooddetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\service\\combolist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\service\\combolist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\service\\campinggeardetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\service\\campinggeardetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\userregistervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\userregistervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\foodanddrinkmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\foodanddrinkmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\foodanddrinkmanagement\\updatefoodanddrink.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\foodanddrinkmanagement\\updatefoodanddrink.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\service\\ordergear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\service\\ordergear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\service\\orderdetailhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\service\\orderdetailhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\service\\orderhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\service\\orderhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\ticketvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\ticketvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\common\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\common\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\profitvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\profitvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\employeemanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\employeemanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\employeemanagement\\updateemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\employeemanagement\\updateemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\common\\updateprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\common\\updateprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\common\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\common\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\views\\error\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\views\\error\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\hubs\\carthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\hubs\\carthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\depositvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\depositvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\controllers\\error\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\controllers\\error\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\checkout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\checkout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\combodetailvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\combodetailvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\combofooddetailvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\combofooddetailvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\combofoodvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\combofoodvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\ticketcategoryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\ticketcategoryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\createcomboorderrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\createcomboorderrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\createuniqueorderrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\createuniqueorderrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\activityvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\activityvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\combovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\combovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\gearcategoryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\gearcategoryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\sessionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\sessionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\greengardenclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\greengardenclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\models\\foodanddrinkcategoryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\models\\foodanddrinkcategoryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\css\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\css\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\greengardenclient\\wwwroot\\js\\bootstrap.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{CA16C2B3-3CA1-4811-938B-A5C34E64B750}|GreenGardenClient\\GreenGardenClient.csproj|solutionrelative:greengardenclient\\wwwroot\\js\\bootstrap.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\Desktop\\git\\GreenGardenCampsiteManagement\\GreenGardenClient\\greengardenclient\\views\\service\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\\u0111\u1EADu t\u1EA9m h\u00E0nh - copy (2).jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\ba-chi-heo - copy.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\canh-ga-nuong - copy.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\greengardenclient\\wwwroot\\images\\ba-chi-bo-my.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 318,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmployeeManagementController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\EmployeeManagementController.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Controllers\\AdminController\\EmployeeManagementController.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\EmployeeManagementController.cs",
+              "RelativeToolTip": "GreenGardenClient\\Controllers\\AdminController\\EmployeeManagementController.cs",
+              "ViewState": "AQIAAGcAAAAAAAAAAAAgwGsAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T02:21:45.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderManagementController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\OrderManagementController.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Controllers\\AdminController\\OrderManagementController.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\OrderManagementController.cs",
+              "RelativeToolTip": "GreenGardenClient\\Controllers\\AdminController\\OrderManagementController.cs",
+              "ViewState": "AQIAACMBAAAAAAAAAAAuwEABAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T08:18:42.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DashBoardController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\DashBoardController.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Controllers\\AdminController\\DashBoardController.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\DashBoardController.cs",
+              "RelativeToolTip": "GreenGardenClient\\Controllers\\AdminController\\DashBoardController.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAgwFwAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T03:49:55.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderDetail.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\OrderDetail.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderDetail.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\OrderDetail.cshtml",
+              "ViewState": "AQIAAL8CAAAAAAAAAAAwwJoCAAB2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-02T06:21:42.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EventDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\EventDetail.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Common\\EventDetail.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\EventDetail.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Common\\EventDetail.cshtml",
+              "ViewState": "AQIAAHsCAAAAAAAAAAAswH4CAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T03:53:42.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "newlogo.jpg - Bitmap [794x568, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\newlogo.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\newlogo.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\newlogo.jpg - Bitmap [794x568, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\newlogo.jpg - Bitmap [794x568, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-27T14:42:47.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "p22.jpg - Bitmap [2048x1365, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\p22.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\p22.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\p22.jpg - Bitmap [2048x1365, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\p22.jpg - Bitmap [2048x1365, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-11T14:48:15.575Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "picture8.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture8.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\picture8.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture8.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture8.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-10-29T12:59:03.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "picture7.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture7.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\picture7.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture7.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture7.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-11T12:49:45.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "picture4.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture4.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\picture4.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture4.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture4.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-10-29T12:59:01.832Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "picture17.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture17.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\picture17.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture17.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture17.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-11T12:49:57.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "picture11.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture11.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\picture11.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture11.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture11.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-11T12:49:54.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "picture10.jpg - Bitmap [960x720, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture10.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\picture10.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture10.jpg - Bitmap [960x720, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture10.jpg - Bitmap [960x720, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-11T12:49:54.032Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Picture1.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\Picture1.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\Picture1.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\Picture1.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\Picture1.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-11T12:49:53.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "contact.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\contact.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\contact.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\contact.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\contact.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-11T14:48:13.245Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Cart.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\Cart.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\Cart.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\Cart.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\Cart.cshtml",
+              "ViewState": "AQIAAC8DAAAAAAAAAAAAAGUDAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-01T13:25:31.547Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ChangeUsagedate.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\ChangeUsagedate.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\ChangeUsagedate.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\ChangeUsagedate.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\ChangeUsagedate.cshtml",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAAA0AAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-05T04:28:45.408Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "OrderUsing.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderUsing.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\OrderUsing.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderUsing.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\OrderUsing.cshtml",
+              "ViewState": "AQIAABEDAAAAAAAAAAAgwLYCAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-03T05:15:05.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "OrderCheckOut.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderCheckOut.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\OrderCheckOut.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderCheckOut.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\OrderCheckOut.cshtml",
+              "ViewState": "AQIAAKoCAAAAAAAAAAAgwLYCAACmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T07:10:12.815Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "OrderCancel.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderCancel.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\OrderCancel.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderCancel.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\OrderCancel.cshtml",
+              "ViewState": "AQIAAJUCAAAAAAAAAAAgwKACAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-03T05:17:02.968Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UpdateGearChangeDate.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\UpdateGearChangeDate.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\UpdateGearChangeDate.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\UpdateGearChangeDate.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\UpdateGearChangeDate.cshtml",
+              "ViewState": "AQIAAI8CAAAAAAAAAAAYwJ0CAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-02T08:20:39.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CreateOrder.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\CreateOrder.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\CreateOrder.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\CreateOrder.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\CreateOrder.cshtml",
+              "ViewState": "AQIAAIABAAAAAAAAAAAAAHoCAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T03:15:09.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "UpdateTicket.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\UpdateTicket.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\UpdateTicket.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\UpdateTicket.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\UpdateTicket.cshtml",
+              "ViewState": "AQIAAJgCAAAAAAAAAAAAAAwAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T10:19:04.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "UpdateGear.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\UpdateGear.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\UpdateGear.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\UpdateGear.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\UpdateGear.cshtml",
+              "ViewState": "AQIAAKoCAAAAAAAAAAAAAMECAABrAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T10:18:32.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "OrderVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\OrderVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\OrderVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\OrderVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\OrderVM.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAYwCkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T03:33:40.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "GearManagementController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\GearManagementController.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Controllers\\AdminController\\GearManagementController.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\GearManagementController.cs",
+              "RelativeToolTip": "GreenGardenClient\\Controllers\\AdminController\\GearManagementController.cs",
+              "ViewState": "AQIAAC0BAAAAAAAAAADwv4cAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T15:20:51.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "OrderDetailVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\OrderDetailVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\OrderDetailVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\OrderDetailVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\OrderDetailVM.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAmwBgAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T14:22:50.726Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "GearVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\GearVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\GearVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\GearVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\GearVM.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAA3wEkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T03:33:36.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "TicketDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\TicketDetail.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\TicketDetail.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\TicketDetail.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\TicketDetail.cshtml",
+              "ViewState": "AQIAAPUAAAAAAAAAAAAAAPoAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-18T11:22:03.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "OrderOnline.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderOnline.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\OrderOnline.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderOnline.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\OrderOnline.cshtml",
+              "ViewState": "AQIAANACAAAAAAAAAAAAANsCAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-01T15:28:29.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "CommonController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\CommonController.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Controllers\\CommonController.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\CommonController.cs",
+              "RelativeToolTip": "GreenGardenClient\\Controllers\\CommonController.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAswD4AAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T15:26:00.632Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "OrderToday.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderToday.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\OrderToday.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderToday.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\OrderToday.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-12T10:40:06.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ServiceController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\ServiceController.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Controllers\\ServiceController.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\ServiceController.cs",
+              "RelativeToolTip": "GreenGardenClient\\Controllers\\ServiceController.cs",
+              "ViewState": "AQIAAL4AAAAAAAAAAAAQwLUAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T15:26:00.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "GreenGardenClient\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwB0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T15:26:00.657Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "UserManagementController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\UserManagementController.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Controllers\\AdminController\\UserManagementController.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\UserManagementController.cs",
+              "RelativeToolTip": "GreenGardenClient\\Controllers\\AdminController\\UserManagementController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwB0AAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T08:43:19.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "TicketManagementController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\TicketManagementController.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Controllers\\AdminController\\TicketManagementController.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\TicketManagementController.cs",
+              "RelativeToolTip": "GreenGardenClient\\Controllers\\AdminController\\TicketManagementController.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAQwEwAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T08:50:18.019Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "FoodAndDrinkManagementController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\FoodAndDrinkManagementController.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Controllers\\AdminController\\FoodAndDrinkManagementController.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\FoodAndDrinkManagementController.cs",
+              "RelativeToolTip": "GreenGardenClient\\Controllers\\AdminController\\FoodAndDrinkManagementController.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAwCwAAABmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T15:19:32.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "EventManagementController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\EventManagementController.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Controllers\\AdminController\\EventManagementController.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\AdminController\\EventManagementController.cs",
+              "RelativeToolTip": "GreenGardenClient\\Controllers\\AdminController\\EventManagementController.cs",
+              "ViewState": "AQIAACIBAAAAAAAAAAAswC0BAABVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T08:22:24.588Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAHgCAAAAAAAAAAAAAIkCAABpAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-27T14:44:23.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "OrderCombo.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderCombo.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\OrderCombo.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderCombo.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\OrderCombo.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T07:53:51.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\Error.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\Error.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\Error.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\Error.cshtml",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAABAAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:27:50.228Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "OrderFood.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderFood.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\OrderFood.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderFood.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\OrderFood.cshtml",
+              "ViewState": "AQIAACsAAAAAAAAAAAAswEEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T07:52:01.375Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\Index.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\Index.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\Index.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-27T15:02:30.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "ComboFoodDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\ComboFoodDetail.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\ComboFoodDetail.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\ComboFoodDetail.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\ComboFoodDetail.cshtml",
+              "ViewState": "AQIAAPwCAAAAAAAAAAAAABADAACJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-18T13:31:10.762Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "ComboDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\ComboDetail.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\ComboDetail.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\ComboDetail.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\ComboDetail.cshtml",
+              "ViewState": "AQIAAAgDAAAAAAAAAAAmwBoDAACJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-18T13:30:26.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Event.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\Event.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Common\\Event.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\Event.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Common\\Event.cshtml",
+              "ViewState": "AQIAAGgBAAAAAAAAAAAowHMBAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-26T02:01:29.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "dichvu3.jpg - Bitmap [600x800, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\services\\dichvu3.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\services\\dichvu3.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\services\\dichvu3.jpg - Bitmap [600x800, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\services\\dichvu3.jpg - Bitmap [600x800, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-11T12:52:27.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "dichvu2.jpg - Bitmap [600x800, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\services\\dichvu2.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\services\\dichvu2.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\services\\dichvu2.jpg - Bitmap [600x800, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\services\\dichvu2.jpg - Bitmap [600x800, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-11T12:52:26.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "dichvu1.jpg - Bitmap [600x720, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\services\\dichvu1.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\services\\dichvu1.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\services\\dichvu1.jpg - Bitmap [600x720, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\services\\dichvu1.jpg - Bitmap [600x720, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-11T12:52:25.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "d1.jpg - Bitmap [600x800, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\services\\d1.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\services\\d1.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\services\\d1.jpg - Bitmap [600x800, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\services\\d1.jpg - Bitmap [600x800, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-27T14:46:25.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "picture16.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture16.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\picture16.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture16.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\picture16.jpg - Bitmap [1440x1080, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-27T14:42:51.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\Login.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Common\\Login.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\Login.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Common\\Login.cshtml",
+              "ViewState": "AQIAAK0BAAAAAAAAAAAAAMQBAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T15:26:00.629Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "CreateEmployee.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\EmployeeManagement\\CreateEmployee.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\EmployeeManagement\\CreateEmployee.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\EmployeeManagement\\CreateEmployee.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\EmployeeManagement\\CreateEmployee.cshtml",
+              "ViewState": "AQIAAE4BAAAAAAAAAAAAAC8BAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:42:07.887Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "combo510.jpg - Bitmap [1078x1520, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\Combo\\combo510.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\Combo\\combo510.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\Combo\\combo510.jpg - Bitmap [1078x1520, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\Combo\\combo510.jpg - Bitmap [1078x1520, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-27T14:38:26.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "combo1520.jpg - Bitmap [1077x1521, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\Combo\\combo1520.jpg",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\images\\Combo\\combo1520.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\Combo\\combo1520.jpg - Bitmap [1077x1521, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\Combo\\combo1520.jpg - Bitmap [1077x1521, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-27T14:38:25.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "OrderFoodAndDrink.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\OrderFoodAndDrink.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Service\\OrderFoodAndDrink.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\OrderFoodAndDrink.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Service\\OrderFoodAndDrink.cshtml",
+              "ViewState": "AQIAAJsCAAAAAAAAAAAqwL0CAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-24T16:07:47.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\EventManagement\\Index.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\EventManagement\\Index.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\EventManagement\\Index.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\EventManagement\\Index.cshtml",
+              "ViewState": "AQIAAJwCAAAAAAAAAAAAANECAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:41:39.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "Utilities.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\Utilities.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Common\\Utilities.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\Utilities.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Common\\Utilities.cshtml",
+              "ViewState": "AQIAAHEBAAAAAAAAAAAAAOoBAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-24T14:42:31.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "FoodAndDrinkVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\FoodAndDrinkVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\FoodAndDrinkVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\FoodAndDrinkVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\FoodAndDrinkVM.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAYwBYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T03:33:27.115Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "CreateEvent.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\EventManagement\\CreateEvent.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\EventManagement\\CreateEvent.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\EventManagement\\CreateEvent.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\EventManagement\\CreateEvent.cshtml",
+              "ViewState": "AQIAADQCAAAAAAAAAAAAAEoCAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:41:16.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "Cart.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\Cart.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Service\\Cart.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\Cart.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Service\\Cart.cshtml",
+              "ViewState": "AQIAADEDAAAAAAAAAAAiwFoDAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-22T09:24:51.204Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "UpdateEvent.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\EventManagement\\UpdateEvent.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\EventManagement\\UpdateEvent.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\EventManagement\\UpdateEvent.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\EventManagement\\UpdateEvent.cshtml",
+              "ViewState": "AQIAAM4CAAAAAAAAAAAAAOICAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:41:48.782Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\DashBoard\\Index.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\DashBoard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\DashBoard\\Index.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\DashBoard\\Index.cshtml",
+              "ViewState": "AQIAAGgCAAAAAAAAAAAAwIECAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-26T03:50:12.624Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "GearDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\GearManagement\\GearDetail.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\GearManagement\\GearDetail.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\GearManagement\\GearDetail.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\GearManagement\\GearDetail.cshtml",
+              "ViewState": "AQIAACQDAAAAAAAAAAAAADYDAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:43:00.484Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "CreateGear.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\GearManagement\\CreateGear.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\GearManagement\\CreateGear.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\GearManagement\\CreateGear.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\GearManagement\\CreateGear.cshtml",
+              "ViewState": "AQIAAAACAAAAAAAAAAAAAAkCAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:42:51.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "UpdateFood.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\UpdateFood.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\UpdateFood.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\UpdateFood.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\UpdateFood.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAJYCAAB1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-12T12:37:30.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "UpdateCombo.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\UpdateCombo.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\UpdateCombo.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\UpdateCombo.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\UpdateCombo.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAANgCAABnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T10:16:15.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "UpdateComboFood.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\UpdateComboFood.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\UpdateComboFood.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\UpdateComboFood.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\UpdateComboFood.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACwAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T10:11:07.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\GearManagement\\Index.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\GearManagement\\Index.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\GearManagement\\Index.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\GearManagement\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJoCAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:43:08.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "OrderTicket.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\OrderTicket.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Service\\OrderTicket.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\OrderTicket.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Service\\OrderTicket.cshtml",
+              "ViewState": "AQIAADoEAAAAAAAAAAAcwGMEAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T15:26:00.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "TicketDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\TicketDetail.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Service\\TicketDetail.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\TicketDetail.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Service\\TicketDetail.cshtml",
+              "ViewState": "AQIAAHoBAAAAAAAAAAAcwAADAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-27T03:07:57.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "UpdateUser.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\UserManagement\\UpdateUser.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\UserManagement\\UpdateUser.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\UserManagement\\UpdateUser.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\UserManagement\\UpdateUser.cshtml",
+              "ViewState": "AQIAALUCAAAAAAAAAAAAAMUCAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:48:05.932Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\UserManagement\\Index.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\UserManagement\\Index.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\UserManagement\\Index.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\UserManagement\\Index.cshtml",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAACwAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:47:47.989Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "UpdateTicketDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\TicketManagement\\UpdateTicketDetail.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\TicketManagement\\UpdateTicketDetail.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\TicketManagement\\UpdateTicketDetail.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\TicketManagement\\UpdateTicketDetail.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:43:39.027Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "CreateTicket.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\TicketManagement\\CreateTicket.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\TicketManagement\\CreateTicket.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\TicketManagement\\CreateTicket.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\TicketManagement\\CreateTicket.cshtml",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAACkAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:43:21.629Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\TicketManagement\\Index.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\TicketManagement\\Index.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\TicketManagement\\Index.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\TicketManagement\\Index.cshtml",
+              "ViewState": "AQIAAKoCAAAAAAAAAAAAAA4AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:43:31.887Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\Register.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Common\\Register.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\Register.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Common\\Register.cshtml",
+              "ViewState": "AQIAAK8AAAAAAAAAAAAAAMQAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T15:26:00.624Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "LoginVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\LoginVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\LoginVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\LoginVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\LoginVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T06:38:33.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "EventVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\EventVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\EventVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\EventVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\EventVM.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T15:29:38.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "style.css",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\css\\style.css",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\css\\style.css",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\css\\style.css",
+              "RelativeToolTip": "GreenGardenClient\\wwwroot\\css\\style.css",
+              "ViewState": "AQIAAEUKAAAAAAAAAAAiwFgKAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-23T00:16:38.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "main.css",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\css\\main.css",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\css\\main.css",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\css\\main.css",
+              "RelativeToolTip": "GreenGardenClient\\wwwroot\\css\\main.css",
+              "ViewState": "AQIAAIp1AAAAAAAAAAAgwLZ1AAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-15T18:05:51.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 82,
+              "Title": "index.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\index.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Service\\index.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\index.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Service\\index.cshtml",
+              "ViewState": "AQIAAP8AAAAAAAAAAAAAAAMBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T15:26:00.645Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\Contact.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Common\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\Contact.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Common\\Contact.cshtml",
+              "ViewState": "AQIAAP4AAAAAAAAAAAAcwAoBAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-29T10:01:20.932Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 83,
+              "Title": "jquery.fancybox.min.css",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\css\\jquery.fancybox.min.css",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\css\\jquery.fancybox.min.css",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\css\\jquery.fancybox.min.css",
+              "RelativeToolTip": "GreenGardenClient\\wwwroot\\css\\jquery.fancybox.min.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-21T13:36:31.87Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 84,
+              "Title": "jquery.dataTables.min.js",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\js\\plugins\\jquery.dataTables.min.js",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\js\\plugins\\jquery.dataTables.min.js",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\js\\plugins\\jquery.dataTables.min.js",
+              "RelativeToolTip": "GreenGardenClient\\wwwroot\\js\\plugins\\jquery.dataTables.min.js",
+              "ViewState": "AQIAAIQAAAAAAAAAAAA5wI4AAACTAQAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-11-21T13:27:31.2Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 85,
+              "Title": "dataTables.bootstrap.min.js",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\js\\plugins\\dataTables.bootstrap.min.js",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\js\\plugins\\dataTables.bootstrap.min.js",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\js\\plugins\\dataTables.bootstrap.min.js",
+              "RelativeToolTip": "GreenGardenClient\\wwwroot\\js\\plugins\\dataTables.bootstrap.min.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-11-21T13:28:52.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 87,
+              "Title": "GearDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\GearDetail.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\GearDetail.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\GearDetail.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\GearDetail.cshtml",
+              "ViewState": "AQIAAP0AAAAAAAAAAAAAABkBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-18T11:07:23.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 86,
+              "Title": "OrderTicket.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderTicket.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\OrderTicket.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderTicket.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\OrderTicket.cshtml",
+              "ViewState": "AQIAAK4CAAAAAAAAAAAAAIYCAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T06:21:12.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 88,
+              "Title": "OrderGear.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderGear.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\OrderGear.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderGear.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\OrderGear.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwwAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T07:50:32.22Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 89,
+              "Title": "OrderComboFood.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderComboFood.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\OrderManagement\\OrderComboFood.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\OrderManagement\\OrderComboFood.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\OrderManagement\\OrderComboFood.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T07:52:43.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 90,
+              "Title": "CreateFoodAndDrink.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\FoodAndDrinkManagement\\CreateFoodAndDrink.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\FoodAndDrinkManagement\\CreateFoodAndDrink.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\FoodAndDrinkManagement\\CreateFoodAndDrink.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\FoodAndDrinkManagement\\CreateFoodAndDrink.cshtml",
+              "ViewState": "AQIAAHICAAAAAAAAAAAAAI8CAABmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:42:29.878Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 91,
+              "Title": "ComboDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\ComboDetail.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Service\\ComboDetail.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\ComboDetail.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Service\\ComboDetail.cshtml",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAJYAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-29T13:24:13.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 92,
+              "Title": "FoodDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\FoodDetail.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Service\\FoodDetail.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\FoodDetail.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Service\\FoodDetail.cshtml",
+              "ViewState": "AQIAAMQCAAAAAAAAAAAcwO4CAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T16:01:53.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 93,
+              "Title": "ComboList.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\ComboList.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Service\\ComboList.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\ComboList.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Service\\ComboList.cshtml",
+              "ViewState": "AQIAAAwCAAAAAAAAAAAAACICAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-29T13:23:35.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 94,
+              "Title": "CampingGearDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\CampingGearDetail.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Service\\CampingGearDetail.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\CampingGearDetail.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Service\\CampingGearDetail.cshtml",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAGUBAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-27T03:05:27.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 96,
+              "Title": "Account.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\Account.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\Account.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\Account.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAiwAIAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T02:03:32.129Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 95,
+              "Title": "UserRegisterVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\UserRegisterVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\UserRegisterVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\UserRegisterVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\UserRegisterVM.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwB0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T02:03:48.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 98,
+              "Title": "UpdateFoodAndDrink.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\FoodAndDrinkManagement\\UpdateFoodAndDrink.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\FoodAndDrinkManagement\\UpdateFoodAndDrink.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\FoodAndDrinkManagement\\UpdateFoodAndDrink.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\FoodAndDrinkManagement\\UpdateFoodAndDrink.cshtml",
+              "ViewState": "AQIAABYCAAAAAAAAAAAAADECAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:42:44.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 97,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\FoodAndDrinkManagement\\Index.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\FoodAndDrinkManagement\\Index.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\FoodAndDrinkManagement\\Index.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\FoodAndDrinkManagement\\Index.cshtml",
+              "ViewState": "AQIAAI8BAAAAAAAAAAAAAKkBAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:42:38.584Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 99,
+              "Title": "OrderGear.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\OrderGear.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Service\\OrderGear.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\OrderGear.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Service\\OrderGear.cshtml",
+              "ViewState": "AQIAAL0BAAAAAAAAAAAYwMwBAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T15:26:00.639Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 100,
+              "Title": "OrderDetailHistory.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\OrderDetailHistory.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Service\\OrderDetailHistory.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\OrderDetailHistory.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Service\\OrderDetailHistory.cshtml",
+              "ViewState": "AQIAAA8CAAAAAAAAAAAcwDgCAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-27T03:06:55.917Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 101,
+              "Title": "OrderHistory.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\OrderHistory.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Service\\OrderHistory.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\OrderHistory.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Service\\OrderHistory.cshtml",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAMUCAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-27T07:17:16.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 102,
+              "Title": "TicketVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\TicketVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\TicketVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\TicketVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\TicketVM.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAACgAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T08:41:13.401Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 103,
+              "Title": "ChangePassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\ChangePassword.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Common\\ChangePassword.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\ChangePassword.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Common\\ChangePassword.cshtml",
+              "ViewState": "AQIAACoCAAAAAAAAAAAcwFMCAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-29T13:21:04.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 104,
+              "Title": "ProfitVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ProfitVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\ProfitVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ProfitVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\ProfitVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T07:51:21.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 105,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\EmployeeManagement\\Index.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\EmployeeManagement\\Index.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\EmployeeManagement\\Index.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\EmployeeManagement\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-16T02:21:56.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 106,
+              "Title": "UpdateEmployee.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\EmployeeManagement\\UpdateEmployee.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\EmployeeManagement\\UpdateEmployee.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\EmployeeManagement\\UpdateEmployee.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\EmployeeManagement\\UpdateEmployee.cshtml",
+              "ViewState": "AQIAAPwBAAAAAAAAAAAAAB4CAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T04:42:19.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 107,
+              "Title": "UpdateProfile.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\UpdateProfile.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Common\\UpdateProfile.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\UpdateProfile.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Common\\UpdateProfile.cshtml",
+              "ViewState": "AQIAAEICAAAAAAAAAAAcwGsCAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-26T02:18:44.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 108,
+              "Title": "ResetPassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\ResetPassword.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Common\\ResetPassword.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Common\\ResetPassword.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Common\\ResetPassword.cshtml",
+              "ViewState": "AQIAAIoBAAAAAAAAAAAcwLMBAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T15:25:59.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 109,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Error\\Index.cshtml",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Views\\Error\\Index.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Views\\Error\\Index.cshtml",
+              "RelativeToolTip": "GreenGardenClient\\Views\\Error\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-26T02:33:43.872Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 132,
+              "Title": "\u0111\u1EADu t\u1EA9m h\u00E0nh - Copy (2).jpg - Bitmap [550x800, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\\u0111\u1EADu t\u1EA9m h\u00E0nh - Copy (2).jpg",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\\u0111\u1EADu t\u1EA9m h\u00E0nh - Copy (2).jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\git\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\\u0111\u1EADu t\u1EA9m h\u00E0nh - Copy (2).jpg - Bitmap [550x800, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\git\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\\u0111\u1EADu t\u1EA9m h\u00E0nh - Copy (2).jpg - Bitmap [550x800, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-11T12:50:54.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 133,
+              "Title": "ba-chi-heo - Copy.jpg - Bitmap [600x315, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\ba-chi-heo - Copy.jpg",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\ba-chi-heo - Copy.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\git\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\ba-chi-heo - Copy.jpg - Bitmap [600x315, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\git\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\ba-chi-heo - Copy.jpg - Bitmap [600x315, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-11T12:50:55.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 134,
+              "Title": "canh-ga-nuong - Copy.jpg - Bitmap [600x850, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\canh-ga-nuong - Copy.jpg",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\canh-ga-nuong - Copy.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\git\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\canh-ga-nuong - Copy.jpg - Bitmap [600x850, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\git\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\canh-ga-nuong - Copy.jpg - Bitmap [600x850, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-10-29T12:59:18.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 110,
+              "Title": "CartHub.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Hubs\\CartHub.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Hubs\\CartHub.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Hubs\\CartHub.cs",
+              "RelativeToolTip": "GreenGardenClient\\Hubs\\CartHub.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T16:26:22.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 111,
+              "Title": "DepositVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\DepositVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\DepositVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\DepositVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\DepositVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T05:36:57.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 131,
+              "Title": "Checkout.cshtml",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\git\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\Checkout.cshtml",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Desktop\\git\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\Checkout.cshtml",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\git\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\Checkout.cshtml",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\git\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\Views\\Service\\Checkout.cshtml",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAAEcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-26T02:19:01.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 113,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\CartItem.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\CartItem.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\CartItem.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\CartItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T13:17:17.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 114,
+              "Title": "CheckOut.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\CheckOut.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\CheckOut.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\CheckOut.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\CheckOut.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAA4wEUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T13:17:05.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 112,
+              "Title": "ErrorController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\Error\\ErrorController.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Controllers\\Error\\ErrorController.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Controllers\\Error\\ErrorController.cs",
+              "RelativeToolTip": "GreenGardenClient\\Controllers\\Error\\ErrorController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T02:33:34.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 135,
+              "Title": "ba-chi-bo-my.jpg - Bitmap [600x800, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\ba-chi-bo-my.jpg",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Desktop\\New folder\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\ba-chi-bo-my.jpg",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\git\\client\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\ba-chi-bo-my.jpg - Bitmap [600x800, 24 bit, JPG]",
+              "RelativeToolTip": "..\\..\\..\\..\\Desktop\\git\\client\\GreenGardenCampsiteManagement\\GreenGardenClient\\GreenGardenClient\\wwwroot\\images\\ba-chi-bo-my.jpg - Bitmap [600x800, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-10-29T12:59:19.061Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 115,
+              "Title": "ComboDetailVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ComboDetailVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\ComboDetailVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ComboDetailVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\ComboDetailVM.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T14:53:33.624Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 116,
+              "Title": "ComboFoodDetailVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ComboFoodDetailVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\ComboFoodDetailVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ComboFoodDetailVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\ComboFoodDetailVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T14:53:45.688Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 117,
+              "Title": "ComboFoodVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ComboFoodVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\ComboFoodVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ComboFoodVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\ComboFoodVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T06:25:18.938Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 118,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Program.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Program.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Program.cs",
+              "RelativeToolTip": "GreenGardenClient\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T15:26:00.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 119,
+              "Title": "TicketCategoryVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\TicketCategoryVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\TicketCategoryVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\TicketCategoryVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\TicketCategoryVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T03:33:44.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 120,
+              "Title": "CreateComboOrderRequest.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\CreateComboOrderRequest.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\CreateComboOrderRequest.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\CreateComboOrderRequest.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\CreateComboOrderRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T14:09:25.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 122,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\ErrorViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T03:33:18.597Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 121,
+              "Title": "CreateUniqueOrderRequest.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\CreateUniqueOrderRequest.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\CreateUniqueOrderRequest.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\CreateUniqueOrderRequest.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\CreateUniqueOrderRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAgAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T07:14:06.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 123,
+              "Title": "ActivityVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ActivityVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\ActivityVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ActivityVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\ActivityVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T03:33:04.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 124,
+              "Title": "ComboVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ComboVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\ComboVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\ComboVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\ComboVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T06:49:28.758Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 125,
+              "Title": "GearCategoryVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\GearCategoryVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\GearCategoryVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\GearCategoryVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\GearCategoryVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T03:33:31.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 126,
+              "Title": "SessionExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\SessionExtensions.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\SessionExtensions.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\SessionExtensions.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\SessionExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T04:53:38.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 127,
+              "Title": "GreenGardenClient",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient.csproj",
+              "RelativeDocumentMoniker": "GreenGardenClient\\GreenGardenClient.csproj",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient.csproj",
+              "RelativeToolTip": "GreenGardenClient\\GreenGardenClient.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAMUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-16T05:03:17.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 128,
+              "Title": "FoodAndDrinkCategoryVM.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\FoodAndDrinkCategoryVM.cs",
+              "RelativeDocumentMoniker": "GreenGardenClient\\Models\\FoodAndDrinkCategoryVM.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\Models\\FoodAndDrinkCategoryVM.cs",
+              "RelativeToolTip": "GreenGardenClient\\Models\\FoodAndDrinkCategoryVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T03:33:21.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 129,
+              "Title": "bootstrap.min.css",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\css\\bootstrap.min.css",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\css\\bootstrap.min.css",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\css\\bootstrap.min.css",
+              "RelativeToolTip": "GreenGardenClient\\wwwroot\\css\\bootstrap.min.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-15T18:04:49.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 130,
+              "Title": "bootstrap.min.js",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\js\\bootstrap.min.js",
+              "RelativeDocumentMoniker": "GreenGardenClient\\wwwroot\\js\\bootstrap.min.js",
+              "ToolTip": "C:\\Users\\admin\\Documents\\Zalo Received Files\\GreenGardenClient\\GreenGardenClient\\GreenGardenClient\\wwwroot\\js\\bootstrap.min.js",
+              "RelativeToolTip": "GreenGardenClient\\wwwroot\\js\\bootstrap.min.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-10-15T18:05:11.976Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

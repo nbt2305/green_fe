@@ -1,0 +1,1144 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@model List<UpdateEvent>
+@using GreenGardenClient.Models
+}
+
+<meta charset="UTF-8">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cập nhập sự kiện</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
+
+
+
+</head>
+<header class="app-header">
+    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+                                    aria-label="Hide Sidebar"></a>
+    <!-- Navbar Right Menu-->
+    <ul class="app-nav">
+
+
+        <!-- User Menu-->
+        <li>
+            <a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+
+        </li>
+    </ul>
+</header>
+<style>
+
+
+
+
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+        .search-container label {
+            margin-right: 10px; /* Khoảng cách giữa nhãn và ô input */
+            font-weight: bold; /* Làm đậm nhãn để giống trong hình */
+        }
+
+        .search-container input {
+            background-color: #f5f5f5; /* Màu nền cho ô input */
+            border: 1px solid #ddd; /* Viền nhạt cho ô input */
+            padding: 5px;
+            border-radius: 5px; /* Bo góc cho ô input */
+            width: 200px; /* Độ rộng cho ô input */
+        }
+
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Căn chỉnh các phần tử về phía bên phải */
+    }
+
+    .container-pagination-cart {
+        display: flex;
+        justify-content: space-between; /* Đưa nút giỏ hàng sang trái và phân trang sang phải */
+        align-items: center; /* Căn giữa theo chiều dọc */
+        margin-bottom: 20px; /* Khoảng cách dưới nếu cần */
+    }
+
+    .pagination {
+        list-style: none; /* Bỏ các dấu bullet */
+        padding: 0;
+        margin: 0;
+        display: flex; /* Hiển thị các mục theo hàng ngang */
+    }
+
+        .pagination li {
+            margin-left: 5px; /* Khoảng cách giữa các nút */
+        }
+
+    .page-link {
+        text-decoration: none;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        color: #007bff;
+    }
+
+    .btn-primary {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+
+
+    /* Đặt nền màu #eee cho cả header và sidebar */
+    .app-header, .app-sidebar {
+        background-color: #eee;
+    }
+
+    .app-header {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        z-index: 1;
+    }
+
+        .app-header .app-nav {
+            margin-left: auto;
+        }
+
+    .app-nav__item {
+        text-decoration: none;
+        color: #333;
+        padding: 8px 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .app-sidebar {
+        position: fixed;
+        top: 0px; /* Để không đè lên header */
+        left: 0;
+        width: 250px;
+        height: 100%;
+        padding-top: 20px;
+        background-color: #eee;
+        border-right: 1px solid #ccc; /* Viền phải của sidebar */
+    }
+
+
+    .app-sidebar__user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .app-sidebar__user-avatar {
+        width: 100px; /* hoặc một giá trị cụ thể khác tùy thuộc vào kích thước bạn muốn */
+        height: 100px; /* cần phải bằng width */
+        border-radius: 50%;
+        margin-right: 10px;
+        object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+    }
+
+    .app-sidebar__user-name {
+        margin: 0;
+        font-weight: bold;
+        color: black;
+    }
+
+    .app-sidebar__user-designation {
+        margin: 0;
+        color: black;
+    }
+
+    .app-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .app-menu__item {
+        text-decoration: none;
+        color: #333;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .app-menu__icon {
+        margin-right: 10px;
+        color: #333;
+    }
+
+    .app-menu__item.active {
+        background-color: #ccc;
+        font-weight: bold;
+    }
+
+    hr {
+        border: 1px solid #ccc;
+        margin: 10px 0;
+    }
+    /* Ẩn submenu mặc định */
+    .submenu {
+        display: none;
+        list-style-type: none;
+        padding-left: 20px;
+    }
+
+    /* Hiển thị submenu khi có class 'open' */
+    .has-submenu.open .submenu {
+        display: block;
+    }
+    /* chỉnh icon cho app menu' */
+    .app-menu__item {
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        display: block;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .submenu .app-menu__item {
+        padding-left: 40px; /* Đẩy các mục con thụt vào */
+    }
+
+    .app-menu__item {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+        .app-menu__item i {
+            margin-right: 10px; /* Khoảng cách giữa icon và chữ */
+            font-size: 18px; /* Kích thước icon */
+        }
+
+        .app-menu__item:hover {
+            background-color: #ddd;
+        }
+
+    .top-bar {
+        background-color: #f8f9fa; /* Light gray background */
+        padding: 10px 20px;
+        border-radius: 8px;
+    }
+
+        /* Link button styling */
+        .top-bar .btn {
+            margin-left: 10px;
+            color: #343a40; /* Default dark color for text */
+        }
+
+
+
+    /* Container */
+ 
+
+    /* Top Bar */
+    .top-bar {
+        margin-bottom: 20px;
+    }
+
+    .search-container input[type="search"] {
+        border-radius: 4px;
+        padding: 5px 10px;
+        width: 250px;
+    }
+
+    /* Container styling */
+.tile {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* General Card Styling */
+/* Container styling */
+.tile {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card styling */
+.event-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+
+    transition: box-shadow 0.3s ease;
+}
+
+
+/* Image container */
+.event-image-container {
+    flex-shrink: 0;
+    width: 200px; /* Fixed width for the image */
+    text-align: center;
+}
+
+    .event-thumbnail {
+        width: 100%;
+        height: 250px; /* Set a fixed height */
+        object-fit: cover; /* Crop the image to fit within the specified height */
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+
+
+.event-thumbnail:hover {
+    transform: scale(1.05);
+}
+    /* File input styling */
+    .file-input {
+        margin-top: 10px;
+        padding: 5px;
+        font-size: 0.9rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100px; /* Set a fixed width to make it smaller horizontally */
+        max-width: 100%; /* Ensure it does not exceed container width on smaller screens */
+    }
+
+/* Event details */
+.event-details {
+    flex: 1;
+}
+
+.event-details label {
+    font-weight: 500;
+    color: #555;
+}
+
+.event-details input,
+.event-details textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.95rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.event-details input:focus,
+.event-details textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Inline input styling */
+.small-input-inline {
+    max-width: 150px;
+    padding: 8px;
+}
+
+
+    /* Adjusting icon and label spacing */
+    .event-details i {
+        margin-right: 4px; /* Reducing the right margin to bring the icon closer to the label */
+        font-size: 1.2rem; /* Adjust icon size if necessary */
+    }
+
+    .event-details label,
+    .event-details span {
+        margin-right: 6px; /* Reducing the spacing between label text and the input field */
+        font-weight: 500;
+    }
+
+    .event-details .d-flex.align-items-center.mb-3 {
+        gap: 8px; /* Adds a smaller gap between elements */
+    }
+
+    /* Adjusting form control for a more compact look */
+    .form-control.small-input-inline {
+        padding: 6px 8px; /* Adjusting padding to make inputs more compact */
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: flex-end; /* Align buttons to the right */
+        gap: 10px; /* Space between buttons */
+        margin-top: 20px; /* Space above the button container */
+    }
+
+    .btn-update, .btn-delete {
+        width: 150px; /* Set the same width for both buttons */
+        padding: 8px 12px;
+        font-size: 16px;
+        line-height: 1; /* Ensures consistent height */
+        height: 40px; /* Set a fixed height for both buttons */
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        display: flex;
+        align-items: center; /* Center content vertically */
+        justify-content: center; /* Center content horizontally */
+    }
+
+    .btn-update {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+        .btn-update i {
+            color: #fff;
+            margin-right: 5px; /* Adds space between icon and text */
+        }
+
+        .btn-update:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-delete {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+        .btn-delete i {
+            color: #fff;
+            margin-right: 5px;
+        }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+
+
+</style>
+
+<body onload="time()" class="app sidebar-mini rtl">
+    <header class="app-header" style="display: flex; align-items: center; padding: 0 15px; background-color: #f6f5f5 !important;">
+        <!-- Sidebar Toggle -->
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar" style="margin-right: auto;">
+            <!-- Add an icon or text for the sidebar toggle -->
+        </a>
+
+        <!-- Centered Logo -->
+        <div style="flex: 500; display: flex; justify-content: center; align-items: center; padding-left: 50px;">
+            <img src="~/images/newlogo.jpg" alt="Logo" style="height: auto; width: 55%; max-width: 120px;margin-top: 10px;">
+        </div>
+
+
+        <!-- User Menu -->
+        <ul class="app-nav" style="display: flex; align-items: center; margin-left: auto; list-style: none; padding: 0;">
+            <li>
+                <a class="app-nav__item" href="~/Home" style="display: flex; align-items: center; text-decoration: none; color: black; background: rgb(195 195 195); padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s;">
+                    <!-- Replace with an icon -->
+                    <i class="bx bx-home" style="font-size: 1.5rem; margin-right: 8px;"></i>
+                    <!-- Add text next to the icon -->
+                    <span style="font-size: 1rem;">Quay lại trang chủ</span>
+                </a>
+            </li>
+        </ul>
+
+    </header> @{
+        if (@TempData["NotificationSuccess"] != null)
+        {
+            <div id="notification-success" class="notification alert alert-success" role="alert">
+                <i class="fas fa-bell"></i> <!-- Bell Icon -->
+                @TempData["NotificationSuccess"]
+            </div>
+        }
+    }
+    @{
+        if (@TempData["NotificationError"] != null)
+        {
+            <div id="notification-success" class="notification alert alert-danger" role="alert">
+                <i class="fas fa-bell"></i> <!-- Bell Icon -->
+                @TempData["NotificationError"]
+            </div>
+        }
+    }
+    <style>
+        .notification {
+            position: fixed;
+            top: 20px; /* Distance from the top */
+            right: -350px; /* Start outside the viewport */
+            z-index: 1050; /* Ensure it appears above other elements */
+            opacity: 1; /* Fully visible initially */
+            transition: transform 0.5s ease-out, opacity 1s ease-out; /* Smooth slide and fade effects */
+            max-width: 300px; /* Restrict maximum width */
+            padding: 15px; /* Padding inside the notification */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        /* Success notification styles */
+        .alert-success {
+            background-color: #d4edda; /* Light green background */
+            color: #155724; /* Dark green text */
+            border: 1px solid #c3e6cb; /* Green border */
+        }
+
+        /* Error notification styles */
+        .alert-danger {
+            background-color: #f8d7da; /* Light red background */
+            color: #721c24; /* Dark red text */
+            border: 1px solid #f5c6cb; /* Red border */
+        }
+    </style>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function showAndHideNotification(selector) {
+                if ($(selector).length) {
+                    // Slide notification into view
+                    $(selector).css("transform", "translateX(-350px)"); // Slide in
+                    setTimeout(function () {
+                        // Slide notification back out after 5 seconds
+                        $(selector).css("transform", "translateX(0)"); // Slide out
+                        $(selector).css("opacity", "0"); // Optional fade-out effect
+                    }, 5000); // Display for 5 seconds before sliding out
+                }
+            }
+
+            // Show success and error notifications
+            showAndHideNotification("#notification-success");
+            showAndHideNotification("#notification-error");
+        });
+    </script>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar" style="margin-right: auto;">
+            <!-- Add an icon or text for the sidebar toggle -->
+        </a>
+        <div class="app-sidebar__user">
+            @if (@HttpContextAccessor.HttpContext.Session.GetString("Img") == null)
+            {
+
+                <img src="~/images/p22.jpg" alt="Trang cá nhân" class="app-sidebar__user-avatar" width="50px">
+
+            }
+            else
+            {
+                <img src="@HttpContextAccessor.HttpContext.Session.GetString("Img")" alt="Trang cá nhân" class="app-sidebar__user-avatar" src="~/images/img_1.jpg" width="50px">
+            }            
+            <div>
+                <p class="app-sidebar__user-designation">Xin chào</p>
+
+                <p class="app-sidebar__user-name"><b>@HttpContextAccessor.HttpContext.Session.GetString("Fullname")</b></p>
+            </div>
+        </div>
+        <hr>
+        <ul class="app-menu">
+            <style>
+
+                .custom-input-long {
+                    width: 100%; /* Hoặc width: 400px; */
+                }
+
+                .app-menu__item.selected {
+                    font-weight: bold;
+                }
+
+            </style>
+            @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+            {
+                <li>
+                    <a class="app-menu__item" href="~/DashBoard">
+                        <i class='app-menu__icon bx bx-task'></i>
+                        <span class="app-menu__label">Thống kê</span>
+                    </a>
+                </li>
+            }
+            <li class="has-submenu" style="display:block" id="manageOrdersMenu">
+                <a class="app-menu__item" href="javascript:void(0)" id="manageOrders">
+                    <i class='app-menu__icon bx bx-id-card'></i>
+                    <span class="app-menu__label">Quản lý Đơn hàng</span>
+                </a>
+                <!-- Submenu items -->
+                <ul class="submenu" style="display: none;" id="submenuList">
+                    <li>
+                        <a href="~/OrderManagement/OrderOnline" class="app-menu__item" id="orderOnline">
+                            <i class='bx bx-notepad'></i> Đơn đặt trước
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderUsing" class="app-menu__item" id="orderUsing">
+                            <i class='bx bx-time-five'></i> Đơn đang sử dụng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderCheckOut" class="app-menu__item" id="orderCheckOut">
+                            <i class='bx bx-check-circle'></i> Đơn đã thanh toán
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/OrderCancel" class="app-menu__item" id="orderCancel">
+                            <i class='bx bx-x-circle'></i> Đơn đã hủy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/OrderManagement/CreateOrder" class="app-menu__item" id="createOrder">
+                            <i class='bx bx-plus'></i> Tạo đơn mới
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    var currentUrl = window.location.pathname;
+                    var manageOrdersMenu = document.getElementById("manageOrdersMenu");
+
+                    // Kiểm tra các URL và thêm lớp selected tương ứng
+                    if (currentUrl.includes("OrderOnline")) {
+                        document.getElementById("orderOnline").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    } else if (currentUrl.includes("OrderUsing")) {
+                        document.getElementById("orderUsing").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    } else if (currentUrl.includes("OrderCheckOut")) {
+                        document.getElementById("orderCheckOut").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    } else if (currentUrl.includes("OrderCancel")) {
+                        document.getElementById("orderCancel").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    } else if (currentUrl.includes("CreateOrder")) {
+                        document.getElementById("createOrder").classList.add("selected");
+                        manageOrdersMenu.classList.add("selected");
+                    }
+                });
+                document.addEventListener("DOMContentLoaded", function () {
+                    const submenu = document.getElementById("submenuList");
+                    const manageOrdersButton = document.getElementById("manageOrders");
+                    const submenuItems = document.querySelectorAll("#manageOrdersMenu .submenu .app-menu__item");
+
+                    // Kiểm tra URL để tự động mở submenu khi truy cập các mục cụ thể
+                    if (window.location.href.includes("OrderOnline") ||
+                        window.location.href.includes("OrderUsing") ||
+                        window.location.href.includes("OrderCheckOut") ||
+                        window.location.href.includes("OrderCancel") ||
+                        window.location.href.includes("CreateOrder")) {
+                        submenu.style.display = "block";
+                    }
+
+                    // Toggle submenu khi click vào "Quản lý Đơn hàng"
+                    manageOrdersButton.addEventListener("click", function (event) {
+                        event.stopPropagation(); // Ngăn sự kiện lan truyền
+                        submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+                    });
+
+                    // Đảm bảo rằng khi click vào bất kỳ mục con nào, menu vẫn mở
+                    submenuItems.forEach(item => {
+                        item.addEventListener("click", function (event) {
+                            event.stopPropagation(); // Ngăn sự kiện lan truyền
+                            submenu.style.display = "block";
+                        });
+                    });
+
+                    // Đóng menu khi click ra ngoài
+                    document.addEventListener("click", function (event) {
+                        if (!manageOrdersButton.contains(event.target) && !submenu.contains(event.target)) {
+                            submenu.style.display = "none";
+                        }
+                    });
+                });
+
+            </script>
+
+            <li>
+                <a class="app-menu__item" href="~/TicketManagement/Index">
+                    <i class='app-menu__icon bx bx-receipt'></i> <!-- Receipt icon as alternative -->
+                    <span class="app-menu__label">Quản lý vé</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="app-menu__item" href="~/GearManagement/Index">
+                    <i class='app-menu__icon bx bx-wrench'></i> <!-- Gear/Tools icon -->
+                    <span class="app-menu__label">Quản lý dụng cụ</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="~/FoodAndDrinkManagement/Index">
+                    <i class='app-menu__icon bx bx-coffee'></i> <!-- Food and drink icon -->
+                    <span class="app-menu__label">Quản lý đồ ăn</span>
+                </a>
+            </li>
+            <li class="app-menu__item active">
+                <a class="app-menu__link" href="~/EventManagement/Index">
+                    <i class='app-menu__icon bx bx-calendar-event'></i>
+                    <span class="app-menu__label">Quản lý sự kiện</span>
+                </a>
+            </li>
+
+            @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+            {
+                <li>
+                    <a class="app-menu__item" href="~/UserManagement/Index">
+                        <i class='app-menu__icon bx bx-user-voice'></i>
+                        <span class="app-menu__label">Quản lý khách hàng</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="app-menu__item" href="~/EmployeeManagement/Index">
+                        <i class='app-menu__icon bx bx-purchase-tag-alt'></i>
+                        <span class="app-menu__label">Quản lý nhân viên</span>
+                    </a>
+                </li>
+            }
+
+        </ul>
+    </aside>
+
+    <main class="app-content">
+        <div class="app-title">
+            <ul class="app-breadcrumb breadcrumb side">
+                <li class="breadcrumb-item active">Quản lý sự kiện/Cập nhập sự kiện</li>
+            </ul>
+            <div id="clock"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile">
+                    @foreach (var eventItem in Model)
+                    {
+                        <form asp-action="UpdateEvent" asp-controller="EventManagement" onsubmit="return validateForm('@eventItem.EventId')" enctype="multipart/form-data" method="post" accept-charset="UTF-8">
+                            <!-- Hidden field for EventId to identify the event -->
+                            <input type="hidden" name="EventId" value="@eventItem.EventId" />
+                   
+
+                            <div class="event-card">
+                                <!-- Left Column: Image and File Upload -->
+                                <div class="event-image-container" style="position: relative; display: inline-block; text-align: center;">
+                                    <!-- Hiển thị ảnh hiện tại nếu có -->
+                                    @if (!string.IsNullOrEmpty(eventItem.PictureUrl))
+                                    {
+                                        <img src="@eventItem.PictureUrl" alt="Event Image" class="event-thumbnail" id="currentImage_@eventItem.EventId" />
+                                    }
+
+                                    <!-- Input ẩn để lưu URL của ảnh hiện tại -->
+                                    <input type="hidden" name="CurrentPictureUrl" value="@eventItem.PictureUrl" />
+
+                                    <!-- File input để upload ảnh mới -->
+                                    <div class="mt-2" style="margin-top: 10px;">
+                                        <!-- Ẩn input file mặc định -->
+                                        <input type="file" name="PictureUrl" id="PictureUrl_@eventItem.EventId" accept=".jpg, .png" class="file-input" onchange="previewImage(event, '@eventItem.EventId')" style="display: none;" />
+
+                                        <!-- Tạo nút "Chọn ảnh" và căn giữa -->
+                                        <label for="PictureUrl_@eventItem.EventId" class="btn btn-primary" style="cursor: pointer; padding: 8px 15px; font-size: 14px; text-align: center; background-color: #efba6c; color: #fff; border-radius: 50px; border: none; display: inline-block; margin-top: 10px;">
+                                            Chọn ảnh
+                                        </label>
+                                    </div>
+                                </div>
+
+
+
+                                <!-- Right Column: Event Details Form -->
+                                <div class="event-details">
+                                    <!-- Event Name -->
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-calendar-day me-2" style="color: #007bff;"></i>
+                                        <label for="EventName_@eventItem.EventId" class="me-2">Tên sự kiện:</label>
+                                        <input type="text" class="form-control small-input-inline" id="EventName_@eventItem.EventId" name="EventName" placeholder="Nhập tên sự kiện" value="@eventItem.EventName">
+
+                                        <!-- Placeholder to fill space -->
+                                        <div class="flex-grow-1"></div>
+
+                                        <!-- Back Button aligned to the right -->
+                                        <a class="btn-back" href="/EventManagement/Index" style="display: inline;">
+                                            <i class="fas fa-arrow-left"></i> Quay lại
+                                        </a>
+                                    </div>
+                                    <span id="EventNameError" class="text-danger"></span>
+
+                                    <!-- Description -->
+                                    <div class="mb-3">
+                                        <label for="Description_@eventItem.EventId" class="d-flex align-items-center">
+                                            <i class="fas fa-align-left me-2" style="color: #007bff;"></i>
+                                            <span class="me-2">Mô tả:</span>
+                                        </label>
+                                        <textarea class="form-control small-input" id="Description_@eventItem.EventId" name="Description" rows="3" placeholder="Nhập mô tả">@eventItem.Description</textarea>
+                                    </div>
+
+                                    <!-- Event Date -->
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-clock me-2" style="color: #ffc107;"></i>
+                                        <label for="EventDate_@eventItem.EventId" class="me-2">Ngày sự kiện:</label>
+                                        <input type="date" class="form-control small-input-inline" id="EventDate_@eventItem.EventId" name="EventDate" value="@eventItem.EventDate.ToString("yyyy-MM-dd")">
+                                    </div>
+                                    <span id="EventDateError_@eventItem.EventId" class="text-danger"></span>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-map-marker-alt me-2" style="color: #17a2b8;"></i>
+                                        <label for="Location_@eventItem.EventId" class="me-2">Địa điểm:</label>
+                                        <input type="text" class="form-control flex-grow-1" id="Location_@eventItem.EventId" name="Location" placeholder="Nhập địa điểm" value="@eventItem.Location">
+                                    </div>
+                                    <span id="LocationError" class="text-danger"></span>
+
+
+
+                                    <!-- Start and End Time -->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="StartTime_@eventItem.EventId" class="form-label d-flex align-items-center">
+                                                <i class="fas fa-hourglass-start me-2" style="color: #28a745;"></i>
+                                                <span class="me-2">Thời gian bắt đầu:</span>
+                                            </label>
+                                            <input type="time" class="form-control small-input" id="StartTime_@eventItem.EventId" name="StartTime" value="@eventItem.StartTime" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="EndTime_@eventItem.EventId" class="form-label d-flex align-items-center">
+                                                <i class="fas fa-hourglass-end me-2" style="color: #dc3545;"></i>
+                                                <span class="me-2">Thời gian kết thúc:</span>
+                                            </label>
+                                            <input type="time" class="form-control small-input" id="EndTime_@eventItem.EventId" name="EndTime" value="@eventItem.EndTime">
+                                        </div>
+                                    </div>
+                                    <span id="timeError_@eventItem.EventId" class="text-danger"></span>
+
+                                </div>
+                            </div>
+
+                            <div class="button-container">
+                                <!-- Update Button -->
+                                <button type="submit" class="btn-update" onclick="return confirm('Bạn có chắc chắn muốn thay đổi không?')">
+                                    <i class="fas fa-sync-alt"></i> Cập nhập
+                                </button>
+
+                                <!-- Delete Button -->
+                                <a class="btn-delete" href="javascript:void(0);" onclick="confirmDelete('@eventItem.EventId')" style="display: inline;">
+                                    <i class="fas fa-trash"></i> Xóa
+                                </a>
+                          
+                            </div>
+
+                        </form>
+                       
+                    }
+
+                    <script>
+                        function validateForm(eventId) {
+                            let isValid = true;
+
+                            // Lấy các giá trị input
+                            const eventName = document.getElementById(`EventName_${eventId}`).value.trim();
+                            const eventDateInput = document.getElementById(`EventDate_${eventId}`);
+                            const eventDate = new Date(eventDateInput.value);
+                            const location = document.getElementById(`Location_${eventId}`).value.trim();
+                            const startTime = document.getElementById(`StartTime_${eventId}`).value;
+                            const endTime = document.getElementById(`EndTime_${eventId}`).value;
+                            const today = new Date();
+                            today.setHours(0, 0, 0, 0); // Đặt giờ hiện tại về 00:00:00 để chỉ so sánh ngày
+
+                            // Kiểm tra tên sự kiện
+                            const eventNameError = document.getElementById("EventNameError");
+                            if (!eventName) {
+                                eventNameError.innerText = "Tên sự kiện không được để trống.";
+                                isValid = false;
+                            } else {
+                                eventNameError.innerText = "";
+                            }
+
+                            // Kiểm tra ngày sự kiện
+                            const dateError = document.getElementById(`EventDateError_${eventId}`);
+                            if (!eventDateInput.value || eventDate < today) {
+                                dateError.innerText = "Ngày sự kiện không được nằm trong quá khứ. Vui lòng chọn ngày hợp lệ.";
+                                isValid = false;
+                            } else {
+                                dateError.innerText = "";
+                            }
+
+                            // Kiểm tra địa điểm
+                            const locationError = document.getElementById("LocationError");
+                            if (!location) {
+                                locationError.innerText = "Địa điểm không được để trống.";
+                                isValid = false;
+                            } else {
+                                locationError.innerText = "";
+                            }
+
+                            // Kiểm tra thời gian bắt đầu và kết thúc
+                            const timeError = document.getElementById(`timeError_${eventId}`);
+                            if (startTime && endTime && startTime >= endTime) {
+                                timeError.innerText = "Thời gian kết thúc phải lớn hơn thời gian bắt đầu.";
+                                timeError.style.display = "block";
+                                isValid = false;
+                            } else {
+                                timeError.innerText = "";
+                                timeError.style.display = "none";
+                            }
+
+                            return isValid;
+                        }
+                    </script>
+
+
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .modal-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: flex;
+                justify-content: center;
+                align-items: flex-start; /* Align to top initially */
+                z-index: 1000;
+                overflow: hidden;
+            }
+
+            .modal-content {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                text-align: center;
+                width: 300px;
+                max-width: 80%;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                margin-top: 100px; /* Adds space from the top */
+            }
+
+
+            .modal-buttons {
+                display: flex;
+                justify-content: center; /* Center align buttons */
+                gap: 10px; /* Add space between buttons */
+                margin-top: 20px;
+            }
+
+            .btn-confirm,
+            .btn-cancel {
+                background-color: #28a745;
+                color: #fff;
+                padding: 8px 16px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                min-width: 100px; /* Set minimum width for consistent button size */
+                font-size: 16px;
+            }
+
+            .btn-cancel {
+                background-color: #dc3545;
+            }
+
+            .btn-confirm:hover {
+                background-color: #218838;
+            }
+
+            .btn-cancel:hover {
+                background-color: #c82333;
+            }
+        </style>
+
+
+
+
+
+
+ 
+
+  
+    </main>
+
+
+
+    <script>
+        function confirmDelete(eventId) {
+            // Create a confirmation modal
+            const confirmationModal = document.createElement('div');
+            confirmationModal.innerHTML = `
+                <div class="modal-overlay">
+                    <div class="modal-content">
+                        <p>Bạn có chắc chắn muốn xóa không?</p>
+                        <div class="modal-buttons">
+                            <button onclick="deleteEvent(${eventId})" class="btn-confirm">Xác nhận</button>
+                            <button onclick="closeModal()" class="btn-cancel">Hủy</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(confirmationModal);
+        }
+
+        function deleteEvent(eventId) {
+            // Redirect to delete action
+            window.location.href = `/EventManagement/DeleteEvent/${eventId}`;
+        }
+
+        function closeModal() {
+            const modal = document.querySelector('.modal-overlay');
+            if (modal) modal.remove();
+        }
+
+    </script>
+
+    <script>
+
+        document.getElementById('manageOrders').addEventListener('click', function () {
+            this.parentElement.classList.toggle('open'); // Bật/tắt class 'open' để mở/đóng submenu
+        });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function previewImage(event, eventId) {
+            const fileInput = event.target;
+            const file = fileInput.files[0]; // Lấy file ảnh từ input
+
+            if (file) {
+                const allowedExtensions = ['image/jpeg', 'image/png', 'image/jpg'];
+                if (!allowedExtensions.includes(file.type)) {
+                    alert("Vui lòng chọn một hình ảnh hợp lệ (.jpg, .png).");
+                    fileInput.value = ""; // Reset the input
+                    return;
+                }
+                // Tạo URL đối tượng tạm thời cho ảnh mới
+                const newImageUrl = URL.createObjectURL(file);
+
+                // Tìm phần tử ảnh hiện tại
+                let currentImage = document.getElementById(`currentImage_${eventId}`);
+
+                if (currentImage) {
+                    // Nếu đã có ảnh cũ, cập nhật src với ảnh mới
+                    currentImage.src = newImageUrl;
+                } else {
+                    // Nếu chưa có ảnh, tạo phần tử ảnh mới để hiển thị
+                    currentImage = document.createElement("img");
+                    currentImage.src = newImageUrl;
+                    currentImage.alt = "Event Image";
+                    currentImage.className = "event-thumbnail";
+                    currentImage.id = `currentImage_${eventId}`;
+
+                    // Thêm ảnh mới vào DOM trước input file
+                    fileInput.parentElement.insertBefore(currentImage, fileInput);
+                }
+
+                // Giải phóng URL đối tượng khi ảnh đã được tải
+                currentImage.onload = function () {
+                    URL.revokeObjectURL(newImageUrl);
+                };
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Essential javascripts for application to work-->
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="~/src/jquery.table2excel.js"></script>
+    <script src="~/js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="~/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <script>
+
+        oTable = $('#sampleTable').dataTable();
+        $('#all').click(function (e) {
+            $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
+            e.stopImmediatePropagation();
+        });
+
+
+        function time() {
+            var today = new Date();
+            var weekday = new Array(7);
+            weekday[0] = "Chủ Nhật";
+            weekday[1] = "Thứ Hai";
+            weekday[2] = "Thứ Ba";
+            weekday[3] = "Thứ Tư";
+            weekday[4] = "Thứ Năm";
+            weekday[5] = "Thứ Sáu";
+            weekday[6] = "Thứ Bảy";
+            var day = weekday[today.getDay()];
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1;
+            var yyyy = today.getFullYear();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            nowTime = h + " giờ " + m + " phút " + s + " giây";
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+            tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+                '</span>';
+            document.getElementById("clock").innerHTML = tmp;
+            clocktime = setTimeout("time()", "1000", "Javascript");
+
+            function checkTime(i) {
+                if (i < 10) {
+                    i = "0" + i;
+                }
+                return i;
+            }
+        }
+        ;
+    </script>
+</body>
+
+</html>

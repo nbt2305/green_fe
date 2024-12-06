@@ -1,0 +1,297 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = GreenGardenClient
+build_property.RootNamespace = GreenGardenClient
+build_property.ProjectDir = C:\Users\PCT\Downloads\GreenGardenClient\GreenGardenClient\GreenGardenClient\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\PCT\Downloads\GreenGardenClient\GreenGardenClient\GreenGardenClient
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Common/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbW9uXENoYW5nZVBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Common/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbW9uXENvbnRhY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Common/Event.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbW9uXEV2ZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Common/EventDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbW9uXEV2ZW50RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Common/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbW9uXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Common/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbW9uXFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Common/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbW9uXFJlc2V0UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Common/UpdateProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbW9uXFVwZGF0ZVByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Common/Utilities.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbW9uXFV0aWxpdGllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/DashBoard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaEJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/EmployeeManagement/BlogManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVNYW5hZ2VtZW50XEJsb2dNYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/EmployeeManagement/CreateEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVNYW5hZ2VtZW50XENyZWF0ZUVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/EmployeeManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVNYW5hZ2VtZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/EmployeeManagement/UpdateEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVNYW5hZ2VtZW50XFVwZGF0ZUVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Error/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/EventManagement/CreateEvent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRNYW5hZ2VtZW50XENyZWF0ZUV2ZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/EventManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRNYW5hZ2VtZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/EventManagement/UpdateEvent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRNYW5hZ2VtZW50XFVwZGF0ZUV2ZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/FoodAndDrinkManagement/CreateFoodAndDrink.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vZEFuZERyaW5rTWFuYWdlbWVudFxDcmVhdGVGb29kQW5kRHJpbmsuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/FoodAndDrinkManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vZEFuZERyaW5rTWFuYWdlbWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/FoodAndDrinkManagement/UpdateFoodAndDrink.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vZEFuZERyaW5rTWFuYWdlbWVudFxVcGRhdGVGb29kQW5kRHJpbmsuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/GearManagement/CreateGear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2Vhck1hbmFnZW1lbnRcQ3JlYXRlR2Vhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/GearManagement/GearDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2Vhck1hbmFnZW1lbnRcR2VhckRldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/GearManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2Vhck1hbmFnZW1lbnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XENhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/ChangeUsagedate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XENoYW5nZVVzYWdlZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/ComboDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XENvbWJvRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/ComboFoodDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XENvbWJvRm9vZERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/CreateOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XENyZWF0ZU9yZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/FoodDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XEZvb2REZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/GearDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XEdlYXJEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/OrderCancel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XE9yZGVyQ2FuY2VsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/OrderCheckOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XE9yZGVyQ2hlY2tPdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/OrderCombo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XE9yZGVyQ29tYm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/OrderComboFood.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XE9yZGVyQ29tYm9Gb29kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/OrderDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XE9yZGVyRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/OrderFood.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XE9yZGVyRm9vZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/OrderGear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XE9yZGVyR2Vhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/OrderOnline.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XE9yZGVyT25saW5lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/OrderTicket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XE9yZGVyVGlja2V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/OrderToday.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XE9yZGVyVG9kYXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/OrderUsing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XE9yZGVyVXNpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/TicketDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XFRpY2tldERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/UpdateCombo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XFVwZGF0ZUNvbWJvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/UpdateComboFood.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XFVwZGF0ZUNvbWJvRm9vZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/UpdateFood.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XFVwZGF0ZUZvb2QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/UpdateGear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XFVwZGF0ZUdlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/UpdateGearChangeDate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XFVwZGF0ZUdlYXJDaGFuZ2VEYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/OrderManagement/UpdateTicket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJNYW5hZ2VtZW50XFVwZGF0ZVRpY2tldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Service/CampingGearDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxDYW1waW5nR2VhckRldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Service/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxDYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Service/ComboDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxDb21ib0RldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Service/ComboList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxDb21ib0xpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Service/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Service/FoodDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxGb29kRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Service/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxpbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Service/OrderDetailHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxPcmRlckRldGFpbEhpc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Service/OrderFoodAndDrink.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxPcmRlckZvb2RBbmREcmluay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Service/OrderGear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxPcmRlckdlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Service/OrderHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxPcmRlckhpc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Service/OrderTicket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxPcmRlclRpY2tldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/Service/TicketDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxUaWNrZXREZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/TicketManagement/CreateTicket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0TWFuYWdlbWVudFxDcmVhdGVUaWNrZXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/TicketManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0TWFuYWdlbWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/TicketManagement/UpdateTicketDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0TWFuYWdlbWVudFxVcGRhdGVUaWNrZXREZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/UserManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlck1hbmFnZW1lbnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCT/Downloads/GreenGardenClient/GreenGardenClient/GreenGardenClient/Views/UserManagement/UpdateUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlck1hbmFnZW1lbnRcVXBkYXRlVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

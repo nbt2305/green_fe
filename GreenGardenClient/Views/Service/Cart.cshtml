@@ -1,0 +1,1196 @@
+﻿﻿@using GreenGardenClient.Models;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@model List<CartItem>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Giỏ hàng &mdash; GreenGarden</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/css/aos.css">
+    <link rel="stylesheet" href="~/css/style.css">
+
+    <!-- MAI    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    N CSS -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+    <div class="site-wrap" id="home-section">
+
+        
+
+
+
+        <header class="site-navbar site-navbar-target" role="banner">
+            <div class="site-mobile-menu site-navbar-target">
+                <div class="site-mobile-menu-header">
+                    <div class="site-mobile-menu-close mt-3">
+                        <span class="icon-close2 js-menu-toggle"></span>
+                    </div>
+                </div>
+                <div class="site-mobile-menu-body">
+                    <ul class="site-menu main-menu js-clone-nav ml-auto">
+                        <!-- Home link with icon -->
+                        <a  href="/Home">
+                            <i class="fas fa-home"></i> Trang chủ
+                        </a>
+
+                        <!-- Event link with icon -->
+                        <a href="/Common/Event" class="nav-link">
+                            <i class="fas fa-calendar-alt"></i> Sự kiện
+                        </a>
+
+                        <!-- Service link with icon -->
+                        <a href="/Service" class="nav-link">
+                            <i class="fas fa-cogs"></i> Dịch vụ
+                        </a>
+                        <ul>
+                            <!-- Service sub-menu items with icons -->
+                            <a href="/Service/ComboList" class="nav-link">
+                                <i class="fas fa-ticket-alt"></i> Danh sách combo vé
+                            </a>
+                            <a href="/Service/OrderTicket" class="nav-link">
+                                <i class="fas fa-ticket"></i> Danh sách vé
+                            </a>
+                            <a href="/Service/OrderFoodAndDrink" class="nav-link">
+                                <i class="fas fa-utensils"></i> Danh sách đồ ăn
+                            </a>
+                            <a href="/Service/OrderGear" class="nav-link">
+                                <i class="fas fa-tools"></i> Danh sách dụng cụ
+                            </a>
+                        </ul>
+
+                        <!-- Contact link with icon -->
+                        <a href="~/Common/Contact" class="nav-link">
+                            <i class="fas fa-phone-alt"></i> Liên hệ
+                        </a>
+
+                        <!-- User not authenticated, show Login and Register with icons -->
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("Email") == null)
+                        {
+                            <a href="/Common/Login" class="nav-link">
+                                <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                            </a>
+                            <a href="/Common/Register" class="nav-link">
+                                <i class="fas fa-user-plus"></i> Đăng Ký
+                            </a>
+                        }
+                        else
+                        {
+                            <!-- User authenticated, show profile and user-specific links -->
+                            <a href="~/Common/UpdateProfile" class="nav-link" style="display: flex; align-items: center;">
+                                @if (@HttpContextAccessor.HttpContext.Session.GetString("Img") == null)
+                                {
+                                    <div style="width: 30px; height: 30px; border-radius: 50%; overflow: hidden; margin-right: 8px;">
+                                        <img src="~/images/p22.jpg" alt="Trang cá nhân" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div style="width: 30px; height: 30px; border-radius: 50%; overflow: hidden; margin-right: 8px;">
+                                        <img src="@HttpContextAccessor.HttpContext.Session.GetString("Img")" alt="Trang cá nhân" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                }
+                                <i class="fas fa-user"></i> @HttpContextAccessor.HttpContext.Session.GetString("Fullname")
+                            </a>
+
+                            <ul>
+                                <!-- User role-based links with icons -->
+                                @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+                                {
+                                   
+                                        <a href="~/DashBoard" class="nav-link">
+                                            <i class="fas fa-tachometer-alt"></i> Quản lí
+                                        </a>
+                                  
+                                        <a href="~/Home/Logout" class="nav-link">
+                                            <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                                        </a>
+                                   
+                                }
+                                else if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 2)
+                                {
+                                    
+                                        <a href="~/OrderManagement/OrderOnline" class="nav-link">
+                                            <i class="fas fa-box"></i> Quản lí
+                                        </a>
+                                    
+                                        <a href="~/Home/Logout" class="nav-link">
+                                            <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                                        </a>
+                                    
+                                }
+                                else
+                                {
+                                   
+                                        <a href="~/Service/OrderHistory" class="nav-link">
+                                            <i class="fas fa-history"></i> Lịch sử đặt hàng
+                                        </a>
+                                   
+                                        <a style="color: #efba6c " href="~/Service/Cart" class="nav-link">
+                                            <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                                        </a>
+                                    
+                                        <a href="~/Home/Logout" class="nav-link">
+                                            <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                                        </a>
+                                    
+                                }
+                            </ul>
+                        }
+
+                        <!-- Shopping cart icon -->
+                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 3)
+                        {
+                            <a  href="~/Service/Cart" class="nav-link cart-icon">
+                                <span class="cart-wrapper">
+                                    <i id="cart-count" class="fas fa-shopping-cart"></i>
+                                    @if (HttpContextAccessor.HttpContext.Session.GetInt32("CartItemCount") > 0)
+                                    {
+                                        <span class="cart-badge">
+                                            @HttpContextAccessor.HttpContext.Session.GetInt32("CartItemCount")
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="cart-badge">0</span>
+                                    }
+                                </span>
+                            </a>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+            <div class="container">
+                <div class="row align-items-center position-relative">
+                    <div class="col-3 ">
+                        <div class="site-logo">
+                            <a href="~/Home" class="font-weight-bold">
+                                <img src="~/images/newlogo.jpg" alt="Image" class="img-fluid" style="width: 55%; height: auto;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-9 text-right">
+                        <span class="d-inline-block d-lg-none">
+                            <a href="#" class="text-black site-menu-toggle js-menu-toggle py-5 text-white">
+                                <span class="icon-menu h3 text-black"></span> <!-- Nút mở menu -->
+                            </a>
+                        </span>
+                        <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                                <li><a href="/Home" class="nav-link">Trang chủ</a></li>
+                                <li><a href="/Common/Event" class="nav-link">Sự kiện</a></li>
+                                <li class="has-dropdown">
+                                    <a href="/Service" class="nav-link">Dịch vụ</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/Service/ComboList" class="nav-link">Danh sách combo vé</a></li>
+                                        <li><a href="/Service/OrderTicket" class="nav-link">Danh sách vé</a></li>
+                                        <li><a href="/Service/OrderFoodAndDrink" class="nav-link">Danh sách đồ ăn</a></li>
+                                        <li><a href="/Service/OrderGear" class="nav-link">Danh sách dụng cụ</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="~/Common/Contact" class="nav-link">Liên hệ</a></li>
+                                <li>
+                                    @if (HttpContextAccessor.HttpContext.Session.GetString("Email") == null)
+                                    {
+                                        <a href="/Common/Login" class="nav-link">Đăng nhập</a>
+                                        <a href="/Common/Register" class="nav-link">Đăng Ký</a>
+                                    }
+                                    else
+                                    {
+                                    <li class="has-dropdown">
+                                        <a href="~/Common/UpdateProfile" class="nav-link" style="display: flex; align-items: center;">
+                                                @if (@HttpContextAccessor.HttpContext.Session.GetString("Img") == null)
+                                                {
+                                                <div style="width: 30px; height: 30px; border-radius: 50%; overflow: hidden; margin-right: 8px;">
+                                                    <img src="~/images/p22.jpg" alt="Trang cá nhân" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                                }
+                                                else
+                                                {
+                                                <div style="width: 30px; height: 30px; border-radius: 50%; overflow: hidden; margin-right: 8px;">
+                                                    <img src="@HttpContextAccessor.HttpContext.Session.GetString("Img")" alt="Trang cá nhân" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                                }
+                                                @HttpContextAccessor.HttpContext.Session.GetString("Fullname")
+                                        </a>
+
+
+
+                                        <ul class="dropdown">
+                                                @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 1)
+                                                {
+                                                <li><a href="~/DashBoard" class="nav-link">Quản lí</a></li>
+                                                <li><a href="~/Home/Logout" onclick="return Logout();" class="nav-link">Đăng xuất</a></li>
+                                                }
+                                                else if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 2)
+                                                {
+                                                <li><a href="~/OrderManagement/OrderOnline" class="nav-link">Quản lí</a></li>
+                                                <li><a href="~/Home/Logout" onclick="return Logout();" class="nav-link">Đăng xuất</a></li>
+                                                }
+                                                else
+                                                {
+
+                                                <li><a href="~/Service/OrderHistory" class="nav-link">Lịch sử đặt hàng</a></li>
+                                                <li><a href="~/Service/Cart" class="nav-link">Giỏ hàng</a></li>
+                                                <li><a href="~/Home/Logout" onclick="return Logout();" class="nav-link">Đăng xuất</a></li>
+
+                                                }
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                </li>
+                                @if (HttpContextAccessor.HttpContext.Session.GetInt32("RoleId") == 3)
+                                {
+                                    <li>
+                                        <a href="~/Service/Cart" class="nav-link cart-icon">
+                                            <span class="cart-wrapper">
+                                                <i id="cart-count" class="fas fa-shopping-cart"></i>
+                                                @if (HttpContextAccessor.HttpContext.Session.GetInt32("CartItemCount") > 0)
+                                                {
+                                                    <span class="cart-badge">
+                                                        @HttpContextAccessor.HttpContext.Session.GetInt32("CartItemCount")
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="cart-badge">0</span>
+                                                }
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function Logout() {
+                    sessionStorage.removeItem('usageDateForAll');
+                }
+
+            </script>
+            <style>
+                .site-mobile-menu {
+                    width: 80%;
+                    max-width: 400px;
+                    position: fixed;
+                    right: 0;
+                    z-index: 2000;
+                    padding-top: 20px;
+                    background: #ffffff;
+                    height: 100vh;
+                    transform: translateX(110%);
+                    transition: transform 0.3s ease-in-out;
+                    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                }
+
+                .offcanvas-menu .site-mobile-menu {
+                    transform: translateX(0);
+                }
+
+                /* Close Button */
+                .site-mobile-menu-close {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    z-index: 1001;
+                    cursor: pointer;
+                }
+
+                    .site-mobile-menu-close span {
+                        font-size: 24px;
+                        color: #333;
+                        transition: color 0.3s ease;
+                    }
+
+                        .site-mobile-menu-close span:hover {
+                            color: #ff0000;
+                        }
+
+                /* Dropdown Menu */
+                .site-menu .dropdown {
+                    display: none;
+                    padding: 10px;
+                    background: #f9f9f9;
+                    border-radius: 4px;
+                }
+
+                .site-menu .has-dropdown.open .dropdown {
+                    display: block;
+                }
+
+                .site-menu a {
+                    text-decoration: none;
+                    color: #333;
+                    padding: 10px 20px;
+                    display: block;
+                    transition: background 0.3s ease;
+                }
+
+
+                /* General Styling */
+                .user-avatar img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+
+                .user-avatar span {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #333;
+                }
+                .cart-wrapper {
+                    position: relative;
+                    display: inline-block;
+                }
+
+                    .cart-wrapper .fas.fa-shopping-cart {
+                        font-size: 24px; /* Adjust icon size */
+                        color: #000; /* Adjust icon color */
+                    }
+
+                .cart-badge {
+                    position: absolute;
+                    top: -5px; /* Adjust vertical position */
+                    right: -10px; /* Adjust horizontal position */
+                    background-color: yellow; /* Badge background color */
+                    color: black; /* Text color */
+                    font-size: 14px; /* Badge font size */
+                    font-weight: bold;
+                    line-height: 1; /* Adjust text alignment */
+                    border-radius: 50%;
+                    padding: 4px 8px; /* Padding for badge shape */
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+                    z-index: 10;
+                    white-space: nowrap; /* Prevent text wrapping */
+                }
+
+                .site-navbar {
+                    position: fixed; /* Cố định header */
+                    top: 0; /* Đặt header ở đầu trang */
+                    left: 0; /* Canh trái */
+                    width: 100%; /* Chiếm toàn bộ chiều rộng */
+                    z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác */
+                    background-color: #f6f5f5 !important;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho header */
+                    padding: 10px 0; /* Khoảng cách trên và dưới */
+                }
+
+                    /* Khoảng trống bên dưới để bù cho chiều cao header */
+                    .site-navbar + .content {
+                        padding-top: 70px; /* Điều chỉnh theo chiều cao thực tế của header */
+                    }
+
+                .tile {
+                    margin-top: 150px; /* Khoảng cách dưới */
+                }
+
+                .site-menu .dropdown {
+                    display: none; /* Ẩn menu thả xuống */
+                    position: absolute; /* Để menu thả xuống xuất hiện bên dưới mục Services */
+                    text-align: center;
+                    background: #f0f0f0; /* Màu nền xám nhẹ cho menu thả xuống */
+                    padding: 10px; /* Khoảng cách bên trong */
+                    z-index: 999; /* Đảm bảo nó nằm trên các phần tử khác */
+                }
+
+
+                    .site-menu .dropdown li {
+                        display: block; /* Hiển thị các mục theo chiều dọc */
+                        margin: 5px 0; /* Khoảng cách giữa các mục theo chiều dọc */
+                    }
+
+                        .site-menu .dropdown li a {
+                            padding: 5px 10px; /* Thêm khoảng cách bên trong cho các liên kết */
+                            text-decoration: none; /* Bỏ gạch chân cho các liên kết */
+                            color: #333; /* Màu chữ cho các liên kết */
+                            transition: background-color 0.3s; /* Hiệu ứng chuyển màu nền */
+                        }
+
+                            .site-menu .dropdown li a:hover {
+                                background-color: #e0e0e0; /* Màu nền khi hover vào các liên kết */
+                            }
+
+                .site-menu .has-dropdown:hover .dropdown {
+                    display: block; /* Hiện menu thả xuống khi hover vào mục Services */
+                }
+
+
+                .table-striped tbody tr:nth-of-type(odd) {
+                    background-color: #f9f9f9;
+                }
+
+                .table img {
+                    border-radius: 5px;
+                    border: 1px solid #dee2e6;
+                }
+
+
+
+                .cart-item {
+                    display: flex;
+                    align-items: center;
+                    padding: 20px 0;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                    .cart-item img {
+                        width: 100px;
+                        height: auto;
+                        margin-right: 20px;
+                    }
+
+                .cart-item-details {
+                    flex: 1;
+                }
+
+                .summary {
+                    border-left: 1px solid #ddd;
+                    padding: 20px;
+                }
+
+                    .summary button {
+                        background-color: #efba6c !important;
+                        color: black !important;
+                        width: 100%;
+                        padding: 10px;
+                        margin: 10px 0;
+                        border: none;
+                        transition: background-color 0.3s ease, color 0.3s ease;
+                    }
+
+                        .summary button:hover {
+                            background-color: #d99b53 !important;
+                            color: white !important;
+                        }
+
+
+                .form-label {
+                    color: #495057;
+                }
+
+                #cart-usage-date {
+                    max-width: 200px; /* Điều chỉnh kích thước */
+                    font-size: 16px;
+                    padding: 0.375rem 0.75rem;
+                    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+                    transition: box-shadow 0.3s ease;
+                }
+
+                    #cart-usage-date:focus {
+                        box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+                        border-color: #007bff;
+                    }
+
+                #cart-usage-date {
+                    padding: 5px 10px; /* Khoảng cách bên trong */
+                    border: 1px solid #ccc; /* Màu viền */
+                    border-radius: 5px; /* Góc bo tròn */
+                    font-size: 14px; /* Kích thước chữ */
+                    font-family: Arial, sans-serif; /* Font chữ */
+                    width: auto; /* Tự động điều chỉnh theo nội dung */
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+                }
+
+                label {
+                    font-weight: bold; /* Làm đậm chữ trong nhãn */
+                    margin-bottom: 5px; /* Khoảng cách giữa nhãn và input */
+                }
+
+            </style>
+            <script>
+                $(document).ready(function () {
+                    $('.has-dropdown').hover(
+                        function () {
+                            $(this).find('.dropdown').stop(true, true).slideDown(200);
+                        },
+                        function () {
+                            $(this).find('.dropdown').stop(true, true).slideUp(200);
+                        }
+                    );
+                });
+            </script>
+        </header>
+        <script>
+            $(document).ready(function () {
+                // Toggle mobile menu visibility
+                $('.js-menu-toggle').on('click', function (e) {
+                    e.preventDefault();
+                    $('body').toggleClass('offcanvas-menu');
+                });
+
+                // Close the menu when clicking the close button
+                $('.site-mobile-menu-close').on('click', function () {
+                    $('body').removeClass('offcanvas-menu');
+                });
+
+                // Close the menu when clicking outside of it
+                $(document).mouseup(function (e) {
+                    var container = $(".site-mobile-menu");
+                    if (!container.is(e.target) && container.has(e.target).length === 0) {
+                        $('body').removeClass('offcanvas-menu');
+                    }
+                });
+
+                // Set the active class based on the current URL
+                var currentUrl = window.location.pathname; // Get the current URL path
+                $('.site-menu a').each(function () {
+                    if ($(this).attr('href') === currentUrl || (currentUrl === '/' && $(this).attr('href') === '/Home')) {
+                        $('.site-menu a').removeClass('active'); // Remove active from all links
+                        $(this).addClass('active'); // Add active to the matching link
+                    }
+                });
+
+                // Ensure menu is hidden when resizing to desktop
+                $(window).resize(function () {
+                    if ($(window).width() > 991.98) { // Bootstrap lg breakpoint
+                        $('body').removeClass('offcanvas-menu'); // Reset menu state
+                    }
+                });
+            });
+
+
+        </script>
+        @{
+            if (@TempData["NotificationSuccess"] != null)
+            {
+                <div id="notification-success" class="notification alert alert-success" role="alert">
+                    <i class="fas fa-bell"></i> <!-- Bell Icon -->
+                @TempData["NotificationSuccess"]
+                </div>
+            }
+        }
+        @{
+            if (@TempData["NotificationError"] != null)
+            {
+                <div id="notification-success" class="notification alert alert-danger" role="alert">
+                    <i class="fas fa-bell"></i> <!-- Bell Icon -->
+                @TempData["NotificationError"]
+                </div>
+            }
+        }
+        <style>
+            .notification {
+                position: fixed;
+                top: 20px; /* Distance from the top */
+                right: -350px; /* Start outside the viewport */
+                z-index: 1050; /* Ensure it appears above other elements */
+                opacity: 1; /* Fully visible initially */
+                transition: transform 0.5s ease-out, opacity 1s ease-out; /* Smooth slide and fade effects */
+                max-width: 300px; /* Restrict maximum width */
+                padding: 15px; /* Padding inside the notification */
+                border-radius: 5px; /* Rounded corners */
+            }
+
+            /* Success notification styles */
+            .alert-success {
+                background-color: #d4edda; /* Light green background */
+                color: #155724; /* Dark green text */
+                border: 1px solid #c3e6cb; /* Green border */
+            }
+
+            /* Error notification styles */
+            .alert-danger {
+                background-color: #f8d7da; /* Light red background */
+                color: #721c24; /* Dark red text */
+                border: 1px solid #f5c6cb; /* Red border */
+            }
+        </style>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                function showAndHideNotification(selector) {
+                    if ($(selector).length) {
+                        // Slide notification into view
+                        $(selector).css("transform", "translateX(-350px)"); // Slide in
+                        setTimeout(function () {
+                            // Slide notification back out after 5 seconds
+                            $(selector).css("transform", "translateX(0)"); // Slide out
+                            $(selector).css("opacity", "0"); // Optional fade-out effect
+                        }, 5000); // Display for 5 seconds before sliding out
+                    }
+                }
+
+                // Show success and error notifications
+                showAndHideNotification("#notification-success");
+                showAndHideNotification("#notification-error");
+            });
+        </script>
+
+        <div class="container mt-5" data-aos="fade-up">
+            <div class="tile">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Giỏ hàng</h3>
+                        <div style="margin: 10px 0;">
+                            <label for="cart-usage-date" style="font-weight: bold;">Ngày sử dụng (tháng-ngày-năm):</label>
+                            <input readonly type="datetime-local" id="cart-usage-date"
+                                   value="@Model.FirstOrDefault()?.UsageDate.ToString("yyyy-MM-ddTHH:mm")"
+                                   onchange="updateCartDate(this.value)"
+                                   style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 5px; width: auto; font-size: 14px; font-family: Arial, sans-serif;">
+                        </div>
+                        <div id="cartContainer">
+                            @foreach (var item in Model)
+                            {
+                                <div class="cart-item d-flex mb-3" id="cart-item-@item.Id">
+                                    @if (@item.Type == "Gear")
+                                    {
+                                        <img src="@item.Image" alt="@item.Name" class="img-thumbnail" style="width: 120px;">
+                                    }
+                                    else if (@item.Type == "Combo")
+                                    {
+                                        <img src="~/images/Combo/@item.Image" alt="@item.Name" class="img-thumbnail" style="width: 120px;">
+                                    }
+                                    else if (@item.Type == "Ticket")
+                                    {
+                                        <img src="@item.Image" alt="@item.Name" class="img-thumbnail" style="width: 120px;">
+                                    }
+                                    else if (@item.Type == "FoodAndDrink")
+                                    {
+                                        <img src="@item.Image" alt="@item.Name" class="img-thumbnail" style="width: 120px;">
+                                    }
+
+                                    <div class="cart-item-details ml-3">
+                                        <h5>@item.Name</h5>
+                                        <p>@item.TypeCategory</p>
+                                        <p>Giá: <span id="price_@item.Id-@item.Type-@item.TypeCategory">@item.Price.ToString("N0")</span> đ</p>
+
+                                    </div>
+                                    <div class="ml-auto d-flex align-items-center">
+                                        <button class="btn btn-light"
+                                                onclick="decrementQuantity(@item.Id, @item.Price, '@item.Type', '@item.TypeCategory')">
+                                            -
+                                        </button>
+
+                                        <input type="text"
+                                               id="quantity_@item.Id-@item.Type-@item.TypeCategory"
+                                               max="@item.QuantityAvailable"
+                                               value="@item.Quantity"
+                                               class="form-control text-center mx-2"
+                                               style="width: 50px;"
+                                               min="1"
+                                               oninput="validateQuantity(this, '@item.Type', @item.QuantityAvailable)"
+                                               placeholder="Nhập số" readonly>
+
+
+                                        <button class="btn btn-light"
+                                                onclick="incrementQuantity(@item.Id, @item.Price, '@item.Type', '@item.TypeCategory')">
+                                            +
+                                        </button>
+
+                                        <button class="btn btn-danger ml-2" onclick="removeCartItem(@item.Id, '@item.Type', '@item.TypeCategory')">Xóa</button>
+                                    </div>
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <!-- Tổng hóa đơn -->
+                    <div class="col-md-4">
+                        <div class="summary">
+                            <h3>Tổng hóa đơn</h3>
+                            <p>Số tiền: <span id="totalPrice">@Model.Sum(item => item.TotalPrice).ToString("N0")</span> đ</p>
+                            <p>Đã cọc: 0đ</p>
+                            <p>Tổng: <span id="totalPriceFinal">@Model.Sum(item => item.TotalPrice).ToString("N0")</span> đ</p>
+                            <form action="~/Service" method="get">
+                                <button type="submit" class="btn btn-dark">Quay lại dịch vụ</button>
+                            </form>
+                            <p class="mt-3">Nếu bạn muốn chọn lại ngày sử dụng, vui lòng đặt lại.</p>
+                            <form action="/Service/Reset" method="post" onsubmit="return resetCart();">
+                                <button type="submit" class="btn btn-warning">Đặt lại</button>
+                            </form>
+
+                            <!-- Remove the existing form's submit button -->
+                            <form id="paymentForm" asp-controller="Service" asp-action="Order" method="post">
+                                <button type="button" class="btn btn-dark" onclick="submitPayment()">Đặt ngay </button>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function resetCart() {
+            // Thực hiện logic bổ sung trước khi gửi form
+            if (confirm("Bạn có chắc chắn muốn đặt lại giỏ hàng không?")) {
+                console.log("Xóa giỏ hàng và gửi yêu cầu đến controller...");
+                sessionStorage.removeItem('usageDateForAll');
+                return true;
+
+            } else {
+                console.log("Người dùng đã hủy thao tác.");
+                return false; // Ngăn không cho form gửi đi
+            }
+        }
+        function validateQuantity(element, type, maxQuantity) {
+            // Lấy giá trị nhập vào
+            let value = element.value;
+
+            // Kiểm tra nếu có ký tự không phải là số
+            if (/\D/.test(value)) {
+                alert("Chỉ được nhập số."); // Thông báo lỗi
+                element.value = value.replace(/\D/g, ''); // Xóa ký tự không hợp lệ
+                return;
+            }
+
+            // Chuyển giá trị thành số nguyên
+            let numericValue = parseInt(value, 10);
+
+            // Kiểm tra nếu giá trị nhỏ hơn 1 hoặc không phải số
+            if (isNaN(numericValue) || numericValue < 1) {
+                alert("Số lượng phải lớn hơn hoặc bằng 1.");
+                element.value = 1; // Đặt lại giá trị nhỏ nhất là 1
+                return;
+            }
+
+            // Nếu loại sản phẩm là "Gear", kiểm tra giới hạn tối đa
+            if (type === 'Gear' && numericValue > maxQuantity) {
+                alert(`Số lượng không thể vượt quá số lượng còn lại: ${maxQuantity}.`);
+                numericValue = maxQuantity; // Đặt giá trị tối đa
+            }
+
+            // Cập nhật giá trị đã lọc
+            element.value = numericValue;
+        }
+        function incrementQuantity(itemId, price, type, typeCategory) {
+            let quantityInput = document.getElementById(`quantity_${itemId}-${type}-${typeCategory}`);
+            let quantity = parseInt(quantityInput.value) || 0; // Xử lý nếu giá trị không hợp lệ
+            let maxQuantity = parseInt(quantityInput.getAttribute('max')) || Infinity; // Mặc định không giới hạn nếu `max` không tồn tại
+
+            if (type === "Gear" && typeCategory === "GearCategory") {
+                if (quantity < maxQuantity) {
+                    quantity += 1;
+                    quantityInput.value = quantity;
+                } else {
+                    alert(`Số lượng không thể vượt quá số lượng còn lại: ${maxQuantity}.`);
+                    return; // Dừng thực thi nếu vượt quá số lượng
+                }
+            } else {
+                quantity += 1;
+                quantityInput.value = quantity;
+            }
+
+            // Cập nhật tổng giá và số lượng trong giỏ hàng
+            updateTotalPrice();
+            updateCartItemQuantity(itemId, quantity, type, typeCategory);
+        }
+
+        function updateCartCount() {
+            $.get('/Service/GetCartItemCount', function (count) {
+                if (count !== null && count > 0) {
+                    // Kiểm tra nếu badge chưa tồn tại, thêm badge mới
+                    if (!$('.cart-badge').length) {
+                        $('.cart-wrapper').append(`<span class="cart-badge">${count}</span>`);
+                    } else {
+                        // Nếu badge đã tồn tại, cập nhật số lượng
+                        $('.cart-badge').text(count);
+                    }
+                } else {
+                    // Nếu giỏ hàng trống, hiển thị 0
+                    if (!$('.cart-badge').length) {
+                        $('.cart-wrapper').append(`<span class="cart-badge">0</span>`);
+                    } else {
+                        $('.cart-badge').text('0');
+                    }
+                }
+            });
+        }
+
+
+        function decrementQuantity(itemId, price, type, typeCategory) {
+            let quantityInput = document.getElementById(`quantity_${itemId}-${type}-${typeCategory}`);
+            let quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantity -= 1;
+                quantityInput.value = quantity;
+
+                updateTotalPrice();
+                updateCartItemQuantity(itemId, quantity, type, typeCategory);
+            }
+        }
+
+        function updateCartItemQuantity(itemId, newQuantity, type, typeCategory) {
+            $.ajax({
+                url: '/Service/UpdateCartItemQuantity',
+                type: 'POST',
+                data: {
+                    ticketId: itemId,
+                    newQuantity: newQuantity,
+                    type: type,
+                    typeCategory: typeCategory
+                },
+                success: function () {
+                    // Optional success message or UI update
+                    updateCartCount();
+                    console.log('Quantity updated successfully');
+                },
+                error: function () {
+                    alert('Có lỗi xảy ra khi cập nhật số lượng.');
+                }
+            });
+        }
+
+
+        function updateTotalPrice() {
+            let totalPrice = 0;
+            document.querySelectorAll('input[id^="quantity_"]').forEach(function (input) {
+                let parts = input.id.split('_')[1].split('-'); // Phân tách để lấy Id, Type, và TypeCategory
+                let itemId = parts[0];
+                let type = parts[1];
+                let typeCategory = parts[2];
+
+                let priceElement = document.getElementById(`price_${itemId}-${type}-${typeCategory}`);
+                if (priceElement) {
+                    let price = parseInt(priceElement.innerText.replace(/,/g, ''));
+                    let quantity = parseInt(input.value);
+                    totalPrice += price * quantity;
+                }
+            });
+
+            document.getElementById('totalPrice').innerText = totalPrice.toLocaleString();
+            document.getElementById('totalPriceFinal').innerText = totalPrice.toLocaleString();
+        }
+
+
+
+
+
+        function removeCartItem(itemId) {
+            // Confirm before removing the item
+            if (confirm('Bạn có muốn xóa sản phẩm này khỏi giỏ hàng không?')) {
+                $.ajax({
+                    url: '/Service/RemoveFromCart',
+                    type: 'POST',
+                    data: { ticketId: itemId },
+                    success: function (response) {
+                        if (response.isCartCleared) {
+                            // If the entire cart is cleared, remove the cart section
+                            $('.cart-section').remove(); // Assuming the cart is wrapped in .cart-section
+                            sessionStorage.removeItem('usageDateForAll'); // Clear usage date
+                            alert('Giỏ hàng đã được xóa hết vì không còn vé hoặc combo. Vui lòng đặt lại vé');
+                            window.location.href = '/Service/OrderTicket';
+                        } else {
+                            // Remove the specific cart item from the DOM
+                            $('#cart-item-' + itemId).remove();
+                            updateTotalPrice(); // Update total price display
+                            updateCartCount(response.cartItemCount); // Update cart count display
+                        }
+                    },
+                    error: function () {
+                        alert('Có lỗi xảy ra khi xóa sản phẩm.');
+                    }
+                });
+            }
+        }
+
+
+
+
+
+        function submitPayment() {
+            if (!confirm('Bạn có muốn đặt ngay?')) {
+                return; // Nếu người dùng chọn Cancel, thoát hàm
+            }
+
+            // Check if there are any items in the cart
+            const cartItems = document.querySelectorAll('.cart-item');
+            if (cartItems.length === 0) {
+                alert('Giỏ hàng của bạn không có sản phẩm nào!');
+                return; // Exit the function if cart is empty
+            }
+
+            // Check if there are any tickets or combos in the cart
+            let hasTicketOrCombo = false;
+            cartItems.forEach(function (item) {
+                const typeCategory = item.querySelector('.cart-item-details p:nth-child(2)').innerText.trim(); // Ensure clean text
+                if (typeCategory === "TicketCategory" || typeCategory === "ComboCategory") {
+                    hasTicketOrCombo = true;
+                }
+            });
+
+            // If there are no tickets or combos, show a notification and stop the order
+            if (!hasTicketOrCombo) {
+                alert('Giỏ hàng của bạn cần có ít nhất một vé hoặc combo để đặt hàng!');
+                return; // Exit the function
+            }
+
+            // Log the serialized data for debugging
+            console.log($('#paymentForm').serialize());
+
+            // Send AJAX POST request to submit the order
+            $.ajax({
+                url: '/Service/Order',
+                type: 'POST',
+                data: $('#paymentForm').serialize(),
+                success: function (response) {
+                    // Clear cart items after successful order
+                    $('.cart-item').remove();
+                    $('#totalPrice').text('0');
+                    $('#totalPriceFinal').text('0');
+                    alert('Đặt đơn thành công!');
+
+                    // Redirect to OrderHistory page
+                    window.location.href = '/Service/OrderHistory';
+
+                    // Clear session storage if cart is empty
+                    if ($('.cart-item').length === 0) {
+                        sessionStorage.removeItem('usageDateForAll');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', xhr); // Log detailed error for debugging
+                    alert('Đặt ngay thất bại. Vui lòng đăng nhập để đặt ngay.');
+                }
+            });
+        }
+
+
+
+    </script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/jquery-migrate-3.0.0.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.sticky.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/jquery.fancybox.min.js"></script>
+    <script src="~/js/jquery.stellar.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/js/isotope.pkgd.min.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200, // Đặt thời gian cho hiệu ứng (tùy chọn)
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/microsoft-signalr/signalr.min.js"></script>
+    <script>
+        const cartConnection = new signalR.HubConnectionBuilder()
+            .withUrl("/cart-hub")
+            .build();
+
+        cartConnection.start().then(function () {
+            console.log("CartHub connected");
+        }).catch(function (err) {
+            return console.error(err.toString());
+        });
+
+        // Lắng nghe sự kiện từ SignalR
+        cartConnection.on("ReceiveCartUpdate", function (cartItems) {
+            updateCart(cartItems); // Gọi hàm cập nhật giỏ hàng với dữ liệu từ server
+        });
+
+        // Hàm để cập nhật một sản phẩm trong giỏ hàng
+        function updateCart(cartItems) {
+            $('#cartContainer').empty(); // Xóa nội dung giỏ hàng hiện tại
+
+            // Thêm các sản phẩm mới vào giỏ hàng
+            $.each(cartItems, function (index, item) {
+                $('#cartContainer').append(`
+                                            <div class="cart-item" id="cart-item-${item.id}">
+                                                        <img src="~/images//img_1.jpg" alt="${item.name}" class="img-thumbnail" style="width: 120px;">
+                                                <div class="cart-item-details ml-3">
+                                                    <h5>${item.name}</h5>
+                                                    <p>${item.typeCategory}</p>
+                                                    <p>Giá: <span id="price_${item.id}-${item.type}-${item.typeCategory}">${item.price.toLocaleString()}</span> đ</p>
+                                                </div>
+                                                <div class="ml-auto d-flex align-items-center">
+                                                    <button class="btn btn-light" onclick="decrementQuantity(${item.id}, ${item.price}, '${item.type}', '${item.typeCategory}')">-</button>
+                                                    <input type="text" id="quantity_${item.id}-${item.type}-${item.typeCategory}" value="${item.quantity}" class="form-control text-center mx-2" style="width: 50px;" readonly>
+                                                    <button class="btn btn-light" onclick="incrementQuantity(${item.id}, ${item.price}, '${item.type}', '${item.typeCategory}')">+</button>
+                                                    <button class="btn btn-danger ml-2" onclick="removeCartItem(${item.id}, '${item.type}', '${item.typeCategory}')">Xóa</button>
+                                                </div>
+                                            </div>
+                                        `);
+            });
+
+            updateTotalPrice(); // Cập nhật tổng giá tiền nếu cần
+        }
+
+
+    </script>
+
+</body>
+<footer class="site-footer bg-light">
+    <div class="container">
+        <div class="row gy-3">
+            <!-- Facebook Section -->
+            <div class="col-lg-3">
+                <h2 class="footer-heading mb-3 text-uppercase">Facebook</h2>
+                <div class="row g-2">
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture1.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture8.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture7.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture1.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture8.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                    <div class="col-4" style="margin:10px">
+                        <a href="#"><img src="~/images/Picture7.jpg" alt="Image" class="img-fluid rounded"></a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Quick Links Section -->
+            <div class="col-lg-4">
+                <h2 class="footer-heading mb-3 text-uppercase">Truy cập nhanh</h2>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="https://www.facebook.com/profile.php?id=100063831185228" class="text-decoration-none link-colored">
+                            <i class="fab fa-facebook" style="margin-right: 10px;"></i>Facebook
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <span class="text-decoration-none link-colored">
+                            <i class="fas fa-phone me-3" style="margin-right: 10px;"></i>Số điện thoại: 098 732 76 69
+                        </span>
+                    </li>
+                    <li class="mb-2">
+                        <span class="text-decoration-none link-colored">
+                            <i class="fas fa-envelope me-3" style="margin-right: 10px;"></i>Email: hocausongque@gmail.com
+                        </span>
+                    </li>
+
+
+
+                </ul>
+            </div>
+
+            <!-- Google Maps Section -->
+            <div class="col-lg-5">
+                <h2 class="footer-heading mb-3 text-uppercase">Địa chỉ</h2>
+                <div class="map rounded overflow-hidden">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.2711745514057!2d105.91792687476992!3d21.05656318682401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a9ad89ed0681%3A0xdfe74944a2df349b!2sS%C3%B4ng%20Qu%C3%AA%20Green%20Garden!5e1!3m2!1svi!2s!4v1730041487949!5m2!1svi!2s"
+                            width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen=""
+                            aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <hr class="bg-secondary my-3">
+
+        <!-- Footer Bottom -->
+        <div class="row">
+            <div class="col text-center">
+                <p class="mb-0 small text-secondary">&copy; 2024 Green Garden. All Rights Reserved. Designed by <a href="#" class="text-dark text-decoration-none">G43_SEP490</a>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<style>
+    /* Footer chung */
+    .site-footer {
+        background: #f8f9fa; /* Màu nền sáng */
+        color: #212529; /* Màu chữ */
+        padding: 20px 0; /* Giảm chiều cao padding */
+    }
+
+    .footer-heading {
+        font-size: 1rem; /* Giảm kích thước tiêu đề */
+        font-weight: bold;
+        color: #212529; /* Màu chữ tiêu đề */
+        border-bottom: 2px solid #dee2e6;
+        padding-bottom: 8px;
+    }
+
+    .site-footer a {
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .site-footer a:hover {
+            color: #efba6c; /* Màu hover */
+        }
+
+    /* Áp dụng màu #efba6c cho liên kết */
+    .link-colored {
+        color: #efba6c;
+    }
+
+        .link-colored:hover {
+            color: #d99a50; /* Màu hover nhẹ hơn */
+        }
+
+    /* Hình ảnh Facebook */
+    .gal_col img {
+        border-radius: 4px; /* Bo góc nhẹ */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .gal_col img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Bóng khi hover */
+        }
+
+    /* Google Maps */
+    .map iframe {
+        border-radius: 8px;
+        border: none;
+    }
+
+    /* Giảm khoảng cách giữa các phần */
+    .site-footer .row {
+        margin-bottom: 10px; /* Giảm khoảng cách */
+    }
+
+    hr {
+        margin: 15px 0; /* Thu gọn khoảng cách giữa các phần */
+    }
+
+</style>
+</html>
+
+
+
+
+
+
+
