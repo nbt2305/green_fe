@@ -62,7 +62,7 @@ namespace GreenGardenClient.Controllers
         $"page={page}",
         $"pageSize={pageSize}"
     };
-            string apiUrl = "https://be_green.chunchun.io.vn/api/CampingGear/GetCampingGearsBySort?" +
+            string apiUrl = "https://be-green.chunchun.io.vn/api/CampingGear/GetCampingGearsBySort?" +
                             string.Join("&", queryParams.Where(param => param != null));
 
             // Fetch data from the API
@@ -70,7 +70,7 @@ namespace GreenGardenClient.Controllers
 
             // Fetch categories
             var campingCategories = await GetDataFromApiAsync<List<GearCategoryVM>>(
-                "https://be_green.chunchun.io.vn/api/CampingGear/GetAllCampingGearCategories");
+                "https://be-green.chunchun.io.vn/api/CampingGear/GetAllCampingGearCategories");
 
             // Check cart usage date
             DateTime? cartUsageDate = cartItems.FirstOrDefault()?.UsageDate;
@@ -81,7 +81,7 @@ namespace GreenGardenClient.Controllers
 
                 // Fetch usage details by date
                 var gearUsage = await GetDataFromApiAsync<List<OrderCampingGearByUsageDateDTO>>(
-                    $"https://be_green.chunchun.io.vn/api/OrderManagement/GetListOrderGearByUsageDate/{formattedDate}");
+                    $"https://be-green.chunchun.io.vn/api/OrderManagement/GetListOrderGearByUsageDate/{formattedDate}");
 
                 if (gearUsage != null)
                 {
@@ -131,7 +131,7 @@ namespace GreenGardenClient.Controllers
             {
                 // Fetch categories from API
                 var foodAndDrinkCategories = await GetDataFromApiAsync<List<FoodAndDrinkCategoryVM>>(
-                    "https://be_green.chunchun.io.vn/api/FoodAndDrink/GetAllFoodAndDrinkCategories");
+                    "https://be-green.chunchun.io.vn/api/FoodAndDrink/GetAllFoodAndDrinkCategories");
 
                 // Save current category to ViewBag
                 ViewBag.CurrentCategoryId = categoryId;
@@ -145,7 +145,7 @@ namespace GreenGardenClient.Controllers
             $"page={page}",
             $"pageSize={pageSize}"
         };
-                string apiUrl = "https://be_green.chunchun.io.vn/api/FoodAndDrink/GetFoodAndDrinksBySort?" +
+                string apiUrl = "https://be-green.chunchun.io.vn/api/FoodAndDrink/GetFoodAndDrinksBySort?" +
                                 string.Join("&", queryParams.Where(param => param != null));
 
                 // Fetch filtered data from API
@@ -179,7 +179,7 @@ namespace GreenGardenClient.Controllers
         [HttpGet("FoodDetail")]
         public async Task<IActionResult> FoodDetail(int itemId)
         {
-            var apiUrl = $"https://be_green.chunchun.io.vn/api/FoodAndDrink/GetFoodAndDrinkDetail?itemId={itemId}";
+            var apiUrl = $"https://be-green.chunchun.io.vn/api/FoodAndDrink/GetFoodAndDrinkDetail?itemId={itemId}";
 
             try
             {
@@ -219,7 +219,7 @@ namespace GreenGardenClient.Controllers
         {
             // Retrieve cart items from session
             var cartItems = GetCartItems();
-            var apiUrl = $"https://be_green.chunchun.io.vn/api/CampingGear/GetCampingGearDetail?id={gearId}";
+            var apiUrl = $"https://be-green.chunchun.io.vn/api/CampingGear/GetCampingGearDetail?id={gearId}";
 
             try
             {
@@ -257,7 +257,7 @@ namespace GreenGardenClient.Controllers
 
                     // Fetch gear usage data from API
                     var usageResponse = await GetDataFromApiAsync<List<OrderCampingGearByUsageDateDTO>>(
-                        $"https://be_green.chunchun.io.vn/api/OrderManagement/GetListOrderGearByUsageDate/{formattedDate}");
+                        $"https://be-green.chunchun.io.vn/api/OrderManagement/GetListOrderGearByUsageDate/{formattedDate}");
 
                     if (usageResponse != null)
                     {
@@ -307,7 +307,7 @@ namespace GreenGardenClient.Controllers
         [HttpGet("TicketDetail")]
         public async Task<IActionResult> TicketDetail(int ticketId)
         {
-            var apiUrl = $"https://be_green.chunchun.io.vn/api/Ticket/GetTicketDetail?id={ticketId}";
+            var apiUrl = $"https://be-green.chunchun.io.vn/api/Ticket/GetTicketDetail?id={ticketId}";
 
             try
             {
@@ -365,7 +365,7 @@ namespace GreenGardenClient.Controllers
 
 
             // Build API URL dynamically based on filters
-            string apiUrl = $"https://be_green.chunchun.io.vn/api/OrderManagement/GetCustomerOrders?customerId={customerId.Value}";
+            string apiUrl = $"https://be-green.chunchun.io.vn/api/OrderManagement/GetCustomerOrders?customerId={customerId.Value}";
             if (activityId.HasValue)
             {
                 apiUrl += $"&activityId={activityId.Value}";
@@ -381,7 +381,7 @@ namespace GreenGardenClient.Controllers
 
                 // Fetch data from APIs
                 var order = await GetDataFromApiAsync<List<CustomerOrderVM>>(apiUrl);
-                var activity = await GetDataFromApiAsync<List<ActivityVM>>("https://be_green.chunchun.io.vn/api/Activity/GetAllActivities");
+                var activity = await GetDataFromApiAsync<List<ActivityVM>>("https://be-green.chunchun.io.vn/api/Activity/GetAllActivities");
 
                 // Pass data to View
                 ViewBag.CustomerOrder = order;
@@ -421,7 +421,7 @@ namespace GreenGardenClient.Controllers
             {
                 return RedirectToAction("Error");
             }
-            var apiUrl = $"https://be_green.chunchun.io.vn/api/OrderManagement/GetCustomerOrderDetail/{orderId}";
+            var apiUrl = $"https://be-green.chunchun.io.vn/api/OrderManagement/GetCustomerOrderDetail/{orderId}";
 
             try
             {
@@ -484,7 +484,7 @@ namespace GreenGardenClient.Controllers
             {
                 return RedirectToAction("Error");
             }
-            var apiUrl = $"https://be_green.chunchun.io.vn/api/OrderManagement/ChangeCustomerActivity?orderId={orderId}";
+            var apiUrl = $"https://be-green.chunchun.io.vn/api/OrderManagement/ChangeCustomerActivity?orderId={orderId}";
 
             try
             {
@@ -520,8 +520,8 @@ namespace GreenGardenClient.Controllers
 
         public async Task<IActionResult> OrderTicket()
         {
-            var ticket = await GetDataFromApiAsync<List<TicketVM>>("https://be_green.chunchun.io.vn/api/Ticket/GetAllCustomerTickets");
-            var ticketCategory = await GetDataFromApiAsync<List<TicketCategoryVM>>("https://be_green.chunchun.io.vn/api/Ticket/GetAllTicketCategories");
+            var ticket = await GetDataFromApiAsync<List<TicketVM>>("https://be-green.chunchun.io.vn/api/Ticket/GetAllCustomerTickets");
+            var ticketCategory = await GetDataFromApiAsync<List<TicketCategoryVM>>("https://be-green.chunchun.io.vn/api/Ticket/GetAllTicketCategories");
 
             ViewBag.Ticket = ticket;
             ViewBag.TicketCategories = ticketCategory;
@@ -542,14 +542,14 @@ namespace GreenGardenClient.Controllers
         $"page={page}",
         $"pageSize={pageSize}"
     };
-            string apiUrl = "https://be_green.chunchun.io.vn/api/Ticket/GetTicketsByCategoryAndSort?" +
+            string apiUrl = "https://be-green.chunchun.io.vn/api/Ticket/GetTicketsByCategoryAndSort?" +
                             string.Join("&", queryParams.Where(param => param != null));
 
             // Fetch ticket data with pagination
             var apiResponse = await GetDataFromApiAsync<PaginatedResponse<TicketVM>>(apiUrl);
 
             // Fetch ticket categories
-            var ticketCategories = await GetDataFromApiAsync<List<TicketCategoryVM>>("https://be_green.chunchun.io.vn/api/Ticket/GetAllTicketCategories");
+            var ticketCategories = await GetDataFromApiAsync<List<TicketCategoryVM>>("https://be-green.chunchun.io.vn/api/Ticket/GetAllTicketCategories");
 
             // Update ViewBag with necessary data for the view
             ViewBag.Ticket = apiResponse?.Data ?? new List<TicketVM>(); // Paginated ticket list
@@ -566,7 +566,7 @@ namespace GreenGardenClient.Controllers
 
         public async Task<IActionResult> ComboList()
         {
-            var combo = await GetDataFromApiAsync<List<ComboVM>>("https://be_green.chunchun.io.vn/api/Combo/GetAllCustomerCombos");
+            var combo = await GetDataFromApiAsync<List<ComboVM>>("https://be-green.chunchun.io.vn/api/Combo/GetAllCustomerCombos");
 
             ViewBag.Combo = combo;
 
@@ -576,7 +576,7 @@ namespace GreenGardenClient.Controllers
         [HttpGet("ComboDetail")]
         public async Task<IActionResult> ComboDetail(int comboId)
         {
-            var apiUrl = $"https://be_green.chunchun.io.vn/api/Combo/GetComboDetail/{comboId}";
+            var apiUrl = $"https://be-green.chunchun.io.vn/api/Combo/GetComboDetail/{comboId}";
 
             try
             {
@@ -631,7 +631,7 @@ namespace GreenGardenClient.Controllers
 
             // Lấy danh sách dụng cụ cắm trại
             var campingGears = await GetDataFromApiAsync<List<GearVM>>(
-                "https://be_green.chunchun.io.vn/api/CampingGear/GetAllCustomerCampingGears");
+                "https://be-green.chunchun.io.vn/api/CampingGear/GetAllCustomerCampingGears");
 
             // Kiểm tra xem có sản phẩm nào là "Gear" và "GearCategory" không
             if (cartItems.Any(item => item.Type == "Gear" && item.TypeCategory == "GearCategory"))
@@ -640,7 +640,7 @@ namespace GreenGardenClient.Controllers
                 {
                     string formattedDate = cartUsageDate.Value.ToString("MM-dd-yyyy");
                     var gearUsage = await GetDataFromApiAsync<List<OrderCampingGearByUsageDateDTO>>(
-                        $"https://be_green.chunchun.io.vn/api/OrderManagement/GetListOrderGearByUsageDate/{formattedDate}");
+                        $"https://be-green.chunchun.io.vn/api/OrderManagement/GetListOrderGearByUsageDate/{formattedDate}");
 
                     if (gearUsage != null)
                     {
@@ -1028,7 +1028,7 @@ namespace GreenGardenClient.Controllers
                     var content = new StringContent(JsonConvert.SerializeObject(orderRequest), Encoding.UTF8, "application/json");
 
                     // Use the client from IHttpClientFactory to make the API call
-                    var apiUrl = "https://be_green.chunchun.io.vn/api/OrderManagement/CheckOut";
+                    var apiUrl = "https://be-green.chunchun.io.vn/api/OrderManagement/CheckOut";
                     var response = await client.PostAsync(apiUrl, content);
 
                     // Handle the API response
@@ -1090,7 +1090,7 @@ namespace GreenGardenClient.Controllers
                     var content = new StringContent(JsonConvert.SerializeObject(orderRequest), Encoding.UTF8, "application/json");
 
                     // Use the client from IHttpClientFactory to make the API call
-                    var apiUrl = "https://be_green.chunchun.io.vn/api/OrderManagement/CheckOutComboOrder";
+                    var apiUrl = "https://be-green.chunchun.io.vn/api/OrderManagement/CheckOutComboOrder";
                     var response = await client.PostAsync(apiUrl, content);
 
                     if (response.IsSuccessStatusCode)

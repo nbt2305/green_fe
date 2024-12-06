@@ -41,7 +41,7 @@ namespace GreenGardenClient.Controllers.AdminController
         }
         public async Task<IActionResult> Index()
         {
-            var gear = await GetDataFromApiAsync<List<GearVM>>("https://be_green.chunchun.io.vn/api/CampingGear/GetAllCampingGears");
+            var gear = await GetDataFromApiAsync<List<GearVM>>("https://be-green.chunchun.io.vn/api/CampingGear/GetAllCampingGears");
             var userRole = HttpContext.Session.GetInt32("RoleId");
 
             int? userId = HttpContext.Session.GetInt32("UserId");
@@ -75,7 +75,7 @@ namespace GreenGardenClient.Controllers.AdminController
             {
                 return RedirectToAction("Index", "Home");
             }
-            var apiUrl = $"https://be_green.chunchun.io.vn/api/CampingGear/GetCampingGearDetail?id={gearId}";
+            var apiUrl = $"https://be-green.chunchun.io.vn/api/CampingGear/GetCampingGearDetail?id={gearId}";
 
             try
             {
@@ -104,7 +104,7 @@ namespace GreenGardenClient.Controllers.AdminController
                 }
 
                 // Gọi API lấy danh sách thể loại thiết bị
-                var campingCategories = await GetDataFromApiAsync<List<GearCategoryVM>>("https://be_green.chunchun.io.vn/api/CampingGear/GetAllCampingGearCategories");
+                var campingCategories = await GetDataFromApiAsync<List<GearCategoryVM>>("https://be-green.chunchun.io.vn/api/CampingGear/GetAllCampingGearCategories");
 
                 // Gán dữ liệu vào ViewBag để truyền sang View
                 ViewBag.CampingGear = gear;
@@ -256,7 +256,7 @@ namespace GreenGardenClient.Controllers.AdminController
 
 
             // Gọi API để cập nhật thông tin món ăn
-            string apiUrl = "https://be_green.chunchun.io.vn/api/CampingGear/UpdateCampingGear";
+            string apiUrl = "https://be-green.chunchun.io.vn/api/CampingGear/UpdateCampingGear";
             try
             {
 
@@ -287,7 +287,7 @@ namespace GreenGardenClient.Controllers.AdminController
         [HttpPost] // Dùng POST cho form submit
         public async Task<IActionResult> ChangeStatus(int gearId)
         {
-            string apiUrl = $"https://be_green.chunchun.io.vn/api/CampingGear/ChangeGearStatus?gearId={gearId}";
+            string apiUrl = $"https://be-green.chunchun.io.vn/api/CampingGear/ChangeGearStatus?gearId={gearId}";
 
             try
             {
@@ -317,7 +317,7 @@ namespace GreenGardenClient.Controllers.AdminController
         [HttpGet]
         public async Task<IActionResult> CreateGear()
         {
-            var campingCategories = await GetDataFromApiAsync<List<GearCategoryVM>>("https://be_green.chunchun.io.vn/api/CampingGear/GetAllCampingGearCategories");
+            var campingCategories = await GetDataFromApiAsync<List<GearCategoryVM>>("https://be-green.chunchun.io.vn/api/CampingGear/GetAllCampingGearCategories");
             var userRole = HttpContext.Session.GetInt32("RoleId");
 
             int? userId = HttpContext.Session.GetInt32("UserId");
@@ -341,7 +341,7 @@ namespace GreenGardenClient.Controllers.AdminController
         [HttpPost]
         public async Task<IActionResult> CreateGear(AddGearVM model, IFormFile PictureUrl)
         {
-            var campingCategories = await GetDataFromApiAsync<List<GearCategoryVM>>("https://be_green.chunchun.io.vn/api/CampingGear/GetAllCampingGearCategories");
+            var campingCategories = await GetDataFromApiAsync<List<GearCategoryVM>>("https://be-green.chunchun.io.vn/api/CampingGear/GetAllCampingGearCategories");
 
             // Gán lại danh sách danh mục cho ViewBag
             ViewBag.CampingCategories = campingCategories;
@@ -470,7 +470,7 @@ namespace GreenGardenClient.Controllers.AdminController
             }
 
             // Prepare request data for API
-            string apiUrl = "https://be_green.chunchun.io.vn/api/CampingGear/AddCampingGear";
+            string apiUrl = "https://be-green.chunchun.io.vn/api/CampingGear/AddCampingGear";
             using (HttpClient client = new HttpClient())
             {
                 try

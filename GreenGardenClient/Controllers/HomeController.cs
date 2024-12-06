@@ -17,7 +17,7 @@ namespace GreenGardenClient.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var events = await GetDataFromApiAsync<List<EventVM>>("https://be_green.chunchun.io.vn/api/Event/GetTop3NewestEvents");
+            var events = await GetDataFromApiAsync<List<EventVM>>("https://be-green.chunchun.io.vn/api/Event/GetTop3NewestEvents");
 
 
             // Đưa dữ liệu vào ViewBag
