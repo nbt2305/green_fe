@@ -68,7 +68,7 @@ namespace GreenGardenClient.Controllers.AdminController
                 return RedirectToAction("Index", "Home");
             }
 
-            var userdata = GetDataFromApi<List<Account>>("http://103.20.97.182:5124/api/User/GetAllEmployees");
+            var userdata = GetDataFromApi<List<Account>>("https://be_green.chunchun.io.vn/api/User/GetAllEmployees");
 
             // Check if userdata is null, meaning there was an error or forbidden access
             if (userdata == null)
@@ -110,7 +110,7 @@ namespace GreenGardenClient.Controllers.AdminController
                 return View(model);
             }
             // URL API để thêm nhân viên
-            string apiUrl = "http://103.20.97.182:5124/api/User/AddEmployee";
+            string apiUrl = "https://be_green.chunchun.io.vn/api/User/AddEmployee";
 
             // Kiểm tra tính hợp lệ của model
             if (!ModelState.IsValid)
@@ -175,7 +175,7 @@ namespace GreenGardenClient.Controllers.AdminController
         {
 
             Console.WriteLine($"Received id: {id}");
-            string apiUrl = $"http://103.20.97.182:5124/api/User/DeleteUser/{id}";
+            string apiUrl = $"https://be_green.chunchun.io.vn/api/User/DeleteUser/{id}";
 
             try
             {
@@ -229,7 +229,7 @@ namespace GreenGardenClient.Controllers.AdminController
                 return RedirectToAction("Index", "Home");
             }
             // Fetch user data from the API asynchronously
-            var user = GetDataFromApi<Account>($"http://103.20.97.182:5124/api/User/GetUserById/{id}");
+            var user = GetDataFromApi<Account>($"https://be_green.chunchun.io.vn/api/User/GetUserById/{id}");
 
             // Check if user data is null and redirect to an error page if not found
             if (user == null)
@@ -244,7 +244,7 @@ namespace GreenGardenClient.Controllers.AdminController
         public async Task<IActionResult> BlockEmployee(int id)
         {
             Console.WriteLine($"Received id: {id}");
-            string apiUrl = $"http://103.20.97.182:5124/api/User/BlockUser/{id}";
+            string apiUrl = $"https://be_green.chunchun.io.vn/api/User/BlockUser/{id}";
 
             try
             {
@@ -276,7 +276,7 @@ namespace GreenGardenClient.Controllers.AdminController
         {
             Console.WriteLine($"Received id: {id}"); // Log nhận ID từ request
 
-            string apiUrl = $"http://103.20.97.182:5124/api/User/UnBlockUser/{id}";
+            string apiUrl = $"https://be_green.chunchun.io.vn/api/User/UnBlockUser/{id}";
 
             try
             {

@@ -62,12 +62,12 @@ namespace GreenGardenClient.Controllers.AdminController
                     }
 
 
-                    ProfitVM profitVM = GetDataFromApi<ProfitVM>($"http://103.20.97.182:5124/api/DashBoard/GetProfit/{datetime}");
-                    List<Account> userdata = GetDataFromApi<List<Account>>("http://103.20.97.182:5124/api/DashBoard/GetListCustomer\r\n");
+                    ProfitVM profitVM = GetDataFromApi<ProfitVM>($"https://be_green.chunchun.io.vn/api/DashBoard/GetProfit/{datetime}");
+                    List<Account> userdata = GetDataFromApi<List<Account>>("https://be_green.chunchun.io.vn/api/DashBoard/GetListCustomer\r\n");
                     List<EventVM> events = new List<EventVM>();
 
                     // Fetch events from the API
-                    var allEvents = GetDataFromApi<List<EventVM>>("http://103.20.97.182:5124/api/Event/GetAllEvents");
+                    var allEvents = GetDataFromApi<List<EventVM>>("https://be_green.chunchun.io.vn/api/Event/GetAllEvents");
 
                     // Ensure allEvents is not null before filtering
                     if (allEvents != null)
